@@ -6,24 +6,25 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppManageStudent.Model
 {
-    internal class Students
+    public class Students
     {
-        private int _idStudent;
-        private string _name;
-        private DateTime _birthday;
-        private string _address;
+        public int _idStudent { get; set; }
+        public string _name {  get; set; }
+        public string _birthday { get; set; }
+        public string _address { get; set; }
         Classrooms _classrooms;
 
-        public int getId()
+        public Students() { }   
+        public Students(string name, string birthday, string address)
         {
-            return _idStudent;
+            this._name = name;
+            this._birthday = birthday;
+            this._address = address;
         }
 
-        public void setId(int id)
+        public string toString()
         {
-            _idStudent = id;
+            return this._idStudent + ":" + this._name;
         }
-
-        
     }
 }

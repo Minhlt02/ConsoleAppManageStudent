@@ -12,3 +12,4 @@ C:\Users\THINKPAD P14S\Downloads\AppManageStudent\ConsoleAppManageStudent\Consol
 C:\Users\THINKPAD P14S\Downloads\AppManageStudent\ConsoleAppManageStudent\ConsoleAppManageStudent\obj\Debug\net8.0\ConsoleAppManageStudent.pdb
 C:\Users\THINKPAD P14S\Downloads\AppManageStudent\ConsoleAppManageStudent\ConsoleAppManageStudent\obj\Debug\net8.0\ConsoleAppManageStudent.genruntimeconfig.cache
 C:\Users\THINKPAD P14S\Downloads\AppManageStudent\ConsoleAppManageStudent\ConsoleAppManageStudent\obj\Debug\net8.0\ref\ConsoleAppManageStudent.dll
+C:\Users\THINKPAD P14S\Downloads\AppManageStudent\ConsoleAppManageStudent\ConsoleAppManageStudent\obj\Debug\net8.0\ConsoleAppManageStudent.sourcelink.json
