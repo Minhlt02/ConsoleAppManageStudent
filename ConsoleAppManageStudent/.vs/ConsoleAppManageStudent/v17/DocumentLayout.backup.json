@@ -15,20 +15,20 @@
       "RelativeMoniker": "D:0:0:{4E258619-7D38-4FD6-9B0F-8519DF8E78D5}|ConsoleAppManageStudent\\ConsoleAppManageStudent.csproj|solutionrelative:consoleappmanagestudent\\handleexception\\handleformatdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E258619-7D38-4FD6-9B0F-8519DF8E78D5}|ConsoleAppManageStudent\\ConsoleAppManageStudent.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\consoleappmanagestudent\\consoleappmanagestudent\\entity\\students.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E258619-7D38-4FD6-9B0F-8519DF8E78D5}|ConsoleAppManageStudent\\ConsoleAppManageStudent.csproj|solutionrelative:consoleappmanagestudent\\entity\\students.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E258619-7D38-4FD6-9B0F-8519DF8E78D5}|ConsoleAppManageStudent\\ConsoleAppManageStudent.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\consoleappmanagestudent\\consoleappmanagestudent\\entity\\classrooms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E258619-7D38-4FD6-9B0F-8519DF8E78D5}|ConsoleAppManageStudent\\ConsoleAppManageStudent.csproj|solutionrelative:consoleappmanagestudent\\entity\\classrooms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4E258619-7D38-4FD6-9B0F-8519DF8E78D5}|ConsoleAppManageStudent\\ConsoleAppManageStudent.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\consoleappmanagestudent\\consoleappmanagestudent\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E258619-7D38-4FD6-9B0F-8519DF8E78D5}|ConsoleAppManageStudent\\ConsoleAppManageStudent.csproj|solutionrelative:consoleappmanagestudent\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4E258619-7D38-4FD6-9B0F-8519DF8E78D5}|ConsoleAppManageStudent\\ConsoleAppManageStudent.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\consoleappmanagestudent\\consoleappmanagestudent\\entity\\teachers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4E258619-7D38-4FD6-9B0F-8519DF8E78D5}|ConsoleAppManageStudent\\ConsoleAppManageStudent.csproj|solutionrelative:consoleappmanagestudent\\entity\\teachers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E258619-7D38-4FD6-9B0F-8519DF8E78D5}|ConsoleAppManageStudent\\ConsoleAppManageStudent.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\consoleappmanagestudent\\consoleappmanagestudent\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E258619-7D38-4FD6-9B0F-8519DF8E78D5}|ConsoleAppManageStudent\\ConsoleAppManageStudent.csproj|solutionrelative:consoleappmanagestudent\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4E258619-7D38-4FD6-9B0F-8519DF8E78D5}|ConsoleAppManageStudent\\ConsoleAppManageStudent.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\consoleappmanagestudent\\consoleappmanagestudent\\entity\\students.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E258619-7D38-4FD6-9B0F-8519DF8E78D5}|ConsoleAppManageStudent\\ConsoleAppManageStudent.csproj|solutionrelative:consoleappmanagestudent\\entity\\students.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E258619-7D38-4FD6-9B0F-8519DF8E78D5}|ConsoleAppManageStudent\\ConsoleAppManageStudent.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\consoleappmanagestudent\\consoleappmanagestudent\\entity\\classrooms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E258619-7D38-4FD6-9B0F-8519DF8E78D5}|ConsoleAppManageStudent\\ConsoleAppManageStudent.csproj|solutionrelative:consoleappmanagestudent\\entity\\classrooms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4E258619-7D38-4FD6-9B0F-8519DF8E78D5}|ConsoleAppManageStudent\\ConsoleAppManageStudent.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\consoleappmanagestudent\\consoleappmanagestudent\\consoleappmanagestudent.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -52,7 +52,7 @@
               "RelativeDocumentMoniker": "ConsoleAppManageStudent\\HandleException\\HandleFormatDate.cs",
               "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ConsoleAppManageStudent\\ConsoleAppManageStudent\\HandleException\\HandleFormatDate.cs",
               "RelativeToolTip": "ConsoleAppManageStudent\\HandleException\\HandleFormatDate.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-23T04:17:06.461Z",
               "EditorCaption": ""
@@ -65,7 +65,7 @@
               "RelativeDocumentMoniker": "ConsoleAppManageStudent\\HandleException\\HandleMenu.cs",
               "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ConsoleAppManageStudent\\ConsoleAppManageStudent\\HandleException\\HandleMenu.cs*",
               "RelativeToolTip": "ConsoleAppManageStudent\\HandleException\\HandleMenu.cs*",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAiwFwAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAkwGUAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-22T22:29:54.445Z",
               "EditorCaption": ""
@@ -78,40 +78,40 @@
               "RelativeDocumentMoniker": "ConsoleAppManageStudent\\Function\\ManageStudents.cs",
               "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ConsoleAppManageStudent\\ConsoleAppManageStudent\\Function\\ManageStudents.cs",
               "RelativeToolTip": "ConsoleAppManageStudent\\Function\\ManageStudents.cs",
-              "ViewState": "AgIAAH0AAAAAAAAAAAAswIkAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAADUAAAAAAAAAAAAgwEgAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-22T22:18:05.198Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ConsoleAppManageStudent\\ConsoleAppManageStudent\\Program.cs",
               "RelativeDocumentMoniker": "ConsoleAppManageStudent\\Program.cs",
               "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ConsoleAppManageStudent\\ConsoleAppManageStudent\\Program.cs",
               "RelativeToolTip": "ConsoleAppManageStudent\\Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-22T04:08:35.85Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Students.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ConsoleAppManageStudent\\ConsoleAppManageStudent\\Entity\\Students.cs",
               "RelativeDocumentMoniker": "ConsoleAppManageStudent\\Entity\\Students.cs",
               "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ConsoleAppManageStudent\\ConsoleAppManageStudent\\Entity\\Students.cs",
               "RelativeToolTip": "ConsoleAppManageStudent\\Entity\\Students.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAACBAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAACJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-22T04:30:39.479Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Teachers.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ConsoleAppManageStudent\\ConsoleAppManageStudent\\Entity\\Teachers.cs",
               "RelativeDocumentMoniker": "ConsoleAppManageStudent\\Entity\\Teachers.cs",
@@ -124,13 +124,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Classrooms.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ConsoleAppManageStudent\\ConsoleAppManageStudent\\Entity\\Classrooms.cs",
               "RelativeDocumentMoniker": "ConsoleAppManageStudent\\Entity\\Classrooms.cs",
               "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ConsoleAppManageStudent\\ConsoleAppManageStudent\\Entity\\Classrooms.cs",
               "RelativeToolTip": "ConsoleAppManageStudent\\Entity\\Classrooms.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAYwBsAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-22T04:31:01.856Z",
               "EditorCaption": ""

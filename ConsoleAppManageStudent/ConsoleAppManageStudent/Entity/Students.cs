@@ -26,7 +26,7 @@ namespace ConsoleAppManageStudent.Model
 
         public string toString()
         {
-            return this._idStudent + "\t|" + this._name + "\t\t|" + this._birthday.ToString("dd/MM/yyyy") + "\t|" + this._address;
+            return this._idStudent + "\t|" + this._name + "\t\t|" + this._birthday.ToString("dd/MM/yyyy") + "\t|" + this._address + "\t\t|" + this._classrooms.ToString();
         }
     }
 }

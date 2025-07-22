@@ -15,7 +15,7 @@ namespace ConsoleAppManageStudent.Model
 
         public Classrooms() { }
 
-        public Classrooms(int id, string nameClasroom, string nameSubject, Teachers teachers) 
+        public Classrooms(int id, string nameClasroom, string nameSubject, Teachers teachers)
         {
             this._idClassroom = id;
             this._nameClasroom = nameClasroom;
@@ -23,6 +23,9 @@ namespace ConsoleAppManageStudent.Model
             this._teacher = teachers;
         }
 
-
+        public override string ToString()
+        {
+            return $"{_nameClasroom}\t| {_nameSubject}\t| {_teacher._nameTeacher}";
+        }
     }
 }

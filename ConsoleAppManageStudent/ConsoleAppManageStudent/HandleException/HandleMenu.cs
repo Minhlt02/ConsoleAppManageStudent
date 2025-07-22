@@ -91,6 +91,7 @@ namespace ConsoleAppManageStudent.HandleException
                 case 6:
                     Console.WriteLine("Nhập MSSV muốn tìm: ");
                     int id = int.Parse(Console.ReadLine());
+                    Console.WriteLine("MSSV\t| Tên Sinh Viên\t| Ngày Sinh\t| Địa Chỉ\t| Lớp Học\t| Môn học\t| Tên giáo viên");
                     Console.WriteLine(manageStudents.FindStudentById(id).toString());
                     break;
                 case 0:

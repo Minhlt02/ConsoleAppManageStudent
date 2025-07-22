@@ -61,12 +61,19 @@ namespace ConsoleAppManageStudent.Function
         {
             if (list != null && list.Count > 0)
             {
-                Console.WriteLine("-------------------DANH SÁCH SINH VIÊN-------------------");
+                Console.Write(new String('-', 42));
+                Console.Write("DANH SÁCH SINH VIÊN");
+                Console.Write(new String('-', 42));
+                Console.WriteLine();
+                Console.WriteLine("MSSV\t| Tên Sinh Viên\t| Ngày Sinh\t| Địa Chỉ\t| Lớp Học\t| Môn học\t| Tên giáo viên");
                 foreach (Students student in list)
                 { 
                     Console.WriteLine(student.toString());
                 }
-                Console.WriteLine("---------------------------***---------------------------");
+                Console.Write(new String('-', 50));
+                Console.Write("***");
+                Console.Write(new String('-', 50));
+                Console.WriteLine();
             } else
             {
                 Console.WriteLine("Danh sách trống!");
@@ -87,13 +94,14 @@ namespace ConsoleAppManageStudent.Function
                     students._name = name;
                 }
 
-                Console.WriteLine("Thay đổi ngày sinh của sinh viên (Nhập 1 để bỏ qua) : ");
-                int skip = int.Parse(Console.ReadLine());
-                if (skip == 1)
+                Console.WriteLine("Thay đổi ngày sinh của sinh viên (Nhập 1 để bỏ qua hoặc bấm bất kỳ để thay đổi) : ");
+                string skip = Console.ReadLine();
+                if (skip.Equals("1"))
                 {
                     students._birthday = students._birthday;
                 } else
                 {
+                    Console.WriteLine("Nhập ngày sinh của sinh viên (dd/mm/yyyy): ");
                     DateTime date = handleFormat.HandleFormatBirthday();
                     if (date != null)
                     {
