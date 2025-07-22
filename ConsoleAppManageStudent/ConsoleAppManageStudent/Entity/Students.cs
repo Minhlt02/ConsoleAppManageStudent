@@ -10,21 +10,23 @@ namespace ConsoleAppManageStudent.Model
     {
         public int _idStudent { get; set; }
         public string _name {  get; set; }
-        public string _birthday { get; set; }
+        public DateTime _birthday { get; set; }
         public string _address { get; set; }
-        Classrooms _classrooms;
+        public Classrooms _classrooms { get; set; }
 
         public Students() { }   
-        public Students(string name, string birthday, string address)
+        public Students(int id, string name, DateTime birthday, string address, Classrooms classrooms)
         {
+            this._idStudent = id;
             this._name = name;
             this._birthday = birthday;
             this._address = address;
+            this._classrooms = classrooms;
         }
 
         public string toString()
         {
-            return this._idStudent + ":" + this._name;
+            return this._idStudent + "\t|" + this._name + "\t\t|" + this._birthday.ToString("dd/MM/yyyy") + "\t|" + this._address;
         }
     }
 }

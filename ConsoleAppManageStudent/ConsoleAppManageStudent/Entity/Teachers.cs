@@ -6,10 +6,19 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppManageStudent.Model
 {
-    internal class Teachers
+    public class Teachers
     {
-        private int _idTeacher;
-        private string _nameTeacher;
-        private DateTime _birthdayTeacher;
+        public int _idTeacher { get; set; }
+        public string _nameTeacher { get; set; }
+        public DateTime _birthdayTeacher { get; set; }
+
+        public Teachers() { }
+
+        public Teachers(int idTeacher, string nameTeacher, DateTime birthdayTeacher)
+        {
+            _idTeacher = idTeacher;
+            _nameTeacher = nameTeacher;
+            _birthdayTeacher = birthdayTeacher;
+        }
     }
 }

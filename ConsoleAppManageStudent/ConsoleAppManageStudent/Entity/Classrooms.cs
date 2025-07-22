@@ -6,11 +6,23 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppManageStudent.Model
 {
-    internal class Classrooms
+    public class Classrooms
     {
-        private int _idClassroom;
-        private string _nameClasroom;
-        private string _nameSubject;
-        Teachers _teacher;
+        public int _idClassroom { get; set; }
+        public string _nameClasroom { get; set; }
+        public string _nameSubject { get; set; }
+        public Teachers _teacher { get; set; }
+
+        public Classrooms() { }
+
+        public Classrooms(int id, string nameClasroom, string nameSubject, Teachers teachers) 
+        {
+            this._idClassroom = id;
+            this._nameClasroom = nameClasroom;
+            this._nameSubject = nameSubject;
+            this._teacher = teachers;
+        }
+
+
     }
 }
