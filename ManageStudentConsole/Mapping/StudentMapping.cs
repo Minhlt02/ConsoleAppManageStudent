@@ -13,11 +13,11 @@ namespace ManageStudentConsole.Mapping
         public StudentMapping()
         {
             Id(x => x._id, "id").GeneratedBy.Identity();
-            Map(x => x._idStudent, "student_id");
+            Map(x => x._studentCode, "student_id");
             Map(x => x._name, "student_name");
             Map(x => x._birthday, "student_birthday");
             Map(x => x._address, "student_address");
-            References(x => x._classrooms, "classroom_id").Not.Nullable();
+            References(x => x._classrooms, "classroom_id").Cascade.None();
         }
     }
 }

@@ -10,9 +10,9 @@ namespace Server.Entity
     {
         public virtual int _id { get; set; }
         public virtual int _studentCode { get; set; }
-        public virtual string _name { get; set; }
+        public virtual string? _name { get; set; }
         public virtual DateTime _birthday { get; set; }
-        public virtual string _address { get; set; }
+        public virtual string? _address { get; set; }
         public virtual Classrooms _classrooms { get; set; }
 
 

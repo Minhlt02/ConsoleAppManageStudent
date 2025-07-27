@@ -74,18 +74,29 @@ namespace ConsoleClient.Controller
             Students students = new Students();
 
             Console.WriteLine("Nhập mã số sinh viên của sinh viên: ");
-            students.studentId = int.Parse(Console.ReadLine());
+            students.studentCode = int.Parse(Console.ReadLine() ?? "1");
             Console.WriteLine("Nhập tên của sinh viên: ");
-            students.studentName = Console.ReadLine();
-
+            string? nameInput = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(nameInput))
+            {
+                Console.WriteLine("Tên sinh viên không được để trống!");
+                return; // hoặc xử lý phù hợp
+            }
+            students.studentName = nameInput;
             Console.WriteLine("Nhập ngày sinh của sinh viên (dd/mm/yyyy): ");
             students.studentBirthday = DateTime.ParseExact(Console.ReadLine()!, "dd/MM/yyyy", null);
 
             Console.WriteLine("Nhập địa chỉ của sinh viên: ");
-            students.studentAddress = Console.ReadLine();
+            string? addressInput = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(addressInput))
+            {
+                Console.WriteLine("Tên sinh viên không được để trống!");
+                return; // hoặc xử lý phù hợp
+            }
+            students.studentAddress = addressInput;
 
             Console.WriteLine("Nhập mã lớp học: ");
-            students.classroomId = int.Parse(Console.ReadLine());
+            students.classroomId = int.Parse(Console.ReadLine() ?? "1");
 
             Console.WriteLine("Thêm sinh viên thành công!");
 
@@ -103,7 +114,7 @@ namespace ConsoleClient.Controller
 
         public async Task DeleteStudentAsync()
         {
-            int studentID = int.Parse(Console.ReadLine());
+            int studentID = int.Parse(Console.ReadLine() ?? "1");
             var isDeleted = await studentContract.DeleteStudentAsync(new RequestId { id = studentID });
             if (isDeleted.Success)
             {
@@ -118,7 +129,7 @@ namespace ConsoleClient.Controller
         public async Task UpdateStudentAsync()
         {
             Console.WriteLine("Nhập MSSV muốn cập nhật thông tin: ");
-            int studentID = int.Parse(Console.ReadLine());
+            int studentID = int.Parse(Console.ReadLine() ?? "1");
             var studentReply = await studentContract.GetStudentByIdAsync(new RequestId { id = studentID });
             if (studentReply.Student != null)
             {
@@ -132,7 +143,7 @@ namespace ConsoleClient.Controller
                 }
 
                 Console.WriteLine("Thay đổi ngày sinh của sinh viên (Nhập 1 để bỏ qua hoặc bấm bất kỳ để thay đổi) : ");
-                string skip = Console.ReadLine();
+                string skip = Console.ReadLine() ?? "";
                 if (skip.Equals("1"))
                 {
                     students.studentBirthday = students.studentBirthday;
@@ -153,8 +164,8 @@ namespace ConsoleClient.Controller
                 }
 
                 Console.WriteLine("Thay đổi mã lớp của sinh viên: ");
-                int classID = int.Parse(Console.ReadLine());
-                if (classID != null && classID > 0)
+                int classID = int.Parse(Console.ReadLine() ?? "1");
+                if (classID > 0)
                 {
                     students.classroomId = classID;
                 }
@@ -177,14 +188,14 @@ namespace ConsoleClient.Controller
         public async Task GetStudentByIdAsync()
         {
             Console.WriteLine("Nhập MSSV muốn tìm: ");
-            int id = int.Parse(Console.ReadLine());
+            int id = int.Parse(Console.ReadLine() ?? "1");
             Console.WriteLine("{0,-6}| {1,-15}| {2,-12}| {3,-12}| {4,-10}| {5,-10}| {6,-15}", "MSSV", "Tên Sinh Viên", "Ngày Sinh", "Địa Chỉ", "Lớp Học", "Môn học", "Tên giáo viên");
             var studentReply = await studentContract.GetStudentByIdAsync(new RequestId { id = id });
             if (studentReply.Student != null)
             {
                 Students students = mapper.Map<Students>(studentReply.Student);
                 Console.WriteLine("{0,-6}| {1,-15}| {2,-12:dd/MM/yyyy}| {3,-12}| {4,-10}| {5,-10}| {6,-15}",
-                        students.studentId,
+                        students.studentCode,
                         students.studentName,
                         students.studentBirthday.ToString("dd/MM/yyyy"),
                         students.studentAddress,
@@ -209,7 +220,7 @@ namespace ConsoleClient.Controller
                 foreach (var student in students)
                 {
                     Console.WriteLine("{0,-5} | {1,-15} | {2,-12:dd/MM/yyyy} | {3,-10}",
-                    student.studentId,
+                    student.studentCode,
                     student.studentName,
                     student.studentBirthday.ToString("dd/MM/yyyy"),
                     student.studentAddress);
@@ -230,7 +241,7 @@ namespace ConsoleClient.Controller
                 foreach (var student in students)
                 {
                     Console.WriteLine("{0,-5} | {1,-15} | {2,-12:dd/MM/yyyy} | {3,-10}",
-                    student.studentId,
+                    student.studentCode,
                     student.studentName,
                     student.studentBirthday.ToString("dd/MM/yyyy"),
                     student.studentAddress);

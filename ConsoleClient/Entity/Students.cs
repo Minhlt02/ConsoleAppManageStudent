@@ -8,7 +8,8 @@ namespace ConsoleClient.Entity
 {
     public class Students
     {
-        public int studentId { get; set; }
+        public int Id { get; set; }
+        public int studentCode { get; set; }
 
         public string studentName { get; set; } = null!;
 

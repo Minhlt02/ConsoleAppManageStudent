@@ -3,6 +3,7 @@ using ManageStudentConsole.HandleException;
 using ManageStudentConsole.Repository;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,22 +19,34 @@ namespace ManageStudentConsole.Controller
         public StudentController(IStudentRepository _studentRepo)
         {
             studentRepo = _studentRepo;
+            students = new Students();
+            handleFormat = new HandleFormatDate();
         }
         public void AddStudent()
         {
-            students = new Students();
-            handleFormat = new HandleFormatDate();
-
             Console.WriteLine("Nhập mã số sinh viên của sinh viên: ");
-            students._idStudent = int.Parse(Console.ReadLine());
+            students._studentCode = int.Parse(Console.ReadLine() ?? "1");
             Console.WriteLine("Nhập tên của sinh viên: ");
-            students._name = Console.ReadLine();
+            string? nameInput = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(nameInput))
+            {
+                Console.WriteLine("Tên sinh viên không được để trống!");
+                return; // hoặc xử lý phù hợp
+            }
+            students._name = nameInput;
+
 
             Console.WriteLine("Nhập ngày sinh của sinh viên (dd/mm/yyyy): ");
             students._birthday = handleFormat.HandleFormatBirthday();
 
             Console.WriteLine("Nhập địa chỉ của sinh viên: ");
-            students._address = Console.ReadLine();
+            string? addressInput = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(addressInput))
+            {
+                Console.WriteLine("Tên sinh viên không được để trống!");
+                return; // hoặc xử lý phù hợp
+            }
+            students._address = addressInput;
 
             Console.WriteLine("Thêm sinh viên thành công!");
 
@@ -42,7 +55,7 @@ namespace ManageStudentConsole.Controller
 
         public void DeleteStudent()
         {
-            int studentID = int.Parse(Console.ReadLine());
+            int studentID = int.Parse(Console.ReadLine() ?? "1");
             students = studentRepo.FindById(studentID);
             if (students != null)
             {
@@ -56,9 +69,7 @@ namespace ManageStudentConsole.Controller
 
         public void UpdateStudent()
         {
-            students = new Students();
-            handleFormat = new HandleFormatDate();
-            int studentID = int.Parse(Console.ReadLine());
+            int studentID = int.Parse(Console.ReadLine() ?? "1");
             students = studentRepo.FindById(studentID);
             if (students != null)
             {
@@ -71,7 +82,7 @@ namespace ManageStudentConsole.Controller
                 }
 
                 Console.WriteLine("Thay đổi ngày sinh của sinh viên (Nhập 1 để bỏ qua hoặc bấm bất kỳ để thay đổi) : ");
-                string? skip = Console.ReadLine();
+                string? skip = Console.ReadLine() ?? "";
                 if (skip.Equals("1"))
                 {
                     students._birthday = students._birthday;
@@ -80,10 +91,7 @@ namespace ManageStudentConsole.Controller
                 {
                     Console.WriteLine("Nhập ngày sinh của sinh viên (dd/mm/yyyy): ");
                     DateTime date = handleFormat.HandleFormatBirthday();
-                    if (date != null)
-                    {
-                        students._birthday = date;
-                    }
+                    students._birthday = date;
                 }
 
 
@@ -105,9 +113,8 @@ namespace ManageStudentConsole.Controller
 
         public void DisplayFindById()
         {
-            students = new Students();
             Console.WriteLine("Nhập MSSV muốn tìm: ");
-            int id = int.Parse(Console.ReadLine());
+            int id = int.Parse(Console.ReadLine() ?? "1");
             Console.WriteLine("{0,-6}| {1,-15}| {2,-12}| {3,-12}| {4,-10}| {5,-10}| {6,-15}", "MSSV", "Tên Sinh Viên", "Ngày Sinh", "Địa Chỉ", "Lớp Học", "Môn học", "Tên giáo viên");
             students = studentRepo.FindById(id);
             if (students != null)
@@ -115,7 +122,7 @@ namespace ManageStudentConsole.Controller
                 if (students._classrooms != null && students._classrooms._teacher != null)
                 {
                     Console.WriteLine("{0,-6}| {1,-15}| {2,-12:dd/MM/yyyy}| {3,-12}| {4,-10}| {5,-10}| {6,-15}",
-                        students._idStudent,
+                        students._studentCode,
                         students._name,
                         students._birthday.ToString("dd/MM/yyyy"),
                         students._address,
@@ -144,7 +151,7 @@ namespace ManageStudentConsole.Controller
             foreach (var student in studentList)
             {
                 Console.WriteLine("{0,-5} | {1,-15} | {2,-12:dd/MM/yyyy} | {3,-10}",
-                student._idStudent,
+                student._studentCode,
                 student._name,
                 student._birthday.ToString("dd/MM/yyyy"),
                 student._address);
@@ -165,7 +172,7 @@ namespace ManageStudentConsole.Controller
             foreach (var student in studentList)
             {
                 Console.WriteLine("{0,-5} | {1,-15} | {2,-12:dd/MM/yyyy} | {3,-10}",
-                student._idStudent,
+                student._studentCode,
                 student._name,
                 student._birthday.ToString("dd/MM/yyyy"),
                 student._address);

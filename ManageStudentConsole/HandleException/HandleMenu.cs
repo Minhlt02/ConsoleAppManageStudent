@@ -21,7 +21,7 @@ namespace ManageStudentConsole.HandleException
             while (true)
             {
                 Console.Write("Nhập lựa chọn (0-6): ");
-                string input = Console.ReadLine();
+                string? input = Console.ReadLine();
                 if (int.TryParse(input, out numberChoice) && numberChoice >= 0 && numberChoice <= 6)
                 {
                     return numberChoice;
@@ -35,7 +35,12 @@ namespace ManageStudentConsole.HandleException
         {
             while (true)
             {
-                string input = Console.ReadLine();
+                string? input = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(input))
+                {
+                    Console.WriteLine("Không được để trống!");
+                    continue; // Yêu cầu nhập lại
+                }
                 if (input.Equals("Y", StringComparison.OrdinalIgnoreCase) ||
                     input.Equals("N", StringComparison.OrdinalIgnoreCase))
                 {
@@ -74,7 +79,7 @@ namespace ManageStudentConsole.HandleException
                 .AddTransient<StudentController>()
                 .BuildServiceProvider();
 
-            var studentController = serviceProvider.GetService<StudentController>();
+            var studentController = serviceProvider.GetRequiredService<StudentController>();
             switch (numberChoice)
             {
                 case 1:

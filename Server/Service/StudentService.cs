@@ -68,7 +68,7 @@ namespace Server.Service
             try
             {
                 List<Students>? students = await studentRepo.GetAllStudentAsync();
-                if (students != null && students.Count > 0)
+                if (students.Any() == true)
                 {
                     listStudentReply.listStudents = mapper.Map<List<StudentProfile>>(students);
                     listStudentReply.Message = "Lấy danh sách sinh viên thành công!";
@@ -114,7 +114,7 @@ namespace Server.Service
             try
             {
                 List<Students>? students = await studentRepo.GetSortStudentAsync();
-                if (students != null && students.Count > 0)
+                if (students.Any() == true)
                 {
                     listStudentReply.listStudents = mapper.Map<List<StudentProfile>>(students);
                     listStudentReply.Message = "Sắp xếp sinh viên thành công!";

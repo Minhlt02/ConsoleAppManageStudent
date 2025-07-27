@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Collections.Specialized.BitVector32;
 
 namespace ManageStudentConsole.Repository
 {
@@ -46,13 +47,10 @@ namespace ManageStudentConsole.Repository
         {
             using (var session = NHibernateHelper.OpenSession())
             {
-                using (ITransaction tx = session.BeginTransaction())
-                {
-                    return session.Query<Students>()
-                        .Fetch(s => s._classrooms)
-                        .ThenFetch(c => c._teacher)
-                        .FirstOrDefault(s => s._idStudent == id);
-                }
+                  return session.Query<Students>().
+                    Fetch(s => s._classrooms).
+                    ThenFetch(c => c._teacher)
+                    .First(s => s._studentCode == id);
             }
         }
 
@@ -60,10 +58,7 @@ namespace ManageStudentConsole.Repository
         {
             using (var session = NHibernateHelper.OpenSession())
             {
-                using (ITransaction tx = session.BeginTransaction())
-                {
-                    return session.Query<Students>().ToList();
-                }
+               return session.Query<Students>().ToList();
             }
         }
 
@@ -71,10 +66,7 @@ namespace ManageStudentConsole.Repository
         {
             using (var session = NHibernateHelper.OpenSession())
             {
-                using (ITransaction tx = session.BeginTransaction())
-                {
-                    return session.Query<Students>().OrderBy(s => s._name).ToList();
-                }
+                return session.Query<Students>().OrderBy(s => s._name).ToList();
             }
         }
 

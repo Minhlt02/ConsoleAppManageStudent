@@ -16,7 +16,7 @@ namespace ManageStudentConsole.Mapping
             Map(x => x._idClassroom, "classroom_id");
             Map(x => x._nameClassroom, "classroom_name");
             Map(x => x._nameSubject, "classroom_subject");
-            References(x => x._teacher, "teacher_id");
+            References(x => x._teacher, "teacher_id").Cascade.None();
         }
     }
 }
