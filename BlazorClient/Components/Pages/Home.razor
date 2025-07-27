@@ -1,0 +1,78 @@
+﻿@page "/"
+@page "/students"
+@using AntDesign
+@using Grpc.Net.Client
+@using ProtoBuf.Grpc.Client
+@using Shared
+@rendermode InteractiveServer
+
+<PageTitle>Home</PageTitle>
+
+<div>
+    <Input @bind-Value="SearchKeyword" Placeholder="Nhập mã sinh viên..." Style="width: 300px;" />
+    <Button Type="ButtonType.Primary" OnClick="SearchStudentAsync" Style="margin-left: 10px;">
+        Tìm kiếm
+    </Button>
+</div>
+
+<div class="d-flex justify-content-between align-items-center">
+    
+    <div>
+        <Dropdown Trigger="@(new Trigger[] { Trigger.Click })">
+            <Overlay>
+                <Menu >
+                    <MenuItem Key="sbId">
+                        <Text>Sort by Id</Text>
+                    </MenuItem>
+                    <MenuItem Key="sbName">
+                        <Text>Sort by Name</Text>
+                    </MenuItem>
+                </Menu>
+            </Overlay>
+            <ChildContent>
+                <Button>
+                    Sort by <Icon Type="caret-down"/>
+                </Button>
+            </ChildContent>
+        </Dropdown>
+    
+        
+    </div>
+    <div style="float:right">
+        <Button Style="margin-left: 500px; background-color: green" Type="ButtonType.Primary" OnClick="@(e => OpenPopup(isCreate: true))">Add new student</Button>
+        <Button OnClick="@(() => LoadStudentsAsync())">Reload Page</Button>
+    </div>
+</div>
+<Table DataSource="@students"
+       RowKey="s => s.Id"
+       PageIndex="pageNumber"
+       Loading="@(students == null)"
+       Total="total"
+       PageSize="pageSize"
+       HidePagination="(total <= pageSize)"
+       OnPageIndexChange="HandlePageIndexChangeAsync"
+       OnPageSizeChange="HandlePageSizeChangeAsync">
+    <PropertyColumn Property="s => s.Id" Title="Index" />
+    <PropertyColumn Property="s => s.studentCode" Title="Student Code" />
+    <PropertyColumn Property="s => s.studentName" Title="Full Name" />
+    <PropertyColumn Property="s => s.studentBirthday" Title="Birthday" Format="dd/MM/yyyy" />
+    <PropertyColumn Property="s => s.studentAddress" Title="Address" />
+    <PropertyColumn Property="s => s.classroomID" Title="Class Id" />
+    <PropertyColumn Property="s => s.classroomName" Title="Class Name" />
+    <ActionColumn Title="Action" Class="d-flex justify-content-center align-items-center gap-2">
+        <Popconfirm Title="Sure to delete?"
+                    OnConfirm="()=> DeleteStudentAsync(context.Id)"
+                    OkText="Yes"
+                    CancelText="No"
+                    OkButtonProps="new ButtonProps { Danger = true }">
+            <Button Danger>Delete</Button>
+        </Popconfirm>
+        <Button OnClick="@(() => OpenPopup(context))">Update</Button>
+        <Button OnClick="@(() => OpenPopup(context, isDetails: true))">Details</Button>
+    </ActionColumn>
+</Table>
+
+@if(visible)
+{
+    <StudentPopup Visible="visible" Student="student" ReloadStudents="LoadStudentsAsync" OnClose="ClosePopupAsync" IsCreate="isCreate" IsDetails="isDetails" />
+}

@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
+using FluentNHibernate.Conventions;
+using NHibernate.Mapping.ByCode.Impl;
 using ProtoBuf.Grpc;
+using Server.DTO;
 using Server.Entity;
 using Server.Repository;
 using Shared;
@@ -59,9 +62,9 @@ namespace Server.Service
             return reply;
         }
 
-        public async Task<ListStudentReply> GetAllStudentAsync(Empty request, CallContext callContaxt)
+        public async Task<MultipleStudentReply> GetAllStudentAsync(Empty request, CallContext callContaxt)
         {
-            ListStudentReply listStudentReply = new ListStudentReply();
+            MultipleStudentReply listStudentReply = new MultipleStudentReply();
             try
             {
                 List<Students>? students = await studentRepo.GetAllStudentAsync();
@@ -83,9 +86,31 @@ namespace Server.Service
             return listStudentReply;
         }
 
-        public async Task<ListStudentReply> GetSortStudentAsync(Empty request, CallContext callContaxt)
+        public async Task<MultipleStudentReply> GetPaginationAsync(PaginationRequest request, CallContext callContext = default)
         {
-            ListStudentReply listStudentReply = new ListStudentReply();
+            var reply = new MultipleStudentReply();
+            try
+            {
+                SearchStudentDTO studentField = mapper.Map<SearchStudentDTO>(request);
+                var searchResult = await studentRepo.GetPaginationAsync(studentField, pageSize: request.PageSize, pageNumber: request.PageNumber);
+                reply.Count = searchResult.total;
+                if (searchResult.listStudents == null || !searchResult.listStudents.Any())
+                {
+                    throw new Exception("There is no student");
+                }
+                reply.listStudents = mapper.Map<List<StudentProfile>>(searchResult.listStudents);
+            }
+            catch (Exception ex)
+            {
+                reply.Message = ex.Message;
+            }
+
+            return reply;
+        }
+
+        public async Task<MultipleStudentReply> GetSortStudentAsync(Empty request, CallContext callContaxt)
+        {
+                MultipleStudentReply listStudentReply = new MultipleStudentReply();
             try
             {
                 List<Students>? students = await studentRepo.GetSortStudentAsync();
@@ -112,7 +137,7 @@ namespace Server.Service
             StudentReply reply = new StudentReply();
             try
             {
-                Students students = await studentRepo.GetStudentByIdAsync(request.id);
+                Students students = await studentRepo.GetStudentByIdAsync(request.studentCode);
                 if (students != null)
                 {
                     reply.Student = mapper.Map<StudentProfile>(students);
@@ -134,7 +159,7 @@ namespace Server.Service
             OperationReply reply = new OperationReply();
             try
             {
-                Students student = await studentRepo.GetStudentByIdAsync(request.studentID);
+                Students student = await studentRepo.GetStudentByIdAsync(request.id);
                 if (student == null)
                 {
                     reply.Success = false;
@@ -142,6 +167,7 @@ namespace Server.Service
                     return reply;
                 }
 
+                student._studentCode = request.studentCode;
                 student._name = request.studentName;
                 student._birthday = request.studentBirthday;
                 student._address = request.studentAddress;

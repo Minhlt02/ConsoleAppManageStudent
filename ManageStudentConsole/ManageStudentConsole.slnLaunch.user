@@ -7,7 +7,7 @@
         "Action": "Start"
       },
       {
-        "Path": "..\\ConsoleClient\\ConsoleClient.csproj",
+        "Path": "..\\BlazorClient\\BlazorClient.csproj",
         "Action": "Start"
       }
     ]

@@ -1,4 +1,6 @@
-﻿using Server.Entity;
+﻿using Server.DTO;
+using Server.Entity;
+using Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +17,8 @@ namespace Server.Repository
         Task AddStudentAsync(Students student);
         Task UpdateStudentAsync(Students student);
         Task DeleteStudentAsync(Students student);
+        Task<int> CountAsync();
+        Task<PageViewDTO<Students>> GetPaginationAsync(SearchStudentDTO searchStudent, int pageNumber, int pageSize);
 
     }
 }

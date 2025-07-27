@@ -1,0 +1,36 @@
+﻿@using AntDesign
+@inherits LayoutComponentBase
+<Layout Style="min-height: 100vh; ">
+    <Sider Collapsible>
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo" style="height: 80px; padding: 10px; background-color: white" />
+        </div>
+
+        <NavMenu/>
+    </Sider>
+    <Layout Class="site-layout" >
+        <Header Class="site-layout-background" Style="padding: 0;" ></Header>
+        <Content Style="margin:0 16px;" >
+            <Breadcrumb Style="margin:16px 0;">
+                <BreadcrumbItem>Home</BreadcrumbItem>
+                <BreadcrumbItem>Manage Student</BreadcrumbItem>
+            </Breadcrumb>
+            @Body
+        </Content>
+        <Footer Style="text-align:center">Ant Design ©2018 Created by Ant UED</Footer>
+    </Layout>
+</Layout>
+
+
+<style>
+    #components-layout-demo-side .logo {
+        height: 32px;
+        width: 100px;
+        background: rgba(255, 255, 255, 0.2);
+        margin: 16px;
+    }
+
+    .site-layout .site-layout-background {
+        background: #fff;
+    }
+</style>

@@ -1,0 +1,57 @@
+﻿@using AntDesign
+<Drawer Visible="@Visible" Placement="DrawerPlacement.Right" Title="@($"Student")" OnClose="ClosePopupAsync" Width="500">
+    <Form Model="@Student"
+          OnFinish="@(IsDetails ? () => {} : async () => await CreateOrUpdateAsync())"
+          ValidateMode="FormValidateMode.Complex"
+          RequiredMark="FormRequiredMark.Required"
+          LabelAlign="AntLabelAlignType.Left"
+          Layout="FormLayout.Horizontal"
+          LabelCol="new ColLayoutParam { Span = 6 }"
+          WrapperCol="new ColLayoutParam { Span = 18 }">
+        @if (IsDetails)
+        {
+            <FormItem Label="Student Code" Required>
+            <Input @bind-Value="Student.studentCode" Placeholder="Enter student code" ReadOnly />
+        </FormItem>
+
+        <FormItem Label="Full Name" Required>
+            <Input @bind-Value="Student.studentName" Placeholder="Enter full name" ReadOnly />
+        </FormItem>
+
+        <FormItem Label="Birthday" Required>
+            <DatePicker @bind-Value="Student.studentBirthday" Format="dd/MM/yyyy" ReadOnly />
+        </FormItem>
+
+        <FormItem Label="Address" Required>
+            <TextArea @bind-Value="Student.studentAddress" Placeholder="Enter address" MinRows="3" MaxRows="6" ReadOnly />
+            </FormItem>
+        } else
+        {
+            <FormItem Label="Student Code" Required>
+            <Input @bind-Value="Student.studentCode" Placeholder="Enter student code" />
+        </FormItem>
+
+        <FormItem Label="Full Name" Required>
+            <Input @bind-Value="Student.studentName" Placeholder="Enter full name"/>
+        </FormItem>
+
+        <FormItem Label="Birthday" Required>
+            <DatePicker @bind-Value="Student.studentBirthday" Format="dd/MM/yyyy" />
+        </FormItem>
+
+        <FormItem Label="Address" Required>
+            <TextArea @bind-Value="Student.studentAddress" Placeholder="Enter address" MinRows="3" MaxRows="6" />
+        </FormItem>
+
+        <FormItem WrapperCol="new ColLayoutParam { Offset = 8, Span = 10 }" >
+            <Button Block Shape="ButtonShape.Round"
+                Type="ButtonType.Primary"
+                HtmlType="submit"
+                Style="background-color: #52c41a; border-color: #52c41a;">
+                    Submit
+            </Button>
+        </FormItem>
+        }
+        
+    </Form>
+</Drawer>

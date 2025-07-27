@@ -1,7 +1,9 @@
-﻿using Server.DBHelper;
-using Server.Entity;
-using NHibernate;
+﻿using NHibernate;
 using NHibernate.Linq;
+using Server.DBHelper;
+using Server.DTO;
+using Server.Entity;
+using Shared;
 using System;
 
 namespace Server.Repository
@@ -41,7 +43,7 @@ namespace Server.Repository
            Students students = await session.Query<Students>()
                         .Fetch(s => s._classrooms)
                         .ThenFetch(c => c._teacher)
-                        .FirstOrDefaultAsync(s => s._id == id);
+                        .FirstOrDefaultAsync(s => s._studentCode == id);
             return students;
         }
 
@@ -69,6 +71,57 @@ namespace Server.Repository
                 await session.UpdateAsync(students);
                 await tx.CommitAsync();
             }
+        }
+
+        public async Task<int> CountAsync()
+        {
+            int count = await session.Query<Students>().CountAsync();
+
+            return count;
+        }
+
+        public async Task<PageViewDTO<Students>> GetPaginationAsync(SearchStudentDTO searchStudent, int pageNumber = 1, int pageSize = 10)
+        {
+            int pageSkip = (pageNumber - 1) * pageSize;
+            var query = session.Query<Students>()
+                            .Fetch(s => s._classrooms)
+                            .ThenFetch(c => c._teacher).AsQueryable();
+            query = Filter(query, searchStudent);
+            var result = new PageViewDTO<Students>
+            {
+                total = await query.CountAsync(),
+                listStudents = await query!.Skip(pageSkip).Take(pageSize).ToListAsync()
+            };
+            return result;
+        }
+
+        private IQueryable<Students>? Filter(IQueryable<Students> query, SearchStudentDTO studentSearch)
+        {
+            if (studentSearch.Id.HasValue)
+            {
+                query = query.Where(student => student._id == studentSearch.Id.Value);
+            }
+            if (studentSearch.studentCode.HasValue)
+            {
+                query = query.Where(student => student._studentCode == studentSearch.studentCode.Value);
+            }
+            if (!string.IsNullOrWhiteSpace(studentSearch.studentName))
+            {
+                query = query.Where(s => s._name.Contains(studentSearch.studentName));
+            }
+            if (!string.IsNullOrEmpty(studentSearch.studentAddress))
+            {   
+                query = query.Where(s => s._address.Contains(studentSearch.studentAddress));
+            }
+            if (studentSearch.studentBirthday.HasValue)
+            {
+                query = query.Where(student => student._birthday.Date >= studentSearch.studentBirthday.Value.Date);
+            }
+            if (studentSearch.classroomId.HasValue)
+            {
+                query = query.Where(student => student._classrooms._idClassroom == studentSearch.classroomId.Value);
+            }
+            return query;
         }
 
     }
