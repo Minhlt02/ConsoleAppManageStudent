@@ -46,6 +46,11 @@ namespace Server.Mapper
                 .ForMember(dest => dest.PageNumber, opt => opt.Ignore())
                 .ForMember(dest => dest.PageSize, opt => opt.Ignore());
 
+            CreateMap<StudentAgeDTO, StudentAge>() ;
+            CreateMap<Students, StudentAgeDTO>()
+                .ForMember(dest => dest.Age, opt => opt.MapFrom(src => DateTime.Now.Year - src._birthday.Year))
+                .ForMember(dest => dest.Count, opt => opt.MapFrom(src => 1));
+
         }
     }
 }

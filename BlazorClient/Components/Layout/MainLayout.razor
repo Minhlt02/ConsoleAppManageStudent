@@ -1,11 +1,7 @@
 ﻿@using AntDesign
 @inherits LayoutComponentBase
 <Layout Style="min-height: 100vh; ">
-    <Sider Collapsible>
-        <div class="logo">
-            <img src="images/logo1.png" alt="Logo" style="height: 55px; width: 200px " />
-        </div>
-    </Sider>
+    <NavMenu/>
     <Layout Class="site-layout" >
         <Header Class="site-layout-background" Style="padding: 0;"><h3>MANAGE STUDENT DASHBOARD</h3></Header>
         <Content Style="margin:0 16px;" >
@@ -21,11 +17,7 @@
 
 
 <style>
-    .logo {
-        height: 64px;
-        width: 200px;
-        background: #fff;
-    }
+    
 
     .site-layout .site-layout-background {
         background: #fff;

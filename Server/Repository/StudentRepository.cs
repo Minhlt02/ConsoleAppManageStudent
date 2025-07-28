@@ -124,5 +124,24 @@ namespace Server.Repository
             return query;
         }
 
+        public async Task<List<StudentAgeDTO>> GetStudentAgesChartAsync(int id = 1)
+        {
+            var query = session.Query<Students>();
+            if (id != 1)
+            {
+                query = query.Where(s => s._classrooms._idClassroom == id);
+            }
+            List<StudentAgeDTO> result = await query
+                .GroupBy(s => DateTime.Now.Year - s._birthday.Year)
+                .Select(s => new StudentAgeDTO
+                {
+                    Age = s.Key,
+                    Count = s.Count()
+                })
+                .OrderBy(r => r.Age)
+                .ToListAsync();
+            return result;
+        }
+
     }
 }

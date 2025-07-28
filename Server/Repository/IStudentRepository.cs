@@ -19,6 +19,7 @@ namespace Server.Repository
         Task DeleteStudentAsync(Students student);
         Task<int> CountAsync();
         Task<PageViewDTO<Students>> GetPaginationAsync(SearchStudentDTO searchStudent, int pageNumber, int pageSize);
+        Task<List<StudentAgeDTO>> GetStudentAgesChartAsync(int id = -1);
 
     }
 }

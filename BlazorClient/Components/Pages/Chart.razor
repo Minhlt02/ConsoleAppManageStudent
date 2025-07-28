@@ -1,0 +1,16 @@
+﻿@rendermode InteractiveServer
+@page "/chart"
+@using AntDesign.Charts
+
+<PageTitle>Chart</PageTitle>
+
+
+<div class="mt-3 ms-3">
+    <p class="fs-6">Number of students</p>
+
+    <AntDesign.Charts.Column @ref="chartStudentAge" Data="dataStudentAge" Config="config1" />
+
+    <p class="text-center fs-6">Age</p>
+</div>
+
+

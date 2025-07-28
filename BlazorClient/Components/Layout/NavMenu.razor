@@ -1,0 +1,28 @@
+﻿@using AntDesign
+<Sider Breakpoint="@BreakpointType.Lg"
+       CollapsedWidth="64"
+       @bind-Collapsed=@collapsed>
+    <div class="logo">
+    </div>
+    <Menu Theme="MenuTheme.Dark" Mode="MenuMode.Inline">
+        <MenuItem Key="1" RouterLink="/">
+            <Icon Type="home" />
+            <span>Home</span>
+        </MenuItem>
+        <MenuItem Key="2" RouterLink="/chart">
+            <Icon Type="bar-chart" />
+            <span>Chart</span>
+        </MenuItem>
+    </Menu>
+</Sider>
+
+<style>
+    .logo {
+        height: 64px;
+        width: 200px;
+        background: #fff;
+    }
+    span {
+        text-decoration: none;
+    }
+</style>

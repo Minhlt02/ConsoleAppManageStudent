@@ -25,7 +25,7 @@ namespace BlazorClient.Components.Pages
         int pageSize = 10;
         int total;
         private bool isRetry = false;
-        private string SearchKeyword;
+        private string? SearchKeyword;
 
 
         // models
@@ -137,7 +137,7 @@ namespace BlazorClient.Components.Pages
 
         private async Task SearchStudentAsync()
         {
-            int codeInput = int.Parse(SearchKeyword);
+            int codeInput = int.Parse(SearchKeyword ?? "1");
             if (codeInput != 0)
             {
                 try

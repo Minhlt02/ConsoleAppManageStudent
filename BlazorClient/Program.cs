@@ -7,8 +7,6 @@ using Shared;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
 string grpcAddress = builder.Configuration.GetConnectionString("gRPCAddress1")!;
 var handler = new SocketsHttpHandler
 {

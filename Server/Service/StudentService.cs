@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FluentNHibernate.Conventions;
+using Microsoft.AspNetCore.Http.HttpResults;
 using NHibernate.Mapping.ByCode.Impl;
 using ProtoBuf.Grpc;
 using Server.DTO;
@@ -181,6 +182,17 @@ namespace Server.Service
                 reply.Message = $"Lỗi khi cập nhật thông tin sinh viên: {ex.Message}";
             }
             return reply;
+        }
+
+        public async Task<StudentAgeChart> GetStudentAgeChartAsync(RequestId request, CallContext callContext = default)
+        {
+            var chartData = await studentRepo.GetStudentAgesChartAsync(request.id);
+            StudentAgeChart studentAgeChart = new StudentAgeChart
+            {
+                ChartData = mapper.Map<List<StudentAge>>(chartData)
+            };
+
+            return studentAgeChart;
         }
     }
 }

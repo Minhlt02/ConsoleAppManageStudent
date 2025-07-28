@@ -22,6 +22,8 @@ namespace BlazorClient.Mapper
             CreateMap<SearchStudentDTO, PaginationRequest>()
                 .ForMember(dest => dest.PageSize, opt => opt.Ignore())
                 .ForMember(dest => dest.PageNumber, opt => opt.Ignore());
+
+            CreateMap<StudentAge, StudentAgeDTO>();
         } 
     }
 }

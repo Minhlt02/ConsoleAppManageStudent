@@ -1,5 +1,4 @@
 ﻿@page "/"
-@page "/students"
 @using AntDesign
 @using Grpc.Net.Client
 @using ProtoBuf.Grpc.Client
@@ -62,7 +61,7 @@
     <PropertyColumn Property="s => s.classroomName" Title="Class Name" />
     <ActionColumn Title="Action" Class="d-flex justify-content-center align-items-center gap-2">
         <Popconfirm Title="Sure to delete?"
-                    OnConfirm="()=> DeleteStudentAsync(context.Id)"
+                    OnConfirm="()=> DeleteStudentAsync(context.studentCode)"
                     OkText="Yes"
                     CancelText="No"
                     OkButtonProps="new ButtonProps { Danger = true }">
