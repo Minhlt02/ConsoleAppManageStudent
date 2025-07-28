@@ -1,5 +1,6 @@
 ﻿
 using AntDesign;
+using AntDesign.TableModels;
 using AutoMapper;
 using BlazorClient.DTO;
 using Grpc.Core;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Components;
 
 using Shared;
 using System.Drawing.Printing;
+using System.Runtime.CompilerServices;
 using System.ServiceModel.Channels;
 namespace BlazorClient.Components.Pages
 {
@@ -23,6 +25,7 @@ namespace BlazorClient.Components.Pages
 
         int pageNumber = 1;
         int pageSize = 10;
+        string? sortBy = "studentName";
         int total;
         private bool isRetry = false;
         private string? SearchKeyword;
@@ -32,22 +35,31 @@ namespace BlazorClient.Components.Pages
         StudentDTO? student = new StudentDTO();
         SearchStudentDTO? searchStudent = new SearchStudentDTO();
         List<StudentDTO> students = null!;
+        IEnumerable<StudentDTO> _selectedRows = [];
 
         bool isCreate = false;
         bool isDetails = false;
         bool visible = false;
+        bool isSort = false;
 
         async Task HandlePageIndexChangeAsync(PaginationEventArgs args)
         {
             pageNumber = args.Page;
-            await LoadStudentsAsync();
+            if (isSort == true)
+            {
+                await LoadSortStudentsAsync();
+            } else
+            {
+                await LoadStudentsAsync();
+            }
+            
         }
 
         async Task HandlePageSizeChangeAsync(PaginationEventArgs args)
         {
-            pageNumber = 1;
-            pageSize = args.PageSize;
             await LoadStudentsAsync();
+            return;
+                
         }
 
         void OpenPopup(StudentDTO? students = null, bool isCreate = false, bool isDetails = false)
@@ -110,9 +122,9 @@ namespace BlazorClient.Components.Pages
             }
         }
 
-        public async Task DeleteStudentAsync(int id)
+        public async Task DeleteStudentAsync(int? id)
         {
-            var isDeleted = await studentContract.DeleteStudentAsync(new RequestId { id = id });
+            var isDeleted = await studentContract.DeleteStudentAsync(new RequestId { id = id.Value });
             _ = Notification.Open(new NotificationConfig()
             {
                 Message = "Success",
@@ -122,17 +134,65 @@ namespace BlazorClient.Components.Pages
             await LoadStudentsAsync();
         }
 
+        async Task LoadSortStudentsAsync()
+        {
+            var request = Mapper.Map<PaginationRequest>(searchStudent);
+            request.PageSize = pageSize;
+            request.PageNumber = pageNumber;
+            request.SortBy = sortBy;
+
+            var reply = await studentContract.GetPaginationSortAsync(request);
+
+            if (reply.listStudents?.Any() == true)
+            {
+                students = Mapper.Map<List<StudentDTO>>(reply.listStudents);
+                total = reply.Count;
+                isRetry = false; // reset
+            }
+            else
+            {
+                if (pageNumber > 1 && !isRetry)
+                {
+                    pageNumber--;
+                    isRetry = true;
+                    await LoadSortStudentsAsync();
+                }
+                else
+                {
+                    students = new();
+                    total = 0;
+                    isRetry = false;
+                    _ = Notification.Open(new NotificationConfig()
+                    {
+                        Message = "Không có dữ liệu phù hợp",
+                        Description = reply.Message ?? "Danh sách sinh viên trống.",
+                        NotificationType = NotificationType.Warning
+                    });
+                    searchStudent = new SearchStudentDTO();
+                }
+            }
+        }
+
         public async Task OnSortAsync(MenuItem menuItem)
         {
             switch (menuItem.Key)
             {
                 case "sbName":
-                    students = students!.OrderBy(s => s.studentName).ToList();
+                    sortBy = "studentName";
+                    await LoadSortStudentsAsync();
+                    isSort = true;
                     break;
                 case "sbId":
-                    students = students!.OrderBy(s => s.studentCode).ToList();
+                    sortBy = "studentCode";
+                    await LoadSortStudentsAsync();
+                    isSort = true;
+                    break;
+                case "sbRemove":
+                    await LoadStudentsAsync();
+                    isSort = false;
                     break;
             }
+            
         }
 
         private async Task SearchStudentAsync()
@@ -177,7 +237,6 @@ namespace BlazorClient.Components.Pages
                 await LoadStudentsAsync();
             }
         }
-
 
         protected override async Task OnInitializedAsync()
         {

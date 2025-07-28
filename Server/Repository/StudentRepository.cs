@@ -80,9 +80,9 @@ namespace Server.Repository
             return count;
         }
 
-        public async Task<PageViewDTO<Students>> GetPaginationAsync(SearchStudentDTO searchStudent, int pageNumber = 1, int pageSize = 10)
+        public async Task<PageViewDTO<Students>> GetPaginationAsync(SearchStudentDTO searchStudent)
         {
-            int pageSkip = (pageNumber - 1) * pageSize;
+            int pageSkip = (searchStudent.pageNumber - 1) * searchStudent.pageSize;
             var query = session.Query<Students>()
                             .Fetch(s => s._classrooms)
                             .ThenFetch(c => c._teacher).AsQueryable();
@@ -90,7 +90,22 @@ namespace Server.Repository
             var result = new PageViewDTO<Students>
             {
                 total = await query.CountAsync(),
-                listStudents = await query!.Skip(pageSkip).Take(pageSize).ToListAsync()
+                listStudents = await query!.Skip(pageSkip).Take(searchStudent.pageSize).ToListAsync()
+            };
+            return result;
+        }
+
+        public async Task<PageViewDTO<Students>> GetPaginationSortAsync(SearchStudentDTO searchStudent)
+        {
+            int pageSkip = (searchStudent.pageNumber - 1) * searchStudent.pageSize;
+            var query = session.Query<Students>()
+                            .Fetch(s => s._classrooms)
+                            .ThenFetch(c => c._teacher).AsQueryable();
+            query = FilterSort(query, searchStudent);
+            var result = new PageViewDTO<Students>
+            {
+                total = await query.CountAsync(),
+                listStudents = await query!.Skip(pageSkip).Take(searchStudent.pageSize).ToListAsync()
             };
             return result;
         }
@@ -121,6 +136,24 @@ namespace Server.Repository
             {
                 query = query.Where(student => student._classrooms._idClassroom == studentSearch.classroomId.Value);
             }
+            return query;
+        }
+
+        private IQueryable<Students>? FilterSort(IQueryable<Students> query, SearchStudentDTO studentSearch)
+        {
+            if (studentSearch.sortBy.Equals("id"))
+            {
+                query = query.OrderBy(s=>s._id);
+            }
+            if (studentSearch.sortBy.Equals("studentCode"))
+            {
+                query = query.OrderBy(s => s._studentCode);
+            }
+            if (studentSearch.sortBy.Equals("studentName"))
+            {
+                query = query.OrderBy(s => s._name);
+            }
+            
             return query;
         }
 

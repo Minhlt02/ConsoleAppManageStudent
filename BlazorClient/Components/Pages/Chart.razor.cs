@@ -66,7 +66,6 @@ namespace BlazorClient.Components.Pages
             };
         }
 
-
         protected override async Task OnInitializedAsync()
         {
             Config();

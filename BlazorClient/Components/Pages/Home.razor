@@ -1,5 +1,6 @@
 ﻿@page "/"
 @using AntDesign
+@using AntDesign.TableModels
 @using Grpc.Net.Client
 @using ProtoBuf.Grpc.Client
 @using Shared
@@ -9,40 +10,7 @@
 
 
 
-<div class="d-flex justify-content-between align-items-center" style="margin-bottom: 10px">
-    
-    <div>
-        <div>
-            <Input @bind-Value="SearchKeyword" Placeholder="Nhập mã sinh viên..." Style="width: 300px;" />
-            <Button Type="ButtonType.Primary" OnClick="SearchStudentAsync" Style="margin-left: 10px;">
-                Tìm kiếm
-            </Button>
-        </div>
-        
-    
-        
-    </div>
-    <div style="float:right">
-        <Button Style="margin-left: 500px; background-color: green" Type="ButtonType.Primary" OnClick="@(e => OpenPopup(isCreate: true))">Add new student</Button>
-        <Dropdown Trigger="@(new Trigger[] { Trigger.Click })">
-            <Overlay>
-                <Menu OnMenuItemClicked="OnSortAsync">
-                    <MenuItem Key="sbId">
-                        <Text>Sort by Id</Text>
-                    </MenuItem>
-                    <MenuItem Key="sbName">
-                        <Text>Sort by Name</Text>
-                    </MenuItem>
-                </Menu>
-            </Overlay>
-            <ChildContent>
-                <Button>
-                    Sort by <Icon Type="caret-down" />
-                </Button>
-            </ChildContent>
-        </Dropdown>
-    </div>
-</div>
+
 <Table DataSource="@students"
        RowKey="s => s.Id"
        PageIndex="pageNumber"
@@ -51,28 +19,79 @@
        PageSize="pageSize"
        HidePagination="(total <= pageSize)"
        OnPageIndexChange="HandlePageIndexChangeAsync"
-       OnPageSizeChange="HandlePageSizeChangeAsync">
-    <PropertyColumn Property="s => s.Id" Title="Index" />
-    <PropertyColumn Property="s => s.studentCode" Title="Student Code" />
-    <PropertyColumn Property="s => s.studentName" Title="Full Name" />
-    <PropertyColumn Property="s => s.studentBirthday" Title="Birthday" Format="dd/MM/yyyy" />
-    <PropertyColumn Property="s => s.studentAddress" Title="Address" />
-    <PropertyColumn Property="s => s.classroomID" Title="Class Id" />
-    <PropertyColumn Property="s => s.classroomName" Title="Class Name" />
-    <ActionColumn Title="Action" Class="d-flex justify-content-center align-items-center gap-2">
-        <Popconfirm Title="Sure to delete?"
-                    OnConfirm="()=> DeleteStudentAsync(context.studentCode)"
-                    OkText="Yes"
-                    CancelText="No"
-                    OkButtonProps="new ButtonProps { Danger = true }">
-            <Button Danger>Delete</Button>
-        </Popconfirm>
-        <Button OnClick="@(() => OpenPopup(context))">Update</Button>
-        <Button OnClick="@(() => OpenPopup(context, isDetails: true))">Details</Button>
-    </ActionColumn>
+       OnPageSizeChange="HandlePageSizeChangeAsync"
+       @bind-SelectedRows="_selectedRows">
+       
+    <TitleTemplate>
+        <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 10px">
+
+            <div>
+                <div>
+                    <Input @bind-Value="SearchKeyword" Placeholder="Nhập mã sinh viên..." Style="width: 300px;" />
+                    <Button Type="ButtonType.Primary" OnClick="SearchStudentAsync" Style="margin-left: 10px;">
+                        Tìm kiếm
+                    </Button>
+                </div>
+            </div>
+            <div style="float:right">
+                <Button Style="margin-left: 500px; background-color: green" Type="ButtonType.Primary" OnClick="@(e => OpenPopup(isCreate: true))">Add new student</Button>
+                <Dropdown Trigger="@(new Trigger[] { Trigger.Click })">
+                    <Overlay>
+                        <Menu OnMenuItemClicked="OnSortAsync">
+                            <MenuItem Key="sbId">
+                                <Text>Sort by student code</Text>
+                            </MenuItem>
+                            <MenuItem Key="sbName">
+                                <Text>Sort by Name</Text>
+                            </MenuItem>
+                            <MenuItem Key="sbRemove">
+                                <Text>Remove Sort</Text>
+                            </MenuItem>
+                        </Menu>
+                    </Overlay>
+                    <ChildContent>
+                        <Button>
+                            Sort by <Icon Type="caret-down" />
+                        </Button>
+                    </ChildContent>
+                </Dropdown>
+            </div>
+        </div>
+    </TitleTemplate>
+    <ColumnDefinitions Context="row">
+        <Selection />
+        <ColumnDefinition Title="Index">
+            @{
+                int index = students!.IndexOf(row) + 1 + ((pageNumber - 1) * pageSize);
+            }
+            @index
+        </ColumnDefinition>
+        @* <GenerateColumns Definitions="@((n, c) => { c.Filterable = true; c.Sortable = true; })" /> *@
+
+        <PropertyColumn Property="s => s.studentCode" Title="Student Code" />
+        <PropertyColumn Property="s => s.studentName" Title="Full Name" />
+        <PropertyColumn Property="s => s.studentBirthday" Title="Birthday" Format="dd/MM/yyyy" />
+        <PropertyColumn Property="s => s.studentAddress" Title="Address" />
+        <PropertyColumn Property="s => s.classroomID" Title="Class Id" />
+        <PropertyColumn Property="s => s.classroomName" Title="Class Name" />
+        
+        <ActionColumn Title="Action">
+            <Button OnClick="@(() => OpenPopup(row))">Update</Button>
+            <Button OnClick="@(() => OpenPopup(row, isDetails: true))">Details</Button>
+            <Popconfirm Title="Sure to delete?"
+                        OnConfirm="()=> DeleteStudentAsync(row.studentCode)"
+                        OkText="Yes"
+                        CancelText="No">
+                <Button Disabled="!_selectedRows.Any()" Danger>Delete</Button>
+            </Popconfirm>
+            
+        </ActionColumn>
+    </ColumnDefinitions>
 </Table>
 
 @if(visible)
 {
     <StudentPopup Visible="visible" Student="student" ReloadStudents="LoadStudentsAsync" OnClose="ClosePopupAsync" IsCreate="isCreate" IsDetails="isDetails" />
 }
+
+

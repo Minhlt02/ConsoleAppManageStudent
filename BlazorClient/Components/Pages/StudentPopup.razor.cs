@@ -35,6 +35,7 @@ namespace BlazorClient.Components.Pages
         [Inject]
         NotificationService Notification { get; set; } = null!;
 
+
         async Task ClosePopupAsync()
         {
             IsDetails = false;
@@ -56,7 +57,26 @@ namespace BlazorClient.Components.Pages
             {
                 reply = await StudentService.UpdateStudentAsync(student);
             }
-            _ = NotificationMessage(reply.Message, reply.Success);
+
+
+            if (reply.Success)
+            {
+                await Notification.Open(new NotificationConfig()
+                {
+                    Message = "Success",
+                    Description = reply.Message,
+                    NotificationType = NotificationType.Success
+                });
+            }
+            else
+            {
+                await Notification.Open(new NotificationConfig()
+                {
+                    Message = "Error",
+                    Description = reply.Message,
+                    NotificationType = NotificationType.Error
+                });
+            }
             await ReloadStudents.InvokeAsync();
             await ClosePopupAsync();
         }

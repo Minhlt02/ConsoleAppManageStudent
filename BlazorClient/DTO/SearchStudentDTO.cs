@@ -8,5 +8,9 @@
         public DateTime? studentBirthday { get; set; }
         public string? studentAddress { get; set; }
         public int? classroomId { get; set; }
+        public int PageNumber { get; set; } = 1;
+        public int PageSize { get; set; } = 10;
+
+        public string? sortBy { get; set; }
     }
 }

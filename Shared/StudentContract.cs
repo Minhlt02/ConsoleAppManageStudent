@@ -22,6 +22,9 @@ namespace Shared
         Task<OperationReply> UpdateStudentAsync(StudentProfile request, CallContext callContaxt = default);
         [OperationContract]
         Task<MultipleStudentReply> GetPaginationAsync(PaginationRequest request, CallContext callContext = default);
+
+        [OperationContract]
+        Task<MultipleStudentReply> GetPaginationSortAsync(PaginationRequest request, CallContext callContext = default);
         [OperationContract]
         Task<StudentAgeChart> GetStudentAgeChartAsync(RequestId request, CallContext callContext = default);
     }
@@ -93,6 +96,8 @@ namespace Shared
         public int PageNumber { get; set; }
         [DataMember(Order = 9)] 
         public int PageSize { get; set; }
+        [DataMember(Order = 10)] 
+        public string? SortBy { get; set; }
     }
 
     [DataContract]
@@ -101,6 +106,7 @@ namespace Shared
         [DataMember(Order = 1)] public int Age { get; set; }
         [DataMember(Order = 2)] public int Count { get; set; }
     }
+
 
     [DataContract]
     public class StudentAgeChart

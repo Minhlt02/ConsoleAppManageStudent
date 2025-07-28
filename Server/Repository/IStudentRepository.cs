@@ -1,4 +1,5 @@
-﻿using Server.DTO;
+﻿using NHibernate.Linq;
+using Server.DTO;
 using Server.Entity;
 using Shared;
 using System;
@@ -18,7 +19,9 @@ namespace Server.Repository
         Task UpdateStudentAsync(Students student);
         Task DeleteStudentAsync(Students student);
         Task<int> CountAsync();
-        Task<PageViewDTO<Students>> GetPaginationAsync(SearchStudentDTO searchStudent, int pageNumber, int pageSize);
+        Task<PageViewDTO<Students>> GetPaginationAsync(SearchStudentDTO searchStudent);
+
+        Task<PageViewDTO<Students>> GetPaginationSortAsync(SearchStudentDTO searchStudent);
         Task<List<StudentAgeDTO>> GetStudentAgesChartAsync(int id = -1);
 
     }

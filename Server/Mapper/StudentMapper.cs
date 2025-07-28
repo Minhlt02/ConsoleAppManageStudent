@@ -44,7 +44,10 @@ namespace Server.Mapper
 
             CreateMap<SearchStudentDTO, PaginationRequest>()
                 .ForMember(dest => dest.PageNumber, opt => opt.Ignore())
-                .ForMember(dest => dest.PageSize, opt => opt.Ignore());
+                .ForMember(dest => dest.PageSize, opt => opt.Ignore())
+
+                .ForMember(dest => dest.SortBy, opt => opt.MapFrom(s => s.sortBy)); ;
+
 
             CreateMap<StudentAgeDTO, StudentAge>() ;
             CreateMap<Students, StudentAgeDTO>()

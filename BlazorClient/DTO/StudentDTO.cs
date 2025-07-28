@@ -6,13 +6,12 @@ namespace BlazorClient.DTO
     {
         public int Id { get; set; }
         [Required]
-        public int studentCode { get; set; }
-
+        public int? studentCode { get; set; }
         [Required]
         public string studentName { get; set; } = null!;
 
         [Required]
-        public DateTime studentBirthday { get; set; }
+        public DateTime? studentBirthday { get; set; }
 
         [Required]
         public string studentAddress { get; set; } = null!;
