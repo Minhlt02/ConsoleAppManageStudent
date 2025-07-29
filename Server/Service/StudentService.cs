@@ -18,11 +18,13 @@ namespace Server.Service
     public class StudentService : IStudentContract
     {
         private readonly IStudentRepository studentRepo;
+        private readonly IClassroomRepository classRepo;
         private readonly IMapper mapper;
 
-        public StudentService(IStudentRepository _studentRepo, IMapper _mapper)
+        public StudentService(IStudentRepository _studentRepo, IClassroomRepository _classRepo, IMapper _mapper)
         {
             studentRepo = _studentRepo;
+            classRepo = _classRepo;
             mapper = _mapper;
         }
 
@@ -160,7 +162,7 @@ namespace Server.Service
             StudentReply reply = new StudentReply();
             try
             {
-                Students students = await studentRepo.GetStudentByIdAsync(request.studentCode);
+                Students students = await studentRepo.GetStudentByIdAsync(request.id);
                 if (students != null)
                 {
                     reply.Student = mapper.Map<StudentProfile>(students);
@@ -180,20 +182,23 @@ namespace Server.Service
         public async Task<OperationReply> UpdateStudentAsync(StudentProfile request, CallContext callContaxt)
         {
             OperationReply reply = new OperationReply();
+            
             try
             {
-                Students student = await studentRepo.GetStudentByIdAsync(request.id);
-                if (student == null)
+                Classrooms? classroom = await classRepo.GetClassroomByIdAsync(request.classroomID);
+                if (classroom == null)
                 {
                     reply.Success = false;
-                    reply.Message = "Không tìm thấy sinh viên với ID đã nhập.";
+                    reply.Message = "Không tìm thấy lớp với ID đã nhập.";
                     return reply;
                 }
 
-                student._studentCode = request.studentCode;
+                Students? student = await studentRepo.GetStudentByIdAsync(request.id);
+
                 student._name = request.studentName;
                 student._birthday = request.studentBirthday;
                 student._address = request.studentAddress;
+                student._classrooms = classroom;
 
                 await studentRepo.UpdateStudentAsync(student);
 

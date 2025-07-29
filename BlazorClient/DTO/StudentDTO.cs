@@ -4,9 +4,9 @@ namespace BlazorClient.DTO
 {
     public class StudentDTO
     {
-        public int Id { get; set; }
         [Required]
-        public int? studentCode { get; set; }
+        public int Id { get; set; }
+
         [Required]
         public string studentName { get; set; } = null!;
 

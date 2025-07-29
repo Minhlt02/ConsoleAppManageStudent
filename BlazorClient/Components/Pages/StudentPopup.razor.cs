@@ -27,13 +27,18 @@ namespace BlazorClient.Components.Pages
         public EventCallback OnClose { get; set; }
 
         [Inject]
-        IStudentContract StudentService { get; set; } = null!;
+        IStudentContract StudentService { get; set; }
 
         [Inject]
-        IMapper Mapper { get; set; } = null!;
+        IClassroomContract ClassroomService { get; set; }
 
         [Inject]
-        NotificationService Notification { get; set; } = null!;
+        IMapper Mapper { get; set; }
+
+        [Inject]
+        INotificationService _notice { get; set; }
+
+        List<ClassroomDTO> classrooms = new List<ClassroomDTO>();
 
 
         async Task ClosePopupAsync()
@@ -52,45 +57,74 @@ namespace BlazorClient.Components.Pages
             if (IsCreate)
             {
                 reply = await StudentService.AddStudentAsync(student);
+                if (reply.Success)
+                {
+                    _ = _notice.Open(new NotificationConfig()
+                    {
+                        Message = "Thêm thành công",
+                        Description = reply.Message,
+                        NotificationType = NotificationType.Success
+                    });
+                }
+                else
+                {
+                    _ = _notice.Open(new NotificationConfig()
+                    {
+                        Message = "Thêm thất bại",
+                        Description = reply.Message,
+                        NotificationType = NotificationType.Error
+                    });
+                }
             }
             else
             {
                 reply = await StudentService.UpdateStudentAsync(student);
+                if (reply.Success)
+                {
+                    _ = _notice.Open(new NotificationConfig()
+                    {
+                        Message = "Cập nhật thành công",
+                        Description = reply.Message,
+                        NotificationType = NotificationType.Success
+                    });
+                }
+                else
+                {
+                    _ = _notice.Open(new NotificationConfig()
+                    {
+                        Message = "Cập nhật thất bại",
+                        Description = reply.Message,
+                        NotificationType = NotificationType.Error
+                    });
+                }
             }
 
+            await ReloadStudents.InvokeAsync();
+            await ClosePopupAsync();
 
-            if (reply.Success)
+        }
+
+        async Task LoadClassroomsAsync()
+        {
+            var reply = await ClassroomService.GetAllClassroomAsync(new Shared.Empty());
+            if (reply.ClassroomList == null)
             {
-                await Notification.Open(new NotificationConfig()
+                _ = _notice.Open(new NotificationConfig()
                 {
-                    Message = "Success",
-                    Description = reply.Message,
-                    NotificationType = NotificationType.Success
-                });
-            }
-            else
-            {
-                await Notification.Open(new NotificationConfig()
-                {
-                    Message = "Error",
+                    Message = "Lấy thông tin thất bại",
                     Description = reply.Message,
                     NotificationType = NotificationType.Error
                 });
             }
-            await ReloadStudents.InvokeAsync();
-            await ClosePopupAsync();
-        }
-
-        Task NotificationMessage(string? message, bool isSuccess)
-        {
-            _ = Notification.Open(new NotificationConfig()
+            else
             {
-                Message = "Success",
-                Description = message != null ? message : IsCreate ? "Created" : "Updated",
-                NotificationType = isSuccess ? NotificationType.Success : NotificationType.Error
-            });
-            return Task.CompletedTask;
+                classrooms = Mapper.Map<List<ClassroomDTO>>(reply.ClassroomList);
+            }
         }
 
+        protected override async Task OnInitializedAsync()
+        {
+            await LoadClassroomsAsync();
+        }
     }
 }

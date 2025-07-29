@@ -7,7 +7,7 @@ namespace BlazorClient.Components.Layout
         bool collapsed;
 
         [Inject]
-        NavigationManager Navigation { get; set; } = null!;
+        NavigationManager Navigation { get; set; }
 
         void NavigateToIndex()
         {

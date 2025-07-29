@@ -9,7 +9,6 @@ namespace ConsoleClient.Entity
     public class Students
     {
         public int Id { get; set; }
-        public int studentCode { get; set; }
 
         public string studentName { get; set; } = null!;
 

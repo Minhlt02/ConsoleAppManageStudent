@@ -24,8 +24,6 @@ namespace ManageStudentConsole.Controller
         }
         public void AddStudent()
         {
-            Console.WriteLine("Nhập mã số sinh viên của sinh viên: ");
-            students._studentCode = int.Parse(Console.ReadLine() ?? "1");
             Console.WriteLine("Nhập tên của sinh viên: ");
             string? nameInput = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(nameInput))
@@ -122,7 +120,7 @@ namespace ManageStudentConsole.Controller
                 if (students._classrooms != null && students._classrooms._teacher != null)
                 {
                     Console.WriteLine("{0,-6}| {1,-15}| {2,-12:dd/MM/yyyy}| {3,-12}| {4,-10}| {5,-10}| {6,-15}",
-                        students._studentCode,
+                        students._id,
                         students._name,
                         students._birthday.ToString("dd/MM/yyyy"),
                         students._address,
@@ -151,7 +149,7 @@ namespace ManageStudentConsole.Controller
             foreach (var student in studentList)
             {
                 Console.WriteLine("{0,-5} | {1,-15} | {2,-12:dd/MM/yyyy} | {3,-10}",
-                student._studentCode,
+                student._id,
                 student._name,
                 student._birthday.ToString("dd/MM/yyyy"),
                 student._address);
@@ -172,7 +170,7 @@ namespace ManageStudentConsole.Controller
             foreach (var student in studentList)
             {
                 Console.WriteLine("{0,-5} | {1,-15} | {2,-12:dd/MM/yyyy} | {3,-10}",
-                student._studentCode,
+                student._id,
                 student._name,
                 student._birthday.ToString("dd/MM/yyyy"),
                 student._address);

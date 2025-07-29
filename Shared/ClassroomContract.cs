@@ -13,7 +13,7 @@ namespace Shared
     public interface IClassroomContract
     {
         [OperationContract]
-        Task<ListClassroomProfile> GetAllClassroomAsync(Empty empty, CallContext callContext = default);
+        Task<MultipleClassroomProfile> GetAllClassroomAsync(Empty empty, CallContext callContext = default);
 
     }
 
@@ -21,16 +21,18 @@ namespace Shared
     public class ClassroomProfile
     {
         [DataMember(Order = 1)]
-        public int classroomID { get; set; }
+        public int Id { get; set; }
         [DataMember(Order = 2)]
-        public string? classroomName { get; set; }
+        public string NameClassroom { get; set; }
         [DataMember(Order = 3)]
-        public string? subjectName { get; set; }
+        public string NameSubject { get; set; }
+
     }
 
-    public class ListClassroomProfile
+    [DataContract]
+    public class MultipleClassroomProfile
     {
-        [DataMember(Order = 1)] public List<ClassroomProfile>? ClassroomList { get; set; }
+        [DataMember(Order = 1)] public List<ClassroomProfile> ClassroomList { get; set; }
 
         [DataMember(Order = 2)] public int Count { get; set; } = 0;
 

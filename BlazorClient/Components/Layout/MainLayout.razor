@@ -1,9 +1,12 @@
 ﻿@using AntDesign
 @inherits LayoutComponentBase
+@inject INotificationService _notice
 <Layout Style="min-height: 100vh; ">
     <NavMenu/>
+    <Notification />
     <Layout Class="site-layout" >
         <Header Class="site-layout-background" Style="padding: 0;"><h3>MANAGE STUDENT DASHBOARD</h3></Header>
+        <Notification/>
         <Content Style="margin:0 16px;" >
             <Breadcrumb Style="margin:16px 0;">
                 <BreadcrumbItem>Home</BreadcrumbItem>

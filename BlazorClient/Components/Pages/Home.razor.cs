@@ -18,24 +18,30 @@ namespace BlazorClient.Components.Pages
         public IStudentContract studentContract { get; set; } = null!;
 
         [Inject]
-        public NotificationService Notification { get; set; } = null!;
+        public INotificationService _notice { get; set; }
 
         [Inject]
         public IMapper Mapper { get; set; } = null!;
-
-        int pageNumber = 1;
-        int pageSize = 10;
-        string? sortBy = "studentName";
-        int total;
-        private bool isRetry = false;
-        private string? SearchKeyword;
-
+        [Inject]
+        IClassroomContract ClassroomService { get; set; }
 
         // models
         StudentDTO? student = new StudentDTO();
         SearchStudentDTO? searchStudent = new SearchStudentDTO();
         List<StudentDTO> students = null!;
         IEnumerable<StudentDTO> _selectedRows = [];
+        List<ClassroomDTO> classrooms = new List<ClassroomDTO>();
+
+
+        int pageNumber = 1;
+        int pageSize = 10;
+        int total;
+        string? sortBy = "";
+        private bool isRetry = false;
+        private string? SearchKeyword;
+
+
+        
 
         bool isCreate = false;
         bool isDetails = false;
@@ -84,7 +90,25 @@ namespace BlazorClient.Components.Pages
             });
         }
 
-        async Task LoadStudentsAsync()
+        async Task LoadClassroomsAsync()
+        {
+            var reply = await ClassroomService.GetAllClassroomAsync(new Shared.Empty());
+            if (reply.ClassroomList == null)
+            {
+                _ = _notice.Open(new NotificationConfig()
+                {
+                    Message = "Lấy thông tin thất bại",
+                    Description = reply.Message,
+                    NotificationType = NotificationType.Error
+                });
+            }
+            else
+            {
+                classrooms = Mapper.Map<List<ClassroomDTO>>(reply.ClassroomList);
+            }
+        }
+
+            async Task LoadStudentsAsync()
         {
             var request = Mapper.Map<PaginationRequest>(searchStudent);
             request.PageSize = pageSize;
@@ -111,7 +135,7 @@ namespace BlazorClient.Components.Pages
                     students = new();
                     total = 0;
                     isRetry = false;
-                    _ = Notification.Open(new NotificationConfig()
+                    await _notice.Open(new NotificationConfig()
                     {
                         Message = "Không có dữ liệu phù hợp",
                         Description = reply.Message ?? "Danh sách sinh viên trống.",
@@ -122,16 +146,31 @@ namespace BlazorClient.Components.Pages
             }
         }
 
+
+
         public async Task DeleteStudentAsync(int? id)
         {
-            var isDeleted = await studentContract.DeleteStudentAsync(new RequestId { id = id.Value });
-            _ = Notification.Open(new NotificationConfig()
+            try
             {
-                Message = "Success",
-                Description = isDeleted.Message ?? "Deleted",
-                NotificationType = isDeleted.Success ? NotificationType.Success : NotificationType.Error
-            });
-            await LoadStudentsAsync();
+                await studentContract.DeleteStudentAsync(new RequestId { id = id.Value});
+                await LoadStudentsAsync();
+                _ = _notice.Open(new NotificationConfig()
+                {
+                    Message = "Xóa thành công",
+                    Description = "Đã xóa sinh viên.",
+                    Duration = 2,
+                    NotificationType = NotificationType.Warning
+                });
+            }
+            catch (Exception ex)
+            {
+                _ = _notice.Open(new NotificationConfig()
+                {
+                    Message = "Xóa thất bại",
+                    Description = ex.Message,
+                    NotificationType = NotificationType.Error
+                });
+            }
         }
 
         async Task LoadSortStudentsAsync()
@@ -162,7 +201,7 @@ namespace BlazorClient.Components.Pages
                     students = new();
                     total = 0;
                     isRetry = false;
-                    _ = Notification.Open(new NotificationConfig()
+                    await _notice.Open(new NotificationConfig()
                     {
                         Message = "Không có dữ liệu phù hợp",
                         Description = reply.Message ?? "Danh sách sinh viên trống.",
@@ -202,7 +241,7 @@ namespace BlazorClient.Components.Pages
             {
                 try
                 {
-                    var reply = await studentContract.GetStudentByIdAsync(new RequestId { studentCode = codeInput });
+                    var reply = await studentContract.GetStudentByIdAsync(new RequestId { id = codeInput });
 
                     if (reply.Student != null)
                     {
@@ -213,7 +252,7 @@ namespace BlazorClient.Components.Pages
                     {
                         students = new List<StudentDTO>();
                         total = 0;
-                        await Notification.Open(new NotificationConfig
+                        await _notice.Open(new NotificationConfig
                         {
                             Message = "Không tìm thấy sinh viên",
                             Description = reply.Message ?? "Mã sinh viên không hợp lệ",
@@ -223,7 +262,7 @@ namespace BlazorClient.Components.Pages
                 }
                 catch (Exception ex)
                 {
-                    await Notification.Open(new NotificationConfig
+                    await _notice.Open(new NotificationConfig
                     {
                         Message = "Lỗi tìm kiếm",
                         Description = ex.Message,
@@ -241,6 +280,7 @@ namespace BlazorClient.Components.Pages
         protected override async Task OnInitializedAsync()
         {
             await LoadStudentsAsync();
+            await LoadClassroomsAsync();
         }
     }
 }

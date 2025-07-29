@@ -55,25 +55,24 @@ namespace Shared
     {
         [DataMember(Order = 1)]
         public int id { get; set; }
+
         [DataMember(Order = 2)]
-        public int studentCode { get; set; }
-        [DataMember(Order = 3)]
         public string? studentName { get; set; }
-        [DataMember(Order = 4)]
+        [DataMember(Order = 3)]
         public DateTime studentBirthday { get; set; }
-        [DataMember(Order = 5)]
+        [DataMember(Order = 4)]
         public string? studentAddress { get; set; }
-        [DataMember(Order = 6)]
+        [DataMember(Order = 5)]
         public int classroomID { get; set; }
-        [DataMember(Order = 7)]
+        [DataMember(Order = 6)]
         public string? classroomName{ get; set; }
-        [DataMember(Order = 8)]
+        [DataMember(Order = 7)]
         public string? subjectName { get; set; }
-        [DataMember(Order = 9)]
+        [DataMember(Order = 8)]
         public int teacherID { get; set; }
-        [DataMember(Order = 10)]
+        [DataMember(Order = 9)]
         public string? teacherName { get; set; }
-        [DataMember(Order = 11)]
+        [DataMember(Order = 10)]
         public DateTime teacherBirthday { get; set; }
     }
 
@@ -83,20 +82,18 @@ namespace Shared
         [DataMember(Order = 1)]
         public int? Id { get; set; }
         [DataMember(Order = 2)] 
-        public int? studentCode { get; set; }
-        [DataMember(Order = 3)] 
         public string? studentName { get; set; }
+        [DataMember(Order = 3)]
+        public DateTime? studentBirthday { get; set; }
         [DataMember(Order = 4)] 
         public string? studentAddress { get; set; }
-        [DataMember(Order = 5)] 
+        [DataMember(Order = 5)]
         public int? classroomId { get; set; }
         [DataMember(Order = 6)] 
-        public DateTime? studentBirthday { get; set; }
-        [DataMember(Order = 8)] 
         public int PageNumber { get; set; }
-        [DataMember(Order = 9)] 
+        [DataMember(Order = 7)] 
         public int PageSize { get; set; }
-        [DataMember(Order = 10)] 
+        [DataMember(Order = 8)] 
         public string? SortBy { get; set; }
     }
 

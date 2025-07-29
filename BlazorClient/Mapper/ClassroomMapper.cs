@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using BlazorClient.DTO;
 using Shared;
 
 namespace BlazorClient.Mapper
@@ -12,7 +13,8 @@ namespace BlazorClient.Mapper
     {
         public ClassroomMapper() 
         {
-            //CreateMap<ClassroomProfile, Classrooms>();
+            CreateMap<ClassroomProfile, ClassroomDTO>();
+            CreateMap<ClassroomDTO, ClassroomProfile>();
         }
     }
 }

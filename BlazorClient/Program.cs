@@ -20,6 +20,7 @@ builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 
 builder.Services.AddAntDesign();
 builder.Services.AddAutoMapper(typeof(StudentMapper));
+builder.Services.AddAutoMapper(typeof(ClassroomMapper));
 
 builder.Services.AddScoped(provider =>
 {
@@ -28,6 +29,15 @@ builder.Services.AddScoped(provider =>
         HttpHandler = handler
     });
     return channel.CreateGrpcService<IStudentContract>();
+});
+
+builder.Services.AddScoped(provider =>
+{
+    var channel = GrpcChannel.ForAddress(grpcAddress, new GrpcChannelOptions
+    {
+        HttpHandler = handler
+    });
+    return channel.CreateGrpcService<IClassroomContract>();
 });
 
 var app = builder.Build();

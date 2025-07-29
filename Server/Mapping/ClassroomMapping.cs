@@ -12,11 +12,10 @@ namespace Server.Mapping
     {
         public ClassroomMapping()
         {
-            Id(x => x._id, "id").GeneratedBy.Identity();
-            Map(x => x._idClassroom, "classroom_id");
-            Map(x => x._nameClassroom, "classroom_name");
-            Map(x => x._nameSubject, "classroom_subject");
-            References(x => x._teacher, "teacher_id").Cascade.None();
+            Id(x => x.Id, "id").GeneratedBy.Identity();
+            Map(x => x.NameClassroom, "classroom_name");
+            Map(x => x.NameSubject, "classroom_subject");
+            References(x => x.Teacher, "teacher_id").Cascade.None();
         }
     }
 }

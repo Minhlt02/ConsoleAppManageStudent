@@ -21,9 +21,17 @@ namespace Server.Repository
         public async Task<List<Classrooms>> GetAllClassroomAsync()
         {
             List<Classrooms> classrooms = await session.Query<Classrooms>()
-                .Fetch(c => c._teacher)
+                .Fetch(c => c.Teacher)
                 .ToListAsync();
             return classrooms;
+        }
+
+        public async Task<Classrooms?> GetClassroomByIdAsync(int id)
+        {
+            Classrooms classroom = await session.Query<Classrooms>()
+                .FirstOrDefaultAsync(c => c.Id == id);
+
+            return classroom;
         }
     }
 }

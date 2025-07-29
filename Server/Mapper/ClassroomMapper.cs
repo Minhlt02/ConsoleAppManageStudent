@@ -13,7 +13,7 @@ namespace Server.Mapper
     {
         public ClassroomMapper() 
         {
-            CreateMap<ClassroomProfile, Classrooms>();
+            CreateMap<Classrooms, ClassroomProfile>();
         }
     }
 }

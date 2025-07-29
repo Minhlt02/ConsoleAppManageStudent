@@ -20,9 +20,6 @@ namespace Server.Repository
         {
             using (ITransaction tx = session.BeginTransaction())
             {
-                var classroom = session.Get<Classrooms>(1);
-
-                students._classrooms = classroom;
                 await session.SaveAsync(students);
                 await tx.CommitAsync();
              }
@@ -42,8 +39,8 @@ namespace Server.Repository
         {
            Students students = await session.Query<Students>()
                         .Fetch(s => s._classrooms)
-                        .ThenFetch(c => c._teacher)
-                        .FirstOrDefaultAsync(s => s._studentCode == id);
+                        .ThenFetch(c => c.Teacher)
+                        .FirstOrDefaultAsync(s => s._id == id);
             return students;
         }
 
@@ -51,7 +48,7 @@ namespace Server.Repository
         {
             List<Students> students = await session.Query<Students>()
                         .Fetch(s => s._classrooms)
-                        .ThenFetch(c => c._teacher)
+                        .ThenFetch(c => c.Teacher)
                         .ToListAsync();
             return students;
         }
@@ -85,7 +82,7 @@ namespace Server.Repository
             int pageSkip = (searchStudent.pageNumber - 1) * searchStudent.pageSize;
             var query = session.Query<Students>()
                             .Fetch(s => s._classrooms)
-                            .ThenFetch(c => c._teacher).AsQueryable();
+                            .ThenFetch(c => c.Teacher).AsQueryable();
             query = Filter(query, searchStudent);
             var result = new PageViewDTO<Students>
             {
@@ -100,7 +97,7 @@ namespace Server.Repository
             int pageSkip = (searchStudent.pageNumber - 1) * searchStudent.pageSize;
             var query = session.Query<Students>()
                             .Fetch(s => s._classrooms)
-                            .ThenFetch(c => c._teacher).AsQueryable();
+                            .ThenFetch(c => c.Teacher).AsQueryable();
             query = FilterSort(query, searchStudent);
             var result = new PageViewDTO<Students>
             {
@@ -116,10 +113,6 @@ namespace Server.Repository
             {
                 query = query.Where(student => student._id == studentSearch.Id.Value);
             }
-            if (studentSearch.studentCode.HasValue)
-            {
-                query = query.Where(student => student._studentCode == studentSearch.studentCode.Value);
-            }
             if (!string.IsNullOrWhiteSpace(studentSearch.studentName))
             {
                 query = query.Where(s => s._name.Contains(studentSearch.studentName));
@@ -132,10 +125,6 @@ namespace Server.Repository
             {
                 query = query.Where(student => student._birthday.Date >= studentSearch.studentBirthday.Value.Date);
             }
-            if (studentSearch.classroomId.HasValue)
-            {
-                query = query.Where(student => student._classrooms._idClassroom == studentSearch.classroomId.Value);
-            }
             return query;
         }
 
@@ -144,10 +133,6 @@ namespace Server.Repository
             if (studentSearch.sortBy.Equals("id"))
             {
                 query = query.OrderBy(s=>s._id);
-            }
-            if (studentSearch.sortBy.Equals("studentCode"))
-            {
-                query = query.OrderBy(s => s._studentCode);
             }
             if (studentSearch.sortBy.Equals("studentName"))
             {
@@ -162,7 +147,7 @@ namespace Server.Repository
             var query = session.Query<Students>();
             if (id != 1)
             {
-                query = query.Where(s => s._classrooms._idClassroom == id);
+                query = query.Where(s => s._classrooms.Id == id);
             }
             List<StudentAgeDTO> result = await query
                 .GroupBy(s => DateTime.Now.Year - s._birthday.Year)

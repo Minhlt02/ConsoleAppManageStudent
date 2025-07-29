@@ -14,7 +14,6 @@ namespace Shared
     public class RequestId 
     {
         [DataMember(Order = 1)] public int id { get; set; }
-        [DataMember(Order = 2)] public int studentCode { get; set; }
     }
 
     [DataContract]

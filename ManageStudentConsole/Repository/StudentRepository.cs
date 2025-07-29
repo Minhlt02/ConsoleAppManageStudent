@@ -50,7 +50,7 @@ namespace ManageStudentConsole.Repository
                   return session.Query<Students>().
                     Fetch(s => s._classrooms).
                     ThenFetch(c => c._teacher)
-                    .First(s => s._studentCode == id);
+                    .First(s => s._id == id);
             }
         }
 

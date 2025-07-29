@@ -11,5 +11,6 @@ namespace Server.Repository
     public interface IClassroomRepository
     {
         Task<List<Classrooms>> GetAllClassroomAsync();
+        Task<Classrooms?> GetClassroomByIdAsync(int id);
     }
 }

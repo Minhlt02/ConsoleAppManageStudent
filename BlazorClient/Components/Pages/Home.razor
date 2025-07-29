@@ -10,7 +10,7 @@
 
 
 
-
+<Notification />
 <Table DataSource="@students"
        RowKey="s => s.Id"
        PageIndex="pageNumber"
@@ -28,6 +28,11 @@
             <div>
                 <div>
                     <Input @bind-Value="SearchKeyword" Placeholder="Nhập mã sinh viên..." Style="width: 300px;" />
+                    <Select DataSource="@classrooms"
+                            ItemValue="c => c.Id"
+                            ItemLabel="c => c.NameSubject"
+                            Style="width: 120px">
+                    </Select>
                     <Button Type="ButtonType.Primary" OnClick="SearchStudentAsync" Style="margin-left: 10px;">
                         Tìm kiếm
                     </Button>
@@ -68,7 +73,6 @@
         </ColumnDefinition>
         @* <GenerateColumns Definitions="@((n, c) => { c.Filterable = true; c.Sortable = true; })" /> *@
 
-        <PropertyColumn Property="s => s.studentCode" Title="Student Code" />
         <PropertyColumn Property="s => s.studentName" Title="Full Name" />
         <PropertyColumn Property="s => s.studentBirthday" Title="Birthday" Format="dd/MM/yyyy" />
         <PropertyColumn Property="s => s.studentAddress" Title="Address" />
@@ -79,10 +83,10 @@
             <Button OnClick="@(() => OpenPopup(row))">Update</Button>
             <Button OnClick="@(() => OpenPopup(row, isDetails: true))">Details</Button>
             <Popconfirm Title="Sure to delete?"
-                        OnConfirm="()=> DeleteStudentAsync(row.studentCode)"
+                        OnConfirm="()=> DeleteStudentAsync(row.Id)"
                         OkText="Yes"
                         CancelText="No">
-                <Button Disabled="!_selectedRows.Any()" Danger>Delete</Button>
+                <Button Disabled="@(!_selectedRows.Any(s => s.Id == row.Id))" Danger>Delete</Button>
             </Popconfirm>
             
         </ActionColumn>

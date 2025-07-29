@@ -73,8 +73,6 @@ namespace ConsoleClient.Controller
         {
             Students students = new Students();
 
-            Console.WriteLine("Nhập mã số sinh viên của sinh viên: ");
-            students.studentCode = int.Parse(Console.ReadLine() ?? "1");
             Console.WriteLine("Nhập tên của sinh viên: ");
             string? nameInput = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(nameInput))
@@ -195,7 +193,7 @@ namespace ConsoleClient.Controller
             {
                 Students students = mapper.Map<Students>(studentReply.Student);
                 Console.WriteLine("{0,-6}| {1,-15}| {2,-12:dd/MM/yyyy}| {3,-12}| {4,-10}| {5,-10}| {6,-15}",
-                        students.studentCode,
+                        students.Id,
                         students.studentName,
                         students.studentBirthday.ToString("dd/MM/yyyy"),
                         students.studentAddress,
@@ -220,7 +218,7 @@ namespace ConsoleClient.Controller
                 foreach (var student in students)
                 {
                     Console.WriteLine("{0,-5} | {1,-15} | {2,-12:dd/MM/yyyy} | {3,-10}",
-                    student.studentCode,
+                    student.Id,
                     student.studentName,
                     student.studentBirthday.ToString("dd/MM/yyyy"),
                     student.studentAddress);
@@ -241,7 +239,7 @@ namespace ConsoleClient.Controller
                 foreach (var student in students)
                 {
                     Console.WriteLine("{0,-5} | {1,-15} | {2,-12:dd/MM/yyyy} | {3,-10}",
-                    student.studentCode,
+                    student.Id,
                     student.studentName,
                     student.studentBirthday.ToString("dd/MM/yyyy"),
                     student.studentAddress);

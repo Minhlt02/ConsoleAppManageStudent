@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using NHibernate.Mapping.ByCode.Impl;
 using ProtoBuf.Grpc;
 using Server.Entity;
 using Server.Repository;
@@ -21,22 +22,20 @@ namespace Server.Service
             classRepo = _classRepo;
             mapper = _mapper;
         }
-        public async Task<ListClassroomProfile> GetAllClassroomAsync(Empty empty, CallContext callContext = default)
+        public async Task<MultipleClassroomProfile> GetAllClassroomAsync(Empty empty, CallContext callContext = default)
         {
-            ListClassroomProfile profile = new ListClassroomProfile();
+            MultipleClassroomProfile profile = new MultipleClassroomProfile();
             try
             {
                 List<Classrooms>? classrooms = await classRepo.GetAllClassroomAsync();
-                if (classrooms != null && classrooms.Count > 0)
+                if (classrooms == null)
                 {
-                    profile.ClassroomList = mapper.Map<List<ClassroomProfile>>(classrooms);
-                    profile.Message = "Lấy danh sách sinh viên thành công!";
+                    throw new Exception("There is no classes in database");
                 }
-                else
-                {
-                    profile.ClassroomList = new List<ClassroomProfile>();
-                    profile.Message = "Không có sinh viên nào trong hệ thống.";
-                }
+
+                profile.Count = classrooms.Count;
+                profile.ClassroomList = mapper.Map<List<ClassroomProfile>>(classrooms);
+    
             } catch(Exception ex)
             {
                 profile.ClassroomList = new List<ClassroomProfile>();
