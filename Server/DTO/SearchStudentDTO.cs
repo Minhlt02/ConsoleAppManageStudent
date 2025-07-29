@@ -18,5 +18,7 @@ namespace Server.DTO
         public int pageSize { get; set; } = 10;
 
         public string? sortBy { get; set; }
+        public string keyword { get; set; }
+        public int? teacherId { get; set; }
     }
 }

@@ -8,21 +8,21 @@ namespace Server.Entity
 {
     public class Teachers
     {
-        public virtual int _id { get; set; }
-        public virtual string _nameTeacher { get; set; }
-        public virtual DateTime _birthdayTeacher { get; set; }
+        public virtual int Id { get; set; }
+        public virtual string NameTeacher { get; set; }
+        public virtual DateTime BirthdayTeacher { get; set; }
 
         public Teachers() { }
 
         public Teachers(string teacherName, DateTime teacherBirthday)
         {
-            _nameTeacher = teacherName;
-            _birthdayTeacher = teacherBirthday;
+            NameTeacher = teacherName;
+            BirthdayTeacher = teacherBirthday;
         }
 
         public virtual string toString()
         {
-            return this._nameTeacher + "\t\t|" + this._birthdayTeacher.ToString("dd/MM/yyyy");
+            return this.NameTeacher + "\t\t|" + this.BirthdayTeacher.ToString("dd/MM/yyyy");
         }
     }
 }

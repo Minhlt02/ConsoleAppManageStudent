@@ -25,13 +25,22 @@
     <TitleTemplate>
         <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 10px">
 
-            <div>
+            <div style="float:left">
                 <div>
-                    <Input @bind-Value="SearchKeyword" Placeholder="Nhập mã sinh viên..." Style="width: 300px;" />
+                    <Input @bind-Value="keyword" Placeholder="Nhập mã sinh viên..." Style="width: 180px;" />
                     <Select DataSource="@classrooms"
+                            @bind-Value="SelectedClassroomID"
                             ItemValue="c => c.Id"
-                            ItemLabel="c => c.NameSubject"
-                            Style="width: 120px">
+                            ItemLabel="c => c.NameClassroom"
+                            Style="width: 100px"
+                            AllowClear="true">
+                    </Select>
+                    <Select DataSource="@teachers"
+                            @bind-Value="SelectedTeacherID"
+                            ItemValue="t => t.Id"
+                            ItemLabel="t => t.NameTeacher"
+                            Style="width: 100px"
+                            AllowClear="true">
                     </Select>
                     <Button Type="ButtonType.Primary" OnClick="SearchStudentAsync" Style="margin-left: 10px;">
                         Tìm kiếm
@@ -95,7 +104,7 @@
 
 @if(visible)
 {
-    <StudentPopup Visible="visible" Student="student" ReloadStudents="LoadStudentsAsync" OnClose="ClosePopupAsync" IsCreate="isCreate" IsDetails="isDetails" />
+    <StudentPopup Visible="visible" Student="Student" ReloadStudents="LoadStudentsAsync" OnClose="ClosePopupAsync" IsCreate="isCreate" IsDetails="isDetails" />
 }
 
 

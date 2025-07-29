@@ -12,8 +12,10 @@ namespace Shared
         Task<OperationReply> AddStudentAsync(StudentProfile request, CallContext callContaxt = default);
         [OperationContract]
         Task<OperationReply> DeleteStudentAsync(RequestId request, CallContext callContaxt = default);
+
         [OperationContract]
         Task<StudentReply> GetStudentByIdAsync(RequestId request, CallContext callContaxt = default);
+
         [OperationContract]
         Task<MultipleStudentReply> GetAllStudentAsync(Empty request, CallContext callContaxt = default);
         [OperationContract]
@@ -95,6 +97,10 @@ namespace Shared
         public int PageSize { get; set; }
         [DataMember(Order = 8)] 
         public string? SortBy { get; set; }
+        [DataMember(Order = 9)]
+        public string? keyword { get; set; }
+        [DataMember(Order = 10)]
+        public int? teacherId { get; set; }
     }
 
     [DataContract]
@@ -110,4 +116,5 @@ namespace Shared
     {
         [DataMember(Order = 1)] public List<StudentAge> ChartData { get; set; } = null!;
     }
+
 }

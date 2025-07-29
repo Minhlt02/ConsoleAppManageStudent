@@ -21,6 +21,7 @@ builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 builder.Services.AddAntDesign();
 builder.Services.AddAutoMapper(typeof(StudentMapper));
 builder.Services.AddAutoMapper(typeof(ClassroomMapper));
+builder.Services.AddAutoMapper(typeof(TeacherMapper));
 
 builder.Services.AddScoped(provider =>
 {
@@ -40,6 +41,14 @@ builder.Services.AddScoped(provider =>
     return channel.CreateGrpcService<IClassroomContract>();
 });
 
+builder.Services.AddScoped(provider =>
+{
+    var channel = GrpcChannel.ForAddress(grpcAddress, new GrpcChannelOptions
+    {
+        HttpHandler = handler
+    });
+    return channel.CreateGrpcService<ITeacherContract>();
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

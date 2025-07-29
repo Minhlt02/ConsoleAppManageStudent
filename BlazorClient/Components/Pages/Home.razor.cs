@@ -24,24 +24,27 @@ namespace BlazorClient.Components.Pages
         public IMapper Mapper { get; set; } = null!;
         [Inject]
         IClassroomContract ClassroomService { get; set; }
+        [Inject]
+        ITeacherContract TeacherService { get; set; }
+        [Parameter]
+        public StudentDTO Student { get; set; }
 
         // models
-        StudentDTO? student = new StudentDTO();
         SearchStudentDTO? searchStudent = new SearchStudentDTO();
         List<StudentDTO> students = null!;
         IEnumerable<StudentDTO> _selectedRows = [];
         List<ClassroomDTO> classrooms = new List<ClassroomDTO>();
+        List<TeacherDTO> teachers = new List<TeacherDTO>();
 
 
         int pageNumber = 1;
         int pageSize = 10;
         int total;
-        string? sortBy = "";
+        string? sortBy;
         private bool isRetry = false;
-        private string? SearchKeyword;
-
-
-        
+        private string? keyword;
+        private int? SelectedClassroomID;
+        private int? SelectedTeacherID;
 
         bool isCreate = false;
         bool isDetails = false;
@@ -75,7 +78,7 @@ namespace BlazorClient.Components.Pages
             this.isDetails = isDetails;
             if (!isCreate)
             {
-                this.student = students;
+                this.Student = students;
             }
         }
 
@@ -83,7 +86,7 @@ namespace BlazorClient.Components.Pages
         {
             await Task.Run(() =>
             {
-                student = new StudentDTO();
+                Student = new StudentDTO();
                 isCreate = false;
                 visible = false;
                 isDetails = false;
@@ -108,7 +111,25 @@ namespace BlazorClient.Components.Pages
             }
         }
 
-            async Task LoadStudentsAsync()
+        async Task LoadTeachersAsync()
+        {
+            var reply = await TeacherService.GetAllTeacherAsync(new Shared.Empty());
+            if (reply.TeacherList == null)
+            {
+                _ = _notice.Open(new NotificationConfig()
+                {
+                    Message = "Lấy thông tin thất bại",
+                    Description = reply.Message,
+                    NotificationType = NotificationType.Error
+                });
+            }
+            else
+            {
+                teachers = Mapper.Map<List<TeacherDTO>>(reply.TeacherList);
+            }
+        }
+
+        async Task LoadStudentsAsync()
         {
             var request = Mapper.Map<PaginationRequest>(searchStudent);
             request.PageSize = pageSize;
@@ -234,46 +255,44 @@ namespace BlazorClient.Components.Pages
             
         }
 
-        private async Task SearchStudentAsync()
+        public async Task SearchStudentAsync()
         {
-            int codeInput = int.Parse(SearchKeyword ?? "1");
-            if (codeInput != 0)
-            {
-                try
-                {
-                    var reply = await studentContract.GetStudentByIdAsync(new RequestId { id = codeInput });
+            var request = Mapper.Map<PaginationRequest>(searchStudent);
+            request.PageSize = pageSize;
+            request.PageNumber = pageNumber;
+            request.keyword = keyword;
+            request.classroomId = SelectedClassroomID;
+            request.teacherId = SelectedTeacherID;
 
-                    if (reply.Student != null)
-                    {
-                        students = new List<StudentDTO> { Mapper.Map<StudentDTO>(reply.Student) };
-                        total = 1;
-                    }
-                    else
-                    {
-                        students = new List<StudentDTO>();
-                        total = 0;
-                        await _notice.Open(new NotificationConfig
-                        {
-                            Message = "Không tìm thấy sinh viên",
-                            Description = reply.Message ?? "Mã sinh viên không hợp lệ",
-                            NotificationType = NotificationType.Warning
-                        });
-                    }
-                }
-                catch (Exception ex)
-                {
-                    await _notice.Open(new NotificationConfig
-                    {
-                        Message = "Lỗi tìm kiếm",
-                        Description = ex.Message,
-                        NotificationType = NotificationType.Error
-                    });
-                }
+            var reply = await studentContract.GetPaginationAsync(request);
+
+            if (reply.listStudents?.Any() == true)
+            {
+                students = Mapper.Map<List<StudentDTO>>(reply.listStudents);
+                total = reply.Count;
+                isRetry = false; // reset
             }
             else
             {
-                // Nếu không có mã sinh viên => tải toàn bộ (hoặc theo phân trang hiện tại)
-                await LoadStudentsAsync();
+                if (pageNumber > 1 && !isRetry)
+                {
+                    pageNumber--;
+                    isRetry = true;
+                    await SearchStudentAsync();
+                }
+                else
+                {
+                    students = new();
+                    total = 0;
+                    isRetry = false;
+                    _= _notice.Open(new NotificationConfig()
+                    {
+                        Message = "Không có dữ liệu phù hợp",
+                        Description = reply.Message ?? "Danh sách sinh viên trống.",
+                        NotificationType = NotificationType.Warning
+                    });
+                    searchStudent = new SearchStudentDTO();
+                }
             }
         }
 
@@ -281,6 +300,7 @@ namespace BlazorClient.Components.Pages
         {
             await LoadStudentsAsync();
             await LoadClassroomsAsync();
+            await LoadTeachersAsync();
         }
     }
 }

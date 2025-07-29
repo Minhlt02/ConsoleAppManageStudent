@@ -113,17 +113,21 @@ namespace Server.Repository
             {
                 query = query.Where(student => student._id == studentSearch.Id.Value);
             }
-            if (!string.IsNullOrWhiteSpace(studentSearch.studentName))
+            if (!string.IsNullOrEmpty(studentSearch.keyword))
             {
-                query = query.Where(s => s._name.Contains(studentSearch.studentName));
+                query = query.Where(s => s._name.Contains(studentSearch.keyword));
             }
             if (!string.IsNullOrEmpty(studentSearch.studentAddress))
             {   
                 query = query.Where(s => s._address.Contains(studentSearch.studentAddress));
             }
-            if (studentSearch.studentBirthday.HasValue)
+            if (studentSearch.teacherId.HasValue)
             {
-                query = query.Where(student => student._birthday.Date >= studentSearch.studentBirthday.Value.Date);
+                query = query.Where(student => student._classrooms.Teacher.Id == studentSearch.teacherId.Value);
+            }
+            if (studentSearch.classroomId.HasValue)
+            {
+                query = query.Where(student => student._classrooms.Id == studentSearch.classroomId.Value);
             }
             return query;
         }

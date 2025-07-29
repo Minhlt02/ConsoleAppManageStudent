@@ -12,9 +12,9 @@ namespace Server.Mapping
     {
         public TeacherMapping()
         {
-            Id(x => x._id, "id").GeneratedBy.Identity();
-            Map(x => x._nameTeacher, "teacher_name");
-            Map(x => x._birthdayTeacher, "teacher_birthday");
+            Id(x => x.Id, "id").GeneratedBy.Identity();
+            Map(x => x.NameTeacher, "teacher_name");
+            Map(x => x.BirthdayTeacher, "teacher_birthday");
         }
     }
 }

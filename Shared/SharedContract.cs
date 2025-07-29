@@ -17,6 +17,14 @@ namespace Shared
     }
 
     [DataContract]
+    public class MultipleRequest
+    {
+        [DataMember(Order = 1)] public string name { get; set; }
+        [DataMember(Order = 2)] public int classroomId { get; set; }
+        [DataMember(Order = 2)] public int teacherId { get; set; }
+    }
+
+    [DataContract]
     public class OperationReply
     {
         [DataMember(Order = 1)]

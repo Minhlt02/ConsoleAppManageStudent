@@ -22,9 +22,9 @@ namespace Server.Mapper
                 .ForPath(dest => dest._classrooms.Id, opt => opt.MapFrom(src => src.classroomID))
                 .ForPath(dest => dest._classrooms.NameClassroom, opt => opt.MapFrom(src => src.classroomName))
                 .ForPath(dest => dest._classrooms.NameSubject, opt => opt.MapFrom(src => src.subjectName))
-                .ForPath(dest => dest._classrooms.Teacher._id, opt => opt.MapFrom(src => src.teacherID))
-                .ForPath(dest => dest._classrooms.Teacher._nameTeacher, opt => opt.MapFrom(src => src.teacherName))
-                .ForPath(dest => dest._classrooms.Teacher._birthdayTeacher, opt => opt.MapFrom(src => src.teacherBirthday));
+                .ForPath(dest => dest._classrooms.Teacher.Id, opt => opt.MapFrom(src => src.teacherID))
+                .ForPath(dest => dest._classrooms.Teacher.NameTeacher, opt => opt.MapFrom(src => src.teacherName))
+                .ForPath(dest => dest._classrooms.Teacher.BirthdayTeacher, opt => opt.MapFrom(src => src.teacherBirthday));
 
             CreateMap<Students, StudentProfile>()
                 .ForMember(dest => dest.id, opt => opt.MapFrom(src => src._id))
@@ -34,9 +34,9 @@ namespace Server.Mapper
                 .ForMember(dest => dest.classroomID, opt => opt.MapFrom(src => src._classrooms.Id))
                 .ForMember(dest => dest.classroomName, opt => opt.MapFrom(src => src._classrooms.NameClassroom))
                 .ForMember(dest => dest.subjectName, opt => opt.MapFrom(src => src._classrooms.NameSubject))
-                .ForMember(dest => dest.teacherID, opt => opt.MapFrom(src => src._classrooms.Teacher._id))
-                .ForMember(dest => dest.teacherName, opt => opt.MapFrom(src => src._classrooms.Teacher._nameTeacher))
-                .ForMember(dest => dest.teacherBirthday, opt => opt.MapFrom(src => src._classrooms.Teacher._birthdayTeacher));
+                .ForMember(dest => dest.teacherID, opt => opt.MapFrom(src => src._classrooms.Teacher.Id))
+                .ForMember(dest => dest.teacherName, opt => opt.MapFrom(src => src._classrooms.Teacher.NameTeacher))
+                .ForMember(dest => dest.teacherBirthday, opt => opt.MapFrom(src => src._classrooms.Teacher.BirthdayTeacher));
 
             CreateMap<PaginationRequest, SearchStudentDTO>();
 
@@ -44,7 +44,7 @@ namespace Server.Mapper
                 .ForMember(dest => dest.PageNumber, opt => opt.Ignore())
                 .ForMember(dest => dest.PageSize, opt => opt.Ignore())
 
-                .ForMember(dest => dest.SortBy, opt => opt.MapFrom(s => s.sortBy)); ;
+                .ForMember(dest => dest.SortBy, opt => opt.MapFrom(s => s.sortBy));
 
 
             CreateMap<StudentAgeDTO, StudentAge>() ;

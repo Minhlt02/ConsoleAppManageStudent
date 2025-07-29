@@ -9,6 +9,8 @@
         public int? classroomId { get; set; }
         public int PageNumber { get; set; } = 1;
         public int PageSize { get; set; } = 10;
+        public string? keyword { get; set; }
+        public int? teacherId { get; set; }
 
         public string? sortBy { get; set; }
     }
