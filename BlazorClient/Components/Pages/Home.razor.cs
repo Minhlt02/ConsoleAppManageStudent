@@ -27,7 +27,7 @@ namespace BlazorClient.Components.Pages
         [Inject]
         ITeacherContract TeacherService { get; set; }
         [Parameter]
-        public StudentDTO Student { get; set; }
+        public StudentDTO Student { get; set; } = new();
 
         // models
         SearchStudentDTO? searchStudent = new SearchStudentDTO();
