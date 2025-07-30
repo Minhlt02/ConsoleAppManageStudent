@@ -16,8 +16,8 @@ namespace BlazorClient.DTO
         [Required]
         public string studentAddress { get; set; } = null!;
 
-        [Required]
-        public int classroomID { get; set; }
+        [Required(ErrorMessage = "Vui lòng chọn lớp học")]
+        public int? classroomID { get; set; }
 
         public string classroomName { get; set; } = null!;
 

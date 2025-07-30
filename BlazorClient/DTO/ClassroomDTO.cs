@@ -12,5 +12,7 @@ namespace BlazorClient.DTO
 
         [Required]
         public string NameSubject { get; set; }
+
+        public int Count { get; set; } = 0;
     }
 }

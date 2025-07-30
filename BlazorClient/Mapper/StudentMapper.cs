@@ -26,7 +26,7 @@ namespace BlazorClient.Mapper
 
 
 
-            CreateMap<StudentAge, StudentAgeDTO>();
+            CreateMap<StudentChart, StudentChartDTO>();
         } 
     }
 }

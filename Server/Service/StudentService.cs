@@ -211,15 +211,42 @@ namespace Server.Service
             return reply;
         }
 
-        public async Task<StudentAgeChart> GetStudentAgeChartAsync(RequestId request, CallContext callContext = default)
+        public async Task<MultipleStudentChart> GetStudentAgeChartAsync(RequestId request, CallContext callContext = default)
         {
             var chartData = await studentRepo.GetStudentAgesChartAsync(request.id);
-            StudentAgeChart studentAgeChart = new StudentAgeChart
+            MultipleStudentChart studentAgeChart = new MultipleStudentChart
             {
-                ChartData = mapper.Map<List<StudentAge>>(chartData)
+                ChartData = mapper.Map<List<StudentChart>>(chartData)
             };
 
             return studentAgeChart;
+        }
+
+        public async Task<MultipleStudentChart> GetStudentCountAsync(RequestId request, CallContext callContext = default)
+        {
+            var chartData = await studentRepo.GetStudentCountChartAsync(request.id);
+            MultipleStudentChart studentCountChart = new MultipleStudentChart
+            {
+                ChartData = mapper.Map<List<StudentChart>>(chartData)
+            };
+
+            return studentCountChart;
+        }
+
+        public async Task<MultipleStudentChart> GetStudentCountOfTeacherAsync(RequestId request, CallContext callContext = default)
+        {
+            var chartData = await studentRepo.GetStudentCountOfTeacherChartAsync(request.id);
+            MultipleStudentChart studentCountOfTeacherChart = new MultipleStudentChart
+            {
+                ChartData = mapper.Map<List<StudentChart>>(chartData)
+            };
+
+            return studentCountOfTeacherChart;
+        }
+
+        public Task<MultipleStudentReply> ExportStudentsExcelAsync(PaginationRequest request, CallContext callContext = default)
+        {
+            throw new NotImplementedException();
         }
     }
 }

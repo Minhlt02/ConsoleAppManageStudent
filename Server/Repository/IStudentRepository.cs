@@ -22,7 +22,10 @@ namespace Server.Repository
         Task<PageViewDTO<Students>> GetPaginationAsync(SearchStudentDTO searchStudent);
 
         Task<PageViewDTO<Students>> GetPaginationSortAsync(SearchStudentDTO searchStudent);
-        Task<List<StudentAgeDTO>> GetStudentAgesChartAsync(int id = -1);
+        Task<List<StudentChartDTO>> GetStudentAgesChartAsync(int id);
+        Task<List<StudentChartDTO>> GetStudentCountChartAsync(int id);
+        Task<List<StudentChartDTO>> GetStudentCountOfTeacherChartAsync(int id);
+
 
     }
 }

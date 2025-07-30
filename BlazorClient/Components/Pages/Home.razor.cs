@@ -3,9 +3,10 @@ using AntDesign;
 using AntDesign.TableModels;
 using AutoMapper;
 using BlazorClient.DTO;
+using ClosedXML.Excel;
 using Grpc.Core;
 using Microsoft.AspNetCore.Components;
-
+using Microsoft.JSInterop;
 using Shared;
 using System.Drawing.Printing;
 using System.Runtime.CompilerServices;
@@ -26,6 +27,10 @@ namespace BlazorClient.Components.Pages
         IClassroomContract ClassroomService { get; set; }
         [Inject]
         ITeacherContract TeacherService { get; set; }
+
+        [Inject]
+        IJSRuntime JS { get; set; }
+
         [Parameter]
         public StudentDTO Student { get; set; } = new();
 
@@ -127,6 +132,66 @@ namespace BlazorClient.Components.Pages
             {
                 teachers = Mapper.Map<List<TeacherDTO>>(reply.TeacherList);
             }
+        }
+
+        async Task ExportExcelAsync()
+        {
+            var request = Mapper.Map<PaginationRequest>(searchStudent);
+            request.PageSize = int.MaxValue;
+            request.PageNumber = 1;
+            request.keyword = keyword;
+            request.classroomId = SelectedClassroomID;
+            request.teacherId = SelectedTeacherID;
+
+            var reply = await studentContract.GetPaginationAsync(request);
+            using var workbook = new XLWorkbook();
+            var worksheet = workbook.Worksheets.Add("Students");
+
+            worksheet.Cell(1, 1).Value = "Mã SV";
+            worksheet.Cell(1, 2).Value = "Tên";
+            worksheet.Cell(1, 3).Value = "Ngày sinh";
+            worksheet.Cell(1, 4).Value = "Địa chỉ";
+            worksheet.Cell(1, 5).Value = "Mã lớp học";
+
+            worksheet.Column(1).Width = 10;
+            worksheet.Column(2).Width = 30;
+            worksheet.Column(3).Width = 15;
+            worksheet.Column(4).Width = 50;
+            worksheet.Column(5).Width = 10;
+
+            worksheet.Column(3).Style.DateFormat.Format = "dd/MM/yyyy";
+            for (int col = 1; col <= 5; col++)
+            {
+                worksheet.Column(col).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                worksheet.Column(col).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+            }
+            int i = 0;
+            students = Mapper.Map<List<StudentDTO>>(reply.listStudents);
+            foreach (var student in students)
+            {
+                if (student == null) continue;
+
+                worksheet.Cell(i + 2, 1).Value = student.Id;
+                worksheet.Cell(i + 2, 2).Value = student.studentName;
+                worksheet.Cell(i + 2, 3).Value = student.studentBirthday;
+                worksheet.Cell(i + 2, 4).Value = student.studentAddress;
+                worksheet.Cell(i + 2, 5).Value = student.classroomID;
+                i++;
+            }
+
+
+            using var stream = new MemoryStream();
+            workbook.SaveAs(stream);
+            stream.Position = 0;
+            var fileBytes = stream.ToArray();
+            var base64 = Convert.ToBase64String(fileBytes);
+            _ = _notice.Open(new NotificationConfig()
+            {
+                Message = "Tải thành công",
+                NotificationType = NotificationType.Success,
+            });
+            // Gọi JS để tải file
+            await JS.InvokeVoidAsync("downloadFileFromBytes", "DanhSachSinhVien.xlsx", base64);
         }
 
         async Task LoadStudentsAsync()

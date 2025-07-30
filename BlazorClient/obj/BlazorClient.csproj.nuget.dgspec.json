@@ -66,6 +66,10 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.105.0, )"
+            },
             "Grpc.Net.Client": {
               "target": "Package",
               "version": "[2.71.0, )"

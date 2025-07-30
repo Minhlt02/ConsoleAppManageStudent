@@ -1,16 +1,51 @@
 ﻿@rendermode InteractiveServer
 @page "/chart"
+@using AntDesign
 @using AntDesign.Charts
 
 <PageTitle>Chart</PageTitle>
 
 
+<Select DataSource="@classrooms"
+        Value="@SelectedClassroomID"
+        ValueChanged="@((int id) => OnClassroomChanged(id))"
+        ValueExpression="@(() => SelectedClassroomID)"
+                            ItemValue="c => c.Id"
+                            ItemLabel="c => c.NameClassroom"
+                            Style="width: 100px"
+                            AllowClear="true">
+</Select>
 <div class="mt-3 ms-3">
     <p class="fs-6">Number of students</p>
 
-    <AntDesign.Charts.Column @ref="chartStudentAge" Data="dataStudentAge" Config="config1" />
+    <AntDesign.Charts.Column @ref="chartStudentCount" Data="dataStudentCount" Config="configCount" />
 
-    <p class="text-center fs-6">Age</p>
+    <p class="text-center fs-6">Name Of Classroom</p>
 </div>
+<Select DataSource="@teachers"
+        Value="@SelectedTeacherID"
+        ValueChanged="@((int id) => OnTeacherChanged(id))"
+        ValueExpression="@(() => SelectedTeacherID)"
+        ItemValue="t => t.Id"
+        ItemLabel="t => t.NameTeacher"
+        Style="width: 100px"
+        AllowClear="true">
+</Select>
+<div class="mt-3 ms-3">
+    <p class="fs-6">Number of students</p>
+
+    <AntDesign.Charts.Column @ref="chartStudentCountOfTeacher" Data="dataStudentCountOfTeacher" Config="configCountOfTeacher" />
+
+    <p class="text-center fs-6">Name Of Teacher</p>
+</div>
+<div class="mt-3 ms-3">
+    <p class="fs-6">Number of students</p>
+
+    <AntDesign.Charts.Pie @ref="chartStudentAge" Data="dataStudentAge" Config="configPie" />
+
+    <p class="text-center fs-6">Age Of Student</p>
+</div>
+
+
 
 

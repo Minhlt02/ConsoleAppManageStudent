@@ -146,22 +146,71 @@ namespace Server.Repository
             return query;
         }
 
-        public async Task<List<StudentAgeDTO>> GetStudentAgesChartAsync(int id = 1)
+        public async Task<List<StudentChartDTO>> GetStudentAgesChartAsync(int id = 1)
         {
             var query = session.Query<Students>();
             if (id != 1)
             {
                 query = query.Where(s => s._classrooms.Id == id);
             }
-            List<StudentAgeDTO> result = await query
+            List<StudentChartDTO> result = await query
                 .GroupBy(s => DateTime.Now.Year - s._birthday.Year)
-                .Select(s => new StudentAgeDTO
+                .Select(s => new StudentChartDTO
                 {
                     Age = s.Key,
                     Count = s.Count()
                 })
                 .OrderBy(r => r.Age)
                 .ToListAsync();
+            return result;
+        }
+
+        public async Task<List<StudentChartDTO>> GetStudentCountChartAsync(int id)
+        {
+            var query = session.Query<Students>()
+                               .Fetch(s => s._classrooms)
+                               .AsQueryable();
+
+            if (id != 0)
+            {
+                query = query.Where(s => s._classrooms.Id == id);
+            }
+
+            var result = await query
+                .GroupBy(s => s._classrooms.NameClassroom)
+                .Select(s => new StudentChartDTO
+                {
+                    ClassName = s.Key,
+                    Count = s.Count()
+                })
+                .OrderBy(r=>r.ClassName)
+                .ToListAsync();
+
+            return result;
+        }
+
+        public async Task<List<StudentChartDTO>> GetStudentCountOfTeacherChartAsync(int id)
+        {
+            var query = session.Query<Students>()
+                               .Fetch(s => s._classrooms)
+                               .ThenFetch(c => c.Teacher)
+                               .AsQueryable();
+
+            if (id != 0)
+            {
+                query = query.Where(s => s._classrooms.Teacher.Id == id);
+            }
+
+            var result = await query
+                .GroupBy(s => s._classrooms.Teacher.NameTeacher)
+                .Select(s => new StudentChartDTO
+                {
+                    TeacherName = s.Key,
+                    Count = s.Count()
+                })
+                .OrderBy(r => r.TeacherName)
+                .ToListAsync();
+
             return result;
         }
 

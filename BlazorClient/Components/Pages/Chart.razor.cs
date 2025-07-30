@@ -15,41 +15,112 @@ namespace BlazorClient.Components.Pages
         public IStudentContract StudentContract { get; set; } = null!;
 
         [Inject]
-        public NotificationService Notification { get; set; } = null!;
+        public IClassroomContract ClassroomService { get; set; } = null!;
+
+        [Inject]
+        ITeacherContract TeacherService { get; set; }
+
+        [Inject]
+        public INotificationService _notice { get; set; }
 
         [Inject]
         public IMapper Mapper { get; set; } = null!;
         IChartComponent chartStudentAge = null!;
 
-        List<StudentAgeDTO> dataStudentAge = null!;
+        List<StudentChartDTO> dataStudentAge;
+
+        IChartComponent chartStudentCount;
+
+        List<StudentChartDTO> dataStudentCount;
+        IChartComponent chartStudentCountOfTeacher;
+
+        List<StudentChartDTO> dataStudentCountOfTeacher;
+
+        List<TeacherDTO> teachers = new List<TeacherDTO>();
+        List<ClassroomDTO> classrooms = new List<ClassroomDTO>();
+        private int SelectedClassroomID;
+        private int SelectedTeacherID;
 
         bool isFirstRender = true;
 
         // config charts
-        ColumnConfig config1 = null!;
+        PieConfig configPie;
+        ColumnConfig configCount;
+        ColumnConfig configCountOfTeacher;
+        private async Task OnClassroomChanged(int id)
+        {
+            SelectedClassroomID = id;
+            await LoadStudentCountAsync();
+        }
+
+        private async Task OnTeacherChanged(int id)
+        {
+            SelectedTeacherID = id;
+            await LoadStudentCountOfTeacherAsync();
+        }
         async Task LoadStudentAgeAsync(int id = 1)
         {
             var reply = await StudentContract.GetStudentAgeChartAsync(new RequestId { id = id });
-            dataStudentAge = Mapper.Map<List<StudentAgeDTO>>(reply.ChartData);
+            dataStudentAge = Mapper.Map<List<StudentChartDTO>>(reply.ChartData);
             if (!isFirstRender)
             {
                 await chartStudentAge.ChangeData(dataStudentAge);
             }
         }
 
+
+
+        async Task LoadStudentCountAsync()
+        {
+            var reply = await StudentContract.GetStudentCountAsync(new RequestId { id = SelectedClassroomID });
+            dataStudentCount = Mapper.Map<List<StudentChartDTO>>(reply.ChartData);
+            if (!isFirstRender)
+            {
+                await chartStudentCount.ChangeData(dataStudentCount);
+            }
+        }
+
+        async Task LoadStudentCountOfTeacherAsync()
+        {
+            var reply = await StudentContract.GetStudentCountOfTeacherAsync(new RequestId { id = SelectedTeacherID });
+            dataStudentCountOfTeacher = Mapper.Map<List<StudentChartDTO>>(reply.ChartData);
+            if (!isFirstRender)
+            {
+                await chartStudentCountOfTeacher.ChangeData(dataStudentCountOfTeacher);
+            }
+        }
+
         void Config()
         {
-            config1 = new ColumnConfig
+            configPie = new PieConfig
+            {
+                ForceFit = true,
+                Description = new Description
+                {
+                    Visible = true,
+                    Text = "When the type of the pie chart label is set to spider, the labels are divided into two groups, and they are displayed in alignment by pulling lines on both sides of the chart. Generally speaking, the labels of the spider layout are less likely to block each other."
+                },
+                Radius = 0.8,
+                AngleField = "count",
+                ColorField = "age",
+                Label = new PieLabelConfig
+                {
+                    Visible = true,
+                    Type = "spider"
+                }
+            };
+
+            configCount = new ColumnConfig
             {
                 AutoFit = true,
                 Padding = new[] { 40, 40, 40, 40 },
-                XField = "age",
+                XField = "className",
                 YField = "count",
                 Meta = new
                 {
                     Count = new
                     {
-                        Alias = "Count"
+                        Alias = "Số lượng học sinh"
                     }
                 },
                 Label = new ColumnViewConfigLabel
@@ -61,19 +132,87 @@ namespace BlazorClient.Components.Pages
                         FontWeight = 600,
                         Opacity = 0.6,
                     }
-
                 }
             };
+
+            configCountOfTeacher = new ColumnConfig
+            {
+                AutoFit = true,
+                Padding = new[] { 40, 40, 40, 40 },
+                XField = "teacherName",
+                YField = "count",
+                Meta = new
+                {
+                    Count = new
+                    {
+                        Alias = "Số lượng học sinh"
+                    }
+                },
+                Label = new ColumnViewConfigLabel
+                {
+                    Visible = true,
+                    Style = new TextStyle
+                    {
+                        FontSize = 12,
+                        FontWeight = 600,
+                        Opacity = 0.6,
+                    }
+                }
+            };
+
+        }
+        async Task LoadClassroomsAsync()
+        {
+            var reply = await ClassroomService.GetAllClassroomAsync(new Shared.Empty());
+            if (reply.ClassroomList == null)
+            {
+                _ = _notice.Open(new NotificationConfig()
+                {
+                    Message = "Lấy thông tin thất bại",
+                    Description = reply.Message,
+                    NotificationType = NotificationType.Error
+                });
+            }
+            else
+            {
+                classrooms = Mapper.Map<List<ClassroomDTO>>(reply.ClassroomList);
+            }
+        }
+
+        async Task LoadTeachersAsync()
+        {
+            var reply = await TeacherService.GetAllTeacherAsync(new Shared.Empty());
+            if (reply.TeacherList == null)
+            {
+                _ = _notice.Open(new NotificationConfig()
+                {
+                    Message = "Lấy thông tin thất bại",
+                    Description = reply.Message,
+                    NotificationType = NotificationType.Error
+                });
+            }
+            else
+            {
+                teachers = Mapper.Map<List<TeacherDTO>>(reply.TeacherList);
+            }
         }
 
         protected override async Task OnInitializedAsync()
         {
             Config();
+            await LoadClassroomsAsync();
+            await LoadTeachersAsync();
             await LoadStudentAgeAsync();
+            await LoadStudentCountAsync();
+            await LoadStudentCountOfTeacherAsync();
+
+
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
+            await chartStudentCount.ChangeData(dataStudentCount);
+            await chartStudentCountOfTeacher.ChangeData(dataStudentCountOfTeacher);
             await chartStudentAge.ChangeData(dataStudentAge);
             isFirstRender = false;
         }

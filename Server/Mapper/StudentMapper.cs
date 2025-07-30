@@ -47,8 +47,8 @@ namespace Server.Mapper
                 .ForMember(dest => dest.SortBy, opt => opt.MapFrom(s => s.sortBy));
 
 
-            CreateMap<StudentAgeDTO, StudentAge>() ;
-            CreateMap<Students, StudentAgeDTO>()
+            CreateMap<StudentChartDTO, StudentChart>() ;
+            CreateMap<Students, StudentChartDTO>()
                 .ForMember(dest => dest.Age, opt => opt.MapFrom(src => DateTime.Now.Year - src._birthday.Year))
                 .ForMember(dest => dest.Count, opt => opt.MapFrom(src => 1));
 

@@ -2,28 +2,25 @@
 <Drawer Visible="@Visible" Placement="DrawerPlacement.Right" Title="@($"Student")" OnClose="ClosePopupAsync" Width="500">
     <Form Model="@Student"
           OnFinish="@(IsDetails ? () => {} : async () => await CreateOrUpdateAsync())"
-          RequiredMark="FormRequiredMark.Required"
           LabelAlign="AntLabelAlignType.Left"
           Layout="FormLayout.Horizontal"
           LabelCol="new ColLayoutParam { Span = 6 }"
           WrapperCol="new ColLayoutParam { Span = 18 }">
         @if (IsDetails)
         {
-        <FormItem Label="Student Id" Required>
+        <FormItem Label="Student Id">
             <Input @bind-Value="Student.Id" Placeholder="Enter student code" ReadOnly />
         </FormItem>
 
-        <FormItem Label="Full Name" Required>
+        <FormItem Label="Full Name">
             <Input @bind-Value="Student.studentName" Placeholder="Enter full name" ReadOnly />
         </FormItem>
 
-        
-
-        <FormItem Label="Birthday" Required>
+        <FormItem Label="Birthday">
             <DatePicker @bind-Value="Student.studentBirthday" Format="dd/MM/yyyy" ReadOnly />
         </FormItem>
 
-        <FormItem Label="Address" Required>
+        <FormItem Label="Address">
             <TextArea @bind-Value="Student.studentAddress" Placeholder="Enter address" MinRows="3" MaxRows="6" ReadOnly />
             </FormItem>
 
@@ -39,22 +36,21 @@
         } 
         else
         {
-
-        <FormItem Label="Full Name" Required>
+        <FormItem Label="Full Name">
             <Input @bind-Value="Student.studentName" Placeholder="Enter full name"/>
         </FormItem>
 
-        <FormItem Label="Birthday" Required>
+        <FormItem Label="Birthday">
             <DatePicker @bind-Value="Student.studentBirthday" Format="dd/MM/yyyy" />
         </FormItem>
 
-        <FormItem Label="Address" Required>
+        <FormItem Label="Address">
             <TextArea @bind-Value="Student.studentAddress" Placeholder="Enter address" MinRows="3" MaxRows="6" />
         </FormItem>
 
         <FormItem Label="Class">
                 <Select DataSource="@classrooms"
-                        @bind-Value="@context.classroomID"
+                        @bind-Value="Student.classroomID"
                         ItemValue="c => c.Id"
                         ItemLabel="c => c.NameSubject"
                         Style="width: 120px">
