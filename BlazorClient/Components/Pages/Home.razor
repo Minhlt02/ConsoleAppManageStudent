@@ -27,11 +27,13 @@
 
             <div style="float:left">
                 <div>
-                    <Input @bind-Value="keyword" Placeholder="Nhập mã sinh viên..." Style="width: 180px;" />
+                    <Input @bind-Value="keywordId" Placeholder="Nhập mã..." Style="width: 100px;" />
+                    <Input @bind-Value="keyword" Placeholder="Nhập tên sinh viên..." Style="width: 180px;" />
                     <Select DataSource="@classrooms"
                             @bind-Value="SelectedClassroomID"
                             ItemValue="c => c.Id"
                             ItemLabel="c => c.NameClassroom"
+                            Placeholder="Lớp..."
                             Style="width: 100px"
                             AllowClear="true">
                     </Select>
@@ -39,7 +41,8 @@
                             @bind-Value="SelectedTeacherID"
                             ItemValue="t => t.Id"
                             ItemLabel="t => t.NameTeacher"
-                            Style="width: 100px"
+                            Placeholder="Giáo viên..."
+                            Style="width: 150px"
                             AllowClear="true">
                     </Select>
                     <Button Type="ButtonType.Primary" OnClick="SearchStudentAsync" Style="margin-left: 10px;">
@@ -49,7 +52,7 @@
                 </div>
             </div>
             <div style="float:right">
-                <Button Style="margin-left: 300px; background-color: green" Type="ButtonType.Primary" OnClick="@(e => OpenPopup(isCreate: true))">Add new student</Button>
+                <Button Style="margin-left: 100px; background-color: green" Type="ButtonType.Primary" OnClick="@(e => OpenPopup(isCreate: true))">Add new student</Button>
                 <Dropdown Trigger="@(new Trigger[] { Trigger.Click })">
                     <Overlay>
                         <Menu OnMenuItemClicked="OnSortAsync">

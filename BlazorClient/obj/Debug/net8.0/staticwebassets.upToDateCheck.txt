@@ -4,4 +4,3 @@ wwwroot\bootstrap\bootstrap.min.css.map
 wwwroot\favicon.png
 wwwroot\images\logo1.png
 wwwroot\images\REUSE.png
-wwwroot\js\download.js

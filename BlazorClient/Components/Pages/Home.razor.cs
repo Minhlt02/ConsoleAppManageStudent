@@ -1,16 +1,11 @@
 ﻿
 using AntDesign;
-using AntDesign.TableModels;
 using AutoMapper;
 using BlazorClient.DTO;
 using ClosedXML.Excel;
-using Grpc.Core;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using Shared;
-using System.Drawing.Printing;
-using System.Runtime.CompilerServices;
-using System.ServiceModel.Channels;
 namespace BlazorClient.Components.Pages
 {
     public partial class Home : ComponentBase
@@ -37,16 +32,19 @@ namespace BlazorClient.Components.Pages
         // models
         SearchStudentDTO? searchStudent = new SearchStudentDTO();
         List<StudentDTO> students = null!;
-        IEnumerable<StudentDTO> _selectedRows = [];
         List<ClassroomDTO> classrooms = new List<ClassroomDTO>();
         List<TeacherDTO> teachers = new List<TeacherDTO>();
 
+        IEnumerable<StudentDTO> _selectedRows = [];
 
         int pageNumber = 1;
         int pageSize = 10;
         int total;
         string? sortBy;
-        private bool isRetry = false;
+        
+
+        //search
+        private int? keywordId;
         private string? keyword;
         private int? SelectedClassroomID;
         private int? SelectedTeacherID;
@@ -54,17 +52,18 @@ namespace BlazorClient.Components.Pages
         bool isCreate = false;
         bool isDetails = false;
         bool visible = false;
-        bool isSort = false;
+        bool isSearch = false;
+        bool isRetry = false;
 
         async Task HandlePageIndexChangeAsync(PaginationEventArgs args)
         {
             pageNumber = args.Page;
-            if (isSort == true)
-            {
-                await LoadSortStudentsAsync();
-            } else
+            if (isSearch)
             {
                 await LoadStudentsAsync();
+            } else
+            {
+                await SearchStudentAsync();
             }
             
         }
@@ -89,13 +88,10 @@ namespace BlazorClient.Components.Pages
 
         async Task ClosePopupAsync()
         {
-            await Task.Run(() =>
-            {
-                Student = new StudentDTO();
-                isCreate = false;
-                visible = false;
-                isDetails = false;
-            });
+            isCreate = false;
+            visible = false;
+            isDetails = false;
+            await LoadStudentsAsync();
         }
 
         async Task LoadClassroomsAsync()
@@ -103,12 +99,7 @@ namespace BlazorClient.Components.Pages
             var reply = await ClassroomService.GetAllClassroomAsync(new Shared.Empty());
             if (reply.ClassroomList == null)
             {
-                _ = _notice.Open(new NotificationConfig()
-                {
-                    Message = "Lấy thông tin thất bại",
-                    Description = reply.Message,
-                    NotificationType = NotificationType.Error
-                });
+                await NotificationMessage("Lấy thông tin thất bại", NotificationType.Error);
             }
             else
             {
@@ -121,16 +112,124 @@ namespace BlazorClient.Components.Pages
             var reply = await TeacherService.GetAllTeacherAsync(new Shared.Empty());
             if (reply.TeacherList == null)
             {
-                _ = _notice.Open(new NotificationConfig()
-                {
-                    Message = "Lấy thông tin thất bại",
-                    Description = reply.Message,
-                    NotificationType = NotificationType.Error
-                });
+                await NotificationMessage("Lấy thông tin thất bại", NotificationType.Error);
             }
             else
             {
                 teachers = Mapper.Map<List<TeacherDTO>>(reply.TeacherList);
+            }
+        }
+        async Task LoadStudentsAsync()
+        {
+            var request = Mapper.Map<PaginationRequest>(searchStudent);
+            request.PageSize = pageSize;
+            request.PageNumber = pageNumber;
+            request.SortBy = sortBy;
+
+            var reply = await studentContract.GetPaginationAsync(request);
+
+            if (reply.listStudents?.Any() == true)
+            {
+                students = Mapper.Map<List<StudentDTO>>(reply.listStudents);
+                total = reply.Count;
+                isRetry = false; // reset
+            }
+            else
+            {
+                if (pageNumber > 1 && !isRetry)
+                {
+                    pageNumber--;
+                    isRetry = true;
+                    await LoadStudentsAsync();
+                }
+                else
+                {
+                    students = new();
+                    total = 0;
+                    isRetry = false;
+                    await NotificationMessage("Không tìm thấy danh sách", NotificationType.Warning);
+                    searchStudent = new SearchStudentDTO();
+                }
+            }
+        }
+
+
+
+        public async Task DeleteStudentAsync(int? id)
+        {
+            try
+            {
+                await studentContract.DeleteStudentAsync(new RequestId { id = id.Value});
+                await LoadStudentsAsync();
+                await NotificationMessage("Xóa thành công", NotificationType.Success);
+            }
+            catch (Exception ex)
+            {
+                await NotificationMessage("Xóa thất bại", NotificationType.Error);
+            }
+        }
+
+
+        public async Task OnSortAsync(MenuItem menuItem)
+        {
+            switch (menuItem.Key)
+            {
+                case "sbName":
+                    sortBy = "studentName";
+                    await LoadStudentsAsync();
+                    break;
+                case "sbId":
+                    sortBy = "id";
+                    await LoadStudentsAsync();
+                    break;
+                case "sbRemove":
+                    sortBy = "";
+                    await LoadStudentsAsync();
+                    break;
+                case "":
+                    await LoadStudentsAsync();
+                    break;
+            }
+            
+        }
+
+        public async Task SearchStudentAsync()
+        {
+            searchStudent.PageNumber = pageNumber;
+            var request = Mapper.Map<PaginationRequest>(searchStudent);
+            request.PageSize = pageSize;
+            request.PageNumber = pageNumber;
+            request.keywordId = keywordId;
+            request.keyword = keyword;
+            request.classroomId = SelectedClassroomID;
+            request.teacherId = SelectedTeacherID;
+            isRetry = true;
+
+            var reply = await studentContract.GetPaginationAsync(request);
+
+            if (reply.listStudents?.Any() == true)
+            {
+                students = Mapper.Map<List<StudentDTO>>(reply.listStudents);
+                total = reply.Count;
+                isRetry = false; // reset
+            }
+            else
+            {
+                if (pageNumber > 1 && isRetry)
+                {
+                    pageNumber--;
+                    isRetry = true;
+                    searchStudent.PageNumber = pageNumber;
+                    await SearchStudentAsync();
+                }
+                else
+                {
+                    students = new();
+                    total = 0;
+                    isRetry = false;
+                    await NotificationMessage("Không tìm thấy danh sách", NotificationType.Warning);
+                    searchStudent = new SearchStudentDTO();
+                }
             }
         }
 
@@ -194,171 +293,13 @@ namespace BlazorClient.Components.Pages
             await JS.InvokeVoidAsync("downloadFileFromBytes", "DanhSachSinhVien.xlsx", base64);
         }
 
-        async Task LoadStudentsAsync()
+        public async Task NotificationMessage(String message, NotificationType type)
         {
-            var request = Mapper.Map<PaginationRequest>(searchStudent);
-            request.PageSize = pageSize;
-            request.PageNumber = pageNumber;
-
-            var reply = await studentContract.GetPaginationAsync(request);
-
-            if (reply.listStudents?.Any() == true)
+            _ = _notice.Open(new NotificationConfig()
             {
-                students = Mapper.Map<List<StudentDTO>>(reply.listStudents);
-                total = reply.Count;
-                isRetry = false; // reset
-            }
-            else
-            {
-                if (pageNumber > 1 && !isRetry)
-                {
-                    pageNumber--;
-                    isRetry = true;
-                    await LoadStudentsAsync();
-                }
-                else
-                {
-                    students = new();
-                    total = 0;
-                    isRetry = false;
-                    await _notice.Open(new NotificationConfig()
-                    {
-                        Message = "Không có dữ liệu phù hợp",
-                        Description = reply.Message ?? "Danh sách sinh viên trống.",
-                        NotificationType = NotificationType.Warning
-                    });
-                    searchStudent = new SearchStudentDTO();
-                }
-            }
-        }
-
-
-
-        public async Task DeleteStudentAsync(int? id)
-        {
-            try
-            {
-                await studentContract.DeleteStudentAsync(new RequestId { id = id.Value});
-                await LoadStudentsAsync();
-                _ = _notice.Open(new NotificationConfig()
-                {
-                    Message = "Xóa thành công",
-                    Description = "Đã xóa sinh viên.",
-                    Duration = 2,
-                    NotificationType = NotificationType.Warning
-                });
-            }
-            catch (Exception ex)
-            {
-                _ = _notice.Open(new NotificationConfig()
-                {
-                    Message = "Xóa thất bại",
-                    Description = ex.Message,
-                    NotificationType = NotificationType.Error
-                });
-            }
-        }
-
-        async Task LoadSortStudentsAsync()
-        {
-            var request = Mapper.Map<PaginationRequest>(searchStudent);
-            request.PageSize = pageSize;
-            request.PageNumber = pageNumber;
-            request.SortBy = sortBy;
-
-            var reply = await studentContract.GetPaginationSortAsync(request);
-
-            if (reply.listStudents?.Any() == true)
-            {
-                students = Mapper.Map<List<StudentDTO>>(reply.listStudents);
-                total = reply.Count;
-                isRetry = false; // reset
-            }
-            else
-            {
-                if (pageNumber > 1 && !isRetry)
-                {
-                    pageNumber--;
-                    isRetry = true;
-                    await LoadSortStudentsAsync();
-                }
-                else
-                {
-                    students = new();
-                    total = 0;
-                    isRetry = false;
-                    await _notice.Open(new NotificationConfig()
-                    {
-                        Message = "Không có dữ liệu phù hợp",
-                        Description = reply.Message ?? "Danh sách sinh viên trống.",
-                        NotificationType = NotificationType.Warning
-                    });
-                    searchStudent = new SearchStudentDTO();
-                }
-            }
-        }
-
-        public async Task OnSortAsync(MenuItem menuItem)
-        {
-            switch (menuItem.Key)
-            {
-                case "sbName":
-                    sortBy = "studentName";
-                    await LoadSortStudentsAsync();
-                    isSort = true;
-                    break;
-                case "sbId":
-                    sortBy = "studentCode";
-                    await LoadSortStudentsAsync();
-                    isSort = true;
-                    break;
-                case "sbRemove":
-                    await LoadStudentsAsync();
-                    isSort = false;
-                    break;
-            }
-            
-        }
-
-        public async Task SearchStudentAsync()
-        {
-            var request = Mapper.Map<PaginationRequest>(searchStudent);
-            request.PageSize = pageSize;
-            request.PageNumber = pageNumber;
-            request.keyword = keyword;
-            request.classroomId = SelectedClassroomID;
-            request.teacherId = SelectedTeacherID;
-
-            var reply = await studentContract.GetPaginationAsync(request);
-
-            if (reply.listStudents?.Any() == true)
-            {
-                students = Mapper.Map<List<StudentDTO>>(reply.listStudents);
-                total = reply.Count;
-                isRetry = false; // reset
-            }
-            else
-            {
-                if (pageNumber > 1 && !isRetry)
-                {
-                    pageNumber--;
-                    isRetry = true;
-                    await SearchStudentAsync();
-                }
-                else
-                {
-                    students = new();
-                    total = 0;
-                    isRetry = false;
-                    _= _notice.Open(new NotificationConfig()
-                    {
-                        Message = "Không có dữ liệu phù hợp",
-                        Description = reply.Message ?? "Danh sách sinh viên trống.",
-                        NotificationType = NotificationType.Warning
-                    });
-                    searchStudent = new SearchStudentDTO();
-                }
-            }
+                Message = message,
+                NotificationType = type,
+            });
         }
 
         protected override async Task OnInitializedAsync()

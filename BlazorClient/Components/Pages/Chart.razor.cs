@@ -4,18 +4,16 @@ using AutoMapper;
 using BlazorClient.DTO;
 using Microsoft.AspNetCore.Components;
 using Shared;
-using System;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BlazorClient.Components.Pages
 {
     public partial class Chart : ComponentBase
     {
         [Inject]
-        public IStudentContract StudentContract { get; set; } = null!;
+        public IStudentContract StudentContract { get; set; }
 
         [Inject]
-        public IClassroomContract ClassroomService { get; set; } = null!;
+        public IClassroomContract ClassroomService { get; set; }
 
         [Inject]
         ITeacherContract TeacherService { get; set; }
@@ -24,8 +22,8 @@ namespace BlazorClient.Components.Pages
         public INotificationService _notice { get; set; }
 
         [Inject]
-        public IMapper Mapper { get; set; } = null!;
-        IChartComponent chartStudentAge = null!;
+        public IMapper Mapper { get; set; }
+        IChartComponent chartStudentAge;
 
         List<StudentChartDTO> dataStudentAge;
 
@@ -94,12 +92,6 @@ namespace BlazorClient.Components.Pages
         {
             configPie = new PieConfig
             {
-                ForceFit = true,
-                Description = new Description
-                {
-                    Visible = true,
-                    Text = "When the type of the pie chart label is set to spider, the labels are divided into two groups, and they are displayed in alignment by pulling lines on both sides of the chart. Generally speaking, the labels of the spider layout are less likely to block each other."
-                },
                 Radius = 0.8,
                 AngleField = "count",
                 ColorField = "age",
@@ -211,9 +203,16 @@ namespace BlazorClient.Components.Pages
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            await chartStudentCount.ChangeData(dataStudentCount);
-            await chartStudentCountOfTeacher.ChangeData(dataStudentCountOfTeacher);
-            await chartStudentAge.ChangeData(dataStudentAge);
+            if (firstRender)
+            {
+                await LoadStudentAgeAsync();
+                chartStudentAge?.ChangeData(dataStudentAge);
+                await LoadStudentCountAsync();
+                chartStudentCount?.ChangeData(dataStudentCount);
+                await LoadStudentCountOfTeacherAsync();
+                chartStudentCountOfTeacher?.ChangeData(dataStudentCountOfTeacher);
+            }
+            
             isFirstRender = false;
         }
     }

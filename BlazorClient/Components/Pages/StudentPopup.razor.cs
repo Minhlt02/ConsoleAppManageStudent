@@ -2,6 +2,7 @@
 using AutoMapper;
 using BlazorClient.DTO;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 using Shared;
 
 namespace BlazorClient.Components.Pages
@@ -46,6 +47,7 @@ namespace BlazorClient.Components.Pages
             IsDetails = false;
             IsCreate = false;
             Visible = false;
+            await ReloadStudents.InvokeAsync();
             await OnClose.InvokeAsync();
         }
 
@@ -59,21 +61,11 @@ namespace BlazorClient.Components.Pages
                 reply = await StudentService.AddStudentAsync(student);
                 if (reply.Success)
                 {
-                    _ = _notice.Open(new NotificationConfig()
-                    {
-                        Message = "Thêm thành công",
-                        Description = reply.Message,
-                        NotificationType = NotificationType.Success
-                    });
+                    await NotificationMessage("Thêm thành công", NotificationType.Success);
                 }
                 else
                 {
-                    _ = _notice.Open(new NotificationConfig()
-                    {
-                        Message = "Thêm thất bại",
-                        Description = reply.Message,
-                        NotificationType = NotificationType.Error
-                    });
+                    await NotificationMessage("Thêm thất bại", NotificationType.Error);
                 }
             }
             else
@@ -81,21 +73,11 @@ namespace BlazorClient.Components.Pages
                 reply = await StudentService.UpdateStudentAsync(student);
                 if (reply.Success)
                 {
-                    _ = _notice.Open(new NotificationConfig()
-                    {
-                        Message = "Cập nhật thành công",
-                        Description = reply.Message,
-                        NotificationType = NotificationType.Success
-                    });
+                    await NotificationMessage("Cập nhật thành công", NotificationType.Success);
                 }
                 else
                 {
-                    _ = _notice.Open(new NotificationConfig()
-                    {
-                        Message = "Cập nhật thất bại",
-                        Description = reply.Message,
-                        NotificationType = NotificationType.Error
-                    });
+                    await NotificationMessage("Cập nhật thất bại", NotificationType.Error);
                 }
             }
 
@@ -109,12 +91,7 @@ namespace BlazorClient.Components.Pages
             var reply = await ClassroomService.GetAllClassroomAsync(new Shared.Empty());
             if (reply.ClassroomList == null)
             {
-                _ = _notice.Open(new NotificationConfig()
-                {
-                    Message = "Lấy thông tin thất bại",
-                    Description = reply.Message,
-                    NotificationType = NotificationType.Error
-                });
+                await NotificationMessage("Lấy thông tin thất bại", NotificationType.Error);
             }
             else
             {
@@ -122,6 +99,14 @@ namespace BlazorClient.Components.Pages
             }
         }
 
+        public async Task NotificationMessage(String message, NotificationType type)
+        {
+            _ = _notice.Open(new NotificationConfig()
+            {
+                Message = message,
+                NotificationType = type,
+            });
+        }
         protected override async Task OnInitializedAsync()
         {
             await LoadClassroomsAsync();

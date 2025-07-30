@@ -92,26 +92,15 @@ namespace Server.Repository
             return result;
         }
 
-        public async Task<PageViewDTO<Students>> GetPaginationSortAsync(SearchStudentDTO searchStudent)
-        {
-            int pageSkip = (searchStudent.pageNumber - 1) * searchStudent.pageSize;
-            var query = session.Query<Students>()
-                            .Fetch(s => s._classrooms)
-                            .ThenFetch(c => c.Teacher).AsQueryable();
-            query = FilterSort(query, searchStudent);
-            var result = new PageViewDTO<Students>
-            {
-                total = await query.CountAsync(),
-                listStudents = await query!.Skip(pageSkip).Take(searchStudent.pageSize).ToListAsync()
-            };
-            return result;
-        }
-
         private IQueryable<Students>? Filter(IQueryable<Students> query, SearchStudentDTO studentSearch)
         {
             if (studentSearch.Id.HasValue)
             {
                 query = query.Where(student => student._id == studentSearch.Id.Value);
+            }
+            if (studentSearch.keywordId.HasValue)
+            {
+                query = query.Where(student => student._id == studentSearch.keywordId.Value);
             }
             if (!string.IsNullOrEmpty(studentSearch.keyword))
             {
@@ -129,20 +118,14 @@ namespace Server.Repository
             {
                 query = query.Where(student => student._classrooms.Id == studentSearch.classroomId.Value);
             }
-            return query;
-        }
-
-        private IQueryable<Students>? FilterSort(IQueryable<Students> query, SearchStudentDTO studentSearch)
-        {
-            if (studentSearch.sortBy.Equals("id"))
+            if (studentSearch.sortBy == "id")
             {
-                query = query.OrderBy(s=>s._id);
+                query = query.OrderBy(s => s._id);
             }
-            if (studentSearch.sortBy.Equals("studentName"))
+            if (studentSearch.sortBy == "studentName")
             {
                 query = query.OrderBy(s => s._name);
             }
-            
             return query;
         }
 
@@ -176,16 +159,15 @@ namespace Server.Repository
                 query = query.Where(s => s._classrooms.Id == id);
             }
 
-            var result = await query
-                .GroupBy(s => s._classrooms.NameClassroom)
-                .Select(s => new StudentChartDTO
-                {
-                    ClassName = s.Key,
-                    Count = s.Count()
-                })
-                .OrderBy(r=>r.ClassName)
-                .ToListAsync();
-
+            var result = await session.Query<Classrooms>()
+                        .Select(c => new StudentChartDTO
+                        {
+                            ClassName = c.NameClassroom,
+                            Count = session.Query<Students>()
+                                    .Count(s => s._classrooms.Id == c.Id)
+                        })
+                        .OrderBy(x => x.ClassName)
+                        .ToListAsync();
             return result;
         }
 
@@ -201,12 +183,12 @@ namespace Server.Repository
                 query = query.Where(s => s._classrooms.Teacher.Id == id);
             }
 
-            var result = await query
-                .GroupBy(s => s._classrooms.Teacher.NameTeacher)
-                .Select(s => new StudentChartDTO
+            var result = await session.Query<Teachers>()
+                .Select(t => new StudentChartDTO
                 {
-                    TeacherName = s.Key,
-                    Count = s.Count()
+                    TeacherName = t.NameTeacher,
+                    Count = session.Query<Students>()
+                            .Count(s=>s._classrooms.Teacher.Id == t.Id)
                 })
                 .OrderBy(r => r.TeacherName)
                 .ToListAsync();

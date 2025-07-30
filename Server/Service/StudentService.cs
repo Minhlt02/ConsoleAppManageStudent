@@ -111,28 +111,6 @@ namespace Server.Service
             return reply;
         }
 
-        public async Task<MultipleStudentReply> GetPaginationSortAsync(PaginationRequest request, CallContext callContext = default)
-        {
-            var reply = new MultipleStudentReply();
-            try
-            {
-                SearchStudentDTO studentField = mapper.Map<SearchStudentDTO>(request);
-                var searchResult = await studentRepo.GetPaginationSortAsync(studentField);
-                reply.Count = searchResult.total;
-                if (searchResult.listStudents == null || !searchResult.listStudents.Any())
-                {
-                    throw new Exception("There is no student");
-                }
-                reply.listStudents = mapper.Map<List<StudentProfile>>(searchResult.listStudents);
-            }
-            catch (Exception ex)
-            {
-                reply.Message = ex.Message;
-            }
-
-            return reply;
-        }
-
         public async Task<MultipleStudentReply> GetSortStudentAsync(Empty request, CallContext callContaxt)
         {
                 MultipleStudentReply listStudentReply = new MultipleStudentReply();
