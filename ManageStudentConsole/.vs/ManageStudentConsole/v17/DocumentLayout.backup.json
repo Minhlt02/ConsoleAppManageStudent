@@ -3,40 +3,64 @@
   "WorkspaceRootPath": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ManageStudentConsole\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A85739D5-2E94-475B-984F-E1A35D85C997}|..\\Shared\\Shared.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\shared\\studentcontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A85739D5-2E94-475B-984F-E1A35D85C997}|..\\Shared\\Shared.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\shared\\sharedcontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8970C4D1-0701-4170-A7D7-36468CE14533}|..\\Server\\Server.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\server\\service\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8970C4D1-0701-4170-A7D7-36468CE14533}|..\\Server\\Server.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\server\\repository\\studentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8970C4D1-0701-4170-A7D7-36468CE14533}|..\\Server\\Server.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\server\\repository\\istudentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\components\\pages\\home.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8970C4D1-0701-4170-A7D7-36468CE14533}|..\\Server\\Server.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\server\\mapper\\studentmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8970C4D1-0701-4170-A7D7-36468CE14533}|..\\Server\\Server.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\server\\repository\\iteacherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8970C4D1-0701-4170-A7D7-36468CE14533}|..\\Server\\Server.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\server\\repository\\iclassroomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\blazorclient.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\mapper\\studentmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\dto\\studentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\components\\pages\\studentpopup.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\components\\pages\\studentpopup.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\components\\pages\\home.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8970C4D1-0701-4170-A7D7-36468CE14533}|..\\Server\\Server.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\server\\repository\\studentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8970C4D1-0701-4170-A7D7-36468CE14533}|..\\Server\\Server.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\server\\service\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A85739D5-2E94-475B-984F-E1A35D85C997}|..\\Shared\\Shared.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\shared\\studentcontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\dto\\searchstudentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8970C4D1-0701-4170-A7D7-36468CE14533}|..\\Server\\Server.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\server\\mapper\\studentmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\components\\pages\\chart.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\dto\\teacherdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\dto\\studentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8970C4D1-0701-4170-A7D7-36468CE14533}|..\\Server\\Server.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\server\\dto\\searchstudentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -46,9 +70,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\dto\\studentchartdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8970C4D1-0701-4170-A7D7-36468CE14533}|..\\Server\\Server.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\server\\repository\\istudentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8970C4D1-0701-4170-A7D7-36468CE14533}|..\\Server\\Server.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\server\\service\\teacherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -72,9 +93,6 @@
       "AbsoluteMoniker": "D:0:0:{A85739D5-2E94-475B-984F-E1A35D85C997}|..\\Shared\\Shared.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\shared\\shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\blazorclient.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{478B27A0-8670-4499-8CD7-F2E4313349E1}|ManageStudentConsole.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\managestudentconsole\\managestudentconsole.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{478B27A0-8670-4499-8CD7-F2E4313349E1}|ManageStudentConsole.csproj|solutionrelative:managestudentconsole.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
@@ -85,16 +103,10 @@
       "AbsoluteMoniker": "D:0:0:{8970C4D1-0701-4170-A7D7-36468CE14533}|..\\Server\\Server.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\server\\mapper\\classroommapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\mapper\\studentmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8970C4D1-0701-4170-A7D7-36468CE14533}|..\\Server\\Server.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\server\\repository\\iteacherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A85739D5-2E94-475B-984F-E1A35D85C997}|..\\Shared\\Shared.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\shared\\teachercontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -104,9 +116,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{8970C4D1-0701-4170-A7D7-36468CE14533}|..\\Server\\Server.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\server\\repository\\classroomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A85739D5-2E94-475B-984F-E1A35D85C997}|..\\Shared\\Shared.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\shared\\sharedcontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\dto\\classroomdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -143,12 +152,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\mapper\\classroommapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8970C4D1-0701-4170-A7D7-36468CE14533}|..\\Server\\Server.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\server\\repository\\iclassroomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{478B27A0-8670-4499-8CD7-F2E4313349E1}|ManageStudentConsole.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\managestudentconsole\\mapping\\teachermapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -221,9 +224,6 @@
       "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\components\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E3DA67FE-C2C1-452B-9139-94101ABC9E9B}|..\\BlazorClient\\BlazorClient.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\blazorclient\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8970C4D1-0701-4170-A7D7-36468CE14533}|..\\Server\\Server.csproj|c:\\users\\thinkpad p14s\\downloads\\appmanagestudent\\server\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
@@ -246,11 +246,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "StudentMapper.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Mapper\\StudentMapper.cs",
               "RelativeDocumentMoniker": "..\\Server\\Mapper\\StudentMapper.cs",
@@ -264,13 +264,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Home.razor.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\Home.razor.cs",
               "RelativeDocumentMoniker": "..\\BlazorClient\\Components\\Pages\\Home.razor.cs",
               "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\Home.razor.cs",
               "RelativeToolTip": "..\\BlazorClient\\Components\\Pages\\Home.razor.cs",
-              "ViewState": "AgIAAGQAAAAAAAAAAAAkwHIAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAJoAAAAAAAAAAAAYwLUAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-26T03:01:49.197Z",
               "IsPinned": true,
@@ -278,28 +278,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "StudentContract.cs",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Shared\\StudentContract.cs",
-              "RelativeDocumentMoniker": "..\\Shared\\StudentContract.cs",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Shared\\StudentContract.cs",
-              "RelativeToolTip": "..\\Shared\\StudentContract.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAIA3wBkAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T03:54:17.948Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "StudentService.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Service\\StudentService.cs",
               "RelativeDocumentMoniker": "..\\Server\\Service\\StudentService.cs",
               "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Service\\StudentService.cs",
               "RelativeToolTip": "..\\Server\\Service\\StudentService.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAIAwwGEAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAwwDAAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-25T02:45:45.044Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Home.razor",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "..\\BlazorClient\\Components\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\Home.razor",
+              "RelativeToolTip": "..\\BlazorClient\\Components\\Pages\\Home.razor",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAFEAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-26T02:07:43.083Z",
               "EditorCaption": ""
             },
             {
@@ -310,92 +310,118 @@
               "RelativeDocumentMoniker": "..\\Server\\Repository\\StudentRepository.cs",
               "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Repository\\StudentRepository.cs",
               "RelativeToolTip": "..\\Server\\Repository\\StudentRepository.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAD4v08AAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAtwCAAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-25T02:52:03.855Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "StudentPopup.razor.cs",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\StudentPopup.razor.cs",
-              "RelativeDocumentMoniker": "..\\BlazorClient\\Components\\Pages\\StudentPopup.razor.cs",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\StudentPopup.razor.cs*",
-              "RelativeToolTip": "..\\BlazorClient\\Components\\Pages\\StudentPopup.razor.cs*",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAACcAAAAyAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "IStudentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Repository\\IStudentRepository.cs",
+              "RelativeDocumentMoniker": "..\\Server\\Repository\\IStudentRepository.cs",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Repository\\IStudentRepository.cs",
+              "RelativeToolTip": "..\\Server\\Repository\\IStudentRepository.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAhwBQAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T03:31:01.875Z",
+              "WhenOpened": "2025-07-25T02:51:55.944Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StudentContract.cs",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Shared\\StudentContract.cs",
+              "RelativeDocumentMoniker": "..\\Shared\\StudentContract.cs",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Shared\\StudentContract.cs",
+              "RelativeToolTip": "..\\Shared\\StudentContract.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAYwA4AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T03:54:17.948Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "StudentPopup.razor",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\StudentPopup.razor",
-              "RelativeDocumentMoniker": "..\\BlazorClient\\Components\\Pages\\StudentPopup.razor",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\StudentPopup.razor",
-              "RelativeToolTip": "..\\BlazorClient\\Components\\Pages\\StudentPopup.razor",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAB8AAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-26T03:28:53.12Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "SearchStudentDTO.cs",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\DTO\\SearchStudentDTO.cs",
-              "RelativeDocumentMoniker": "..\\BlazorClient\\DTO\\SearchStudentDTO.cs",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\DTO\\SearchStudentDTO.cs",
-              "RelativeToolTip": "..\\BlazorClient\\DTO\\SearchStudentDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAdAAAAAAAAAA==",
+              "Title": "SharedContract.cs",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Shared\\SharedContract.cs",
+              "RelativeDocumentMoniker": "..\\Shared\\SharedContract.cs",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Shared\\SharedContract.cs",
+              "RelativeToolTip": "..\\Shared\\SharedContract.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwCAAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-27T02:40:53.834Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Home.razor",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\Home.razor",
-              "RelativeDocumentMoniker": "..\\BlazorClient\\Components\\Pages\\Home.razor",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\Home.razor",
-              "RelativeToolTip": "..\\BlazorClient\\Components\\Pages\\Home.razor",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAswCkAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-26T02:07:43.083Z",
+              "WhenOpened": "2025-07-25T04:27:24.153Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "Chart.razor",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\Chart.razor",
-              "RelativeDocumentMoniker": "..\\BlazorClient\\Components\\Pages\\Chart.razor",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\Chart.razor",
-              "RelativeToolTip": "..\\BlazorClient\\Components\\Pages\\Chart.razor",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACQAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-27T16:05:30.22Z",
+              "Title": "IClassroomRepository.cs",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Repository\\IClassroomRepository.cs",
+              "RelativeDocumentMoniker": "..\\Server\\Repository\\IClassroomRepository.cs",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Repository\\IClassroomRepository.cs",
+              "RelativeToolTip": "..\\Server\\Repository\\IClassroomRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T08:14:59.505Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ITeacherRepository.cs",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Repository\\ITeacherRepository.cs",
+              "RelativeDocumentMoniker": "..\\Server\\Repository\\ITeacherRepository.cs",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Repository\\ITeacherRepository.cs",
+              "RelativeToolTip": "..\\Server\\Repository\\ITeacherRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T08:21:49.31Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "TeacherDTO.cs",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\DTO\\TeacherDTO.cs",
-              "RelativeDocumentMoniker": "..\\BlazorClient\\DTO\\TeacherDTO.cs",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\DTO\\TeacherDTO.cs",
-              "RelativeToolTip": "..\\BlazorClient\\DTO\\TeacherDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T02:56:17.342Z",
+              "Title": "BlazorClient.csproj",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\BlazorClient.csproj",
+              "RelativeDocumentMoniker": "..\\BlazorClient\\BlazorClient.csproj",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\BlazorClient.csproj",
+              "RelativeToolTip": "..\\BlazorClient\\BlazorClient.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-26T01:51:02.305Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\App.razor",
+              "RelativeDocumentMoniker": "..\\BlazorClient\\Components\\App.razor",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\App.razor",
+              "RelativeToolTip": "..\\BlazorClient\\Components\\App.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-27T16:18:08.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Routes.razor",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Routes.razor",
+              "RelativeDocumentMoniker": "..\\BlazorClient\\Components\\Routes.razor",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Routes.razor",
+              "RelativeToolTip": "..\\BlazorClient\\Components\\Routes.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-26T02:08:10.436Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "StudentDTO.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\DTO\\StudentDTO.cs",
               "RelativeDocumentMoniker": "..\\BlazorClient\\DTO\\StudentDTO.cs",
@@ -408,202 +434,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "SearchStudentDTO.cs",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\DTO\\SearchStudentDTO.cs",
-              "RelativeDocumentMoniker": "..\\Server\\DTO\\SearchStudentDTO.cs",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\DTO\\SearchStudentDTO.cs",
-              "RelativeToolTip": "..\\Server\\DTO\\SearchStudentDTO.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAuwBQAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-27T02:42:14.028Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "Chart.razor.cs",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\Chart.razor.cs",
-              "RelativeDocumentMoniker": "..\\BlazorClient\\Components\\Pages\\Chart.razor.cs",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\Chart.razor.cs",
-              "RelativeToolTip": "..\\BlazorClient\\Components\\Pages\\Chart.razor.cs",
-              "ViewState": "AgIAAL4AAAAAAAAAAAAcwNQAAABSAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-27T16:06:56.611Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "StudentChartDTO.cs",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\DTO\\StudentChartDTO.cs",
-              "RelativeDocumentMoniker": "..\\BlazorClient\\DTO\\StudentChartDTO.cs",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\DTO\\StudentChartDTO.cs",
-              "RelativeToolTip": "..\\BlazorClient\\DTO\\StudentChartDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-27T16:13:27.569Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "IStudentRepository.cs",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Repository\\IStudentRepository.cs",
-              "RelativeDocumentMoniker": "..\\Server\\Repository\\IStudentRepository.cs",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Repository\\IStudentRepository.cs",
-              "RelativeToolTip": "..\\Server\\Repository\\IStudentRepository.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAIA1wBUAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T02:51:55.944Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "TeacherService.cs",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Service\\TeacherService.cs",
-              "RelativeDocumentMoniker": "..\\Server\\Service\\TeacherService.cs",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Service\\TeacherService.cs",
-              "RelativeToolTip": "..\\Server\\Service\\TeacherService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T08:05:56.664Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Students.cs",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Entity\\Students.cs",
-              "RelativeDocumentMoniker": "..\\Server\\Entity\\Students.cs",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Entity\\Students.cs",
-              "RelativeToolTip": "..\\Server\\Entity\\Students.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA8wAsAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T02:53:30.691Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Program.cs",
-              "RelativeDocumentMoniker": "..\\BlazorClient\\Program.cs",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Program.cs",
-              "RelativeToolTip": "..\\BlazorClient\\Program.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAADEAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T01:15:44.892Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Program.cs",
-              "RelativeDocumentMoniker": "..\\Server\\Program.cs",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Program.cs",
-              "RelativeToolTip": "..\\Server\\Program.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAwwBYAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T02:20:46.822Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "ConsoleClient.csproj",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ConsoleClient\\ConsoleClient.csproj",
-              "RelativeDocumentMoniker": "..\\ConsoleClient\\ConsoleClient.csproj",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ConsoleClient\\ConsoleClient.csproj",
-              "RelativeToolTip": "..\\ConsoleClient\\ConsoleClient.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-25T02:21:14.608Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Server.csproj",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Server.csproj",
-              "RelativeDocumentMoniker": "..\\Server\\Server.csproj",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Server.csproj",
-              "RelativeToolTip": "..\\Server\\Server.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-25T02:21:47.706Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "Shared.csproj",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Shared\\Shared.csproj",
-              "RelativeDocumentMoniker": "..\\Shared\\Shared.csproj",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Shared\\Shared.csproj",
-              "RelativeToolTip": "..\\Shared\\Shared.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-25T03:36:56.618Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "BlazorClient.csproj",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\BlazorClient.csproj",
-              "RelativeDocumentMoniker": "..\\BlazorClient\\BlazorClient.csproj",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\BlazorClient.csproj",
-              "RelativeToolTip": "..\\BlazorClient\\BlazorClient.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-26T01:51:02.305Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "ManageStudentConsole.csproj",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ManageStudentConsole\\ManageStudentConsole.csproj",
-              "RelativeDocumentMoniker": "ManageStudentConsole.csproj",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ManageStudentConsole\\ManageStudentConsole.csproj",
-              "RelativeToolTip": "ManageStudentConsole.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-25T03:29:48.951Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "TeacherMapper.cs",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Mapper\\TeacherMapper.cs",
-              "RelativeDocumentMoniker": "..\\BlazorClient\\Mapper\\TeacherMapper.cs",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Mapper\\TeacherMapper.cs",
-              "RelativeToolTip": "..\\BlazorClient\\Mapper\\TeacherMapper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T08:36:59.465Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "ClassroomMapper.cs",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Mapper\\ClassroomMapper.cs",
-              "RelativeDocumentMoniker": "..\\Server\\Mapper\\ClassroomMapper.cs",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Mapper\\ClassroomMapper.cs",
-              "RelativeToolTip": "..\\Server\\Mapper\\ClassroomMapper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T08:06:02.133Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
               "Title": "StudentMapper.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Mapper\\StudentMapper.cs",
               "RelativeDocumentMoniker": "..\\BlazorClient\\Mapper\\StudentMapper.cs",
@@ -616,7 +447,228 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "StudentPopup.razor.cs",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\StudentPopup.razor.cs",
+              "RelativeDocumentMoniker": "..\\BlazorClient\\Components\\Pages\\StudentPopup.razor.cs",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\StudentPopup.razor.cs",
+              "RelativeToolTip": "..\\BlazorClient\\Components\\Pages\\StudentPopup.razor.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAACcAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-26T03:31:01.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "StudentPopup.razor",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\StudentPopup.razor",
+              "RelativeDocumentMoniker": "..\\BlazorClient\\Components\\Pages\\StudentPopup.razor",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\StudentPopup.razor",
+              "RelativeToolTip": "..\\BlazorClient\\Components\\Pages\\StudentPopup.razor",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAB8AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-26T03:28:53.12Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "SearchStudentDTO.cs",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\DTO\\SearchStudentDTO.cs",
+              "RelativeDocumentMoniker": "..\\BlazorClient\\DTO\\SearchStudentDTO.cs",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\DTO\\SearchStudentDTO.cs",
+              "RelativeToolTip": "..\\BlazorClient\\DTO\\SearchStudentDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-27T02:40:53.834Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Chart.razor",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\Chart.razor",
+              "RelativeDocumentMoniker": "..\\BlazorClient\\Components\\Pages\\Chart.razor",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\Chart.razor",
+              "RelativeToolTip": "..\\BlazorClient\\Components\\Pages\\Chart.razor",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACQAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-27T16:05:30.22Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "TeacherDTO.cs",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\DTO\\TeacherDTO.cs",
+              "RelativeDocumentMoniker": "..\\BlazorClient\\DTO\\TeacherDTO.cs",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\DTO\\TeacherDTO.cs",
+              "RelativeToolTip": "..\\BlazorClient\\DTO\\TeacherDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T02:56:17.342Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "SearchStudentDTO.cs",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\DTO\\SearchStudentDTO.cs",
+              "RelativeDocumentMoniker": "..\\Server\\DTO\\SearchStudentDTO.cs",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\DTO\\SearchStudentDTO.cs",
+              "RelativeToolTip": "..\\Server\\DTO\\SearchStudentDTO.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAuwBQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-27T02:42:14.028Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Chart.razor.cs",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\Chart.razor.cs",
+              "RelativeDocumentMoniker": "..\\BlazorClient\\Components\\Pages\\Chart.razor.cs",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\Chart.razor.cs",
+              "RelativeToolTip": "..\\BlazorClient\\Components\\Pages\\Chart.razor.cs",
+              "ViewState": "AgIAAL4AAAAAAAAAAAAcwNQAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-27T16:06:56.611Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "StudentChartDTO.cs",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\DTO\\StudentChartDTO.cs",
+              "RelativeDocumentMoniker": "..\\BlazorClient\\DTO\\StudentChartDTO.cs",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\DTO\\StudentChartDTO.cs",
+              "RelativeToolTip": "..\\BlazorClient\\DTO\\StudentChartDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-27T16:13:27.569Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "TeacherService.cs",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Service\\TeacherService.cs",
+              "RelativeDocumentMoniker": "..\\Server\\Service\\TeacherService.cs",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Service\\TeacherService.cs",
+              "RelativeToolTip": "..\\Server\\Service\\TeacherService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T08:05:56.664Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Students.cs",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Entity\\Students.cs",
+              "RelativeDocumentMoniker": "..\\Server\\Entity\\Students.cs",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Entity\\Students.cs",
+              "RelativeToolTip": "..\\Server\\Entity\\Students.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA8wAsAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T02:53:30.691Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Program.cs",
+              "RelativeDocumentMoniker": "..\\BlazorClient\\Program.cs",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Program.cs",
+              "RelativeToolTip": "..\\BlazorClient\\Program.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAADEAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-26T01:15:44.892Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Program.cs",
+              "RelativeDocumentMoniker": "..\\Server\\Program.cs",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Program.cs",
+              "RelativeToolTip": "..\\Server\\Program.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAwwBYAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T02:20:46.822Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ConsoleClient.csproj",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ConsoleClient\\ConsoleClient.csproj",
+              "RelativeDocumentMoniker": "..\\ConsoleClient\\ConsoleClient.csproj",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ConsoleClient\\ConsoleClient.csproj",
+              "RelativeToolTip": "..\\ConsoleClient\\ConsoleClient.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-25T02:21:14.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Server.csproj",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Server.csproj",
+              "RelativeDocumentMoniker": "..\\Server\\Server.csproj",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Server.csproj",
+              "RelativeToolTip": "..\\Server\\Server.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-25T02:21:47.706Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 29,
+              "Title": "Shared.csproj",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Shared\\Shared.csproj",
+              "RelativeDocumentMoniker": "..\\Shared\\Shared.csproj",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Shared\\Shared.csproj",
+              "RelativeToolTip": "..\\Shared\\Shared.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-25T03:36:56.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "ManageStudentConsole.csproj",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ManageStudentConsole\\ManageStudentConsole.csproj",
+              "RelativeDocumentMoniker": "ManageStudentConsole.csproj",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ManageStudentConsole\\ManageStudentConsole.csproj",
+              "RelativeToolTip": "ManageStudentConsole.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-25T03:29:48.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "TeacherMapper.cs",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Mapper\\TeacherMapper.cs",
+              "RelativeDocumentMoniker": "..\\BlazorClient\\Mapper\\TeacherMapper.cs",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Mapper\\TeacherMapper.cs",
+              "RelativeToolTip": "..\\BlazorClient\\Mapper\\TeacherMapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T08:36:59.465Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "ClassroomMapper.cs",
+              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Mapper\\ClassroomMapper.cs",
+              "RelativeDocumentMoniker": "..\\Server\\Mapper\\ClassroomMapper.cs",
+              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Mapper\\ClassroomMapper.cs",
+              "RelativeToolTip": "..\\Server\\Mapper\\ClassroomMapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T08:06:02.133Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
               "Title": "MainLayout.razor",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Layout\\MainLayout.razor",
               "RelativeDocumentMoniker": "..\\BlazorClient\\Components\\Layout\\MainLayout.razor",
@@ -628,7 +680,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 33,
               "Title": "NavMenu.razor",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "..\\BlazorClient\\Components\\Layout\\NavMenu.razor",
@@ -640,7 +692,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 35,
               "Title": "TeacherContract.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Shared\\TeacherContract.cs",
               "RelativeDocumentMoniker": "..\\Shared\\TeacherContract.cs",
@@ -652,19 +704,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "ITeacherRepository.cs",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Repository\\ITeacherRepository.cs",
-              "RelativeDocumentMoniker": "..\\Server\\Repository\\ITeacherRepository.cs",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Repository\\ITeacherRepository.cs",
-              "RelativeToolTip": "..\\Server\\Repository\\ITeacherRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T08:21:49.31Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 36,
               "Title": "StudentChartDTO.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\DTO\\StudentChartDTO.cs",
               "RelativeDocumentMoniker": "..\\Server\\DTO\\StudentChartDTO.cs",
@@ -676,7 +716,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 37,
               "Title": "ClassroomRepository.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Repository\\ClassroomRepository.cs",
               "RelativeDocumentMoniker": "..\\Server\\Repository\\ClassroomRepository.cs",
@@ -688,19 +728,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "SharedContract.cs",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Shared\\SharedContract.cs",
-              "RelativeDocumentMoniker": "..\\Shared\\SharedContract.cs",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Shared\\SharedContract.cs",
-              "RelativeToolTip": "..\\Shared\\SharedContract.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAIBJwBAAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T04:27:24.153Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 38,
               "Title": "ClassroomDTO.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\DTO\\ClassroomDTO.cs",
               "RelativeDocumentMoniker": "..\\BlazorClient\\DTO\\ClassroomDTO.cs",
@@ -712,7 +740,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 39,
               "Title": "ClassroomContract.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Shared\\ClassroomContract.cs",
               "RelativeDocumentMoniker": "..\\Shared\\ClassroomContract.cs",
@@ -724,7 +752,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 40,
               "Title": "TeacherMapping.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Mapping\\TeacherMapping.cs",
               "RelativeDocumentMoniker": "..\\Server\\Mapping\\TeacherMapping.cs",
@@ -736,7 +764,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 41,
               "Title": "StudentMapping.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Mapping\\StudentMapping.cs",
               "RelativeDocumentMoniker": "..\\Server\\Mapping\\StudentMapping.cs",
@@ -748,7 +776,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 42,
               "Title": "TeacherMapper.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Mapper\\TeacherMapper.cs",
               "RelativeDocumentMoniker": "..\\Server\\Mapper\\TeacherMapper.cs",
@@ -760,7 +788,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 43,
               "Title": "Classrooms.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Entity\\Classrooms.cs",
               "RelativeDocumentMoniker": "..\\Server\\Entity\\Classrooms.cs",
@@ -772,7 +800,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 44,
               "Title": "TeacherRepository.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Repository\\TeacherRepository.cs",
               "RelativeDocumentMoniker": "..\\Server\\Repository\\TeacherRepository.cs",
@@ -784,7 +812,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 45,
               "Title": "Teachers.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Entity\\Teachers.cs",
               "RelativeDocumentMoniker": "..\\Server\\Entity\\Teachers.cs",
@@ -796,7 +824,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 46,
               "Title": "ClassroomService.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Service\\ClassroomService.cs",
               "RelativeDocumentMoniker": "..\\Server\\Service\\ClassroomService.cs",
@@ -808,7 +836,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 47,
               "Title": "ClassroomMapping.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Mapping\\ClassroomMapping.cs",
               "RelativeDocumentMoniker": "..\\Server\\Mapping\\ClassroomMapping.cs",
@@ -820,7 +848,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 48,
               "Title": "PageViewDTO.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\DTO\\PageViewDTO.cs",
               "RelativeDocumentMoniker": "..\\Server\\DTO\\PageViewDTO.cs",
@@ -832,7 +860,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 49,
               "Title": "ClassroomMapper.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Mapper\\ClassroomMapper.cs",
               "RelativeDocumentMoniker": "..\\BlazorClient\\Mapper\\ClassroomMapper.cs",
@@ -844,31 +872,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "IClassroomRepository.cs",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Repository\\IClassroomRepository.cs",
-              "RelativeDocumentMoniker": "..\\Server\\Repository\\IClassroomRepository.cs",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\Server\\Repository\\IClassroomRepository.cs",
-              "RelativeToolTip": "..\\Server\\Repository\\IClassroomRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T08:14:59.505Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "Routes.razor",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Routes.razor",
-              "RelativeDocumentMoniker": "..\\BlazorClient\\Components\\Routes.razor",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Routes.razor",
-              "RelativeToolTip": "..\\BlazorClient\\Components\\Routes.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-26T02:08:10.436Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 50,
               "Title": "TeacherMapping.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ManageStudentConsole\\Mapping\\TeacherMapping.cs",
               "RelativeDocumentMoniker": "Mapping\\TeacherMapping.cs",
@@ -880,7 +884,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 51,
               "Title": "ClassroomMapping.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ManageStudentConsole\\Mapping\\ClassroomMapping.cs",
               "RelativeDocumentMoniker": "Mapping\\ClassroomMapping.cs",
@@ -892,7 +896,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 52,
               "Title": "Students.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ConsoleClient\\Entity\\Students.cs",
               "RelativeDocumentMoniker": "..\\ConsoleClient\\Entity\\Students.cs",
@@ -904,7 +908,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 53,
               "Title": "Classrooms.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ManageStudentConsole\\Entity\\Classrooms.cs",
               "RelativeDocumentMoniker": "Entity\\Classrooms.cs",
@@ -916,7 +920,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 54,
               "Title": "Students.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ManageStudentConsole\\Entity\\Students.cs",
               "RelativeDocumentMoniker": "Entity\\Students.cs",
@@ -928,7 +932,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 55,
               "Title": "Teachers.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ManageStudentConsole\\Entity\\Teachers.cs",
               "RelativeDocumentMoniker": "Entity\\Teachers.cs",
@@ -940,7 +944,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 56,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ManageStudentConsole\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -952,7 +956,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 57,
               "Title": "StudentRepository.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ManageStudentConsole\\Repository\\StudentRepository.cs",
               "RelativeDocumentMoniker": "Repository\\StudentRepository.cs",
@@ -964,7 +968,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 58,
               "Title": "IStudentRepository.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ManageStudentConsole\\Repository\\IStudentRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IStudentRepository.cs",
@@ -976,7 +980,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 59,
               "Title": "StudentMapping.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ManageStudentConsole\\Mapping\\StudentMapping.cs",
               "RelativeDocumentMoniker": "Mapping\\StudentMapping.cs",
@@ -988,7 +992,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 60,
               "Title": "HandleMenu.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ManageStudentConsole\\HandleException\\HandleMenu.cs",
               "RelativeDocumentMoniker": "HandleException\\HandleMenu.cs",
@@ -1000,7 +1004,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 61,
               "Title": "HandleFormatDate.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ManageStudentConsole\\HandleException\\HandleFormatDate.cs",
               "RelativeDocumentMoniker": "HandleException\\HandleFormatDate.cs",
@@ -1012,7 +1016,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 62,
               "Title": "StudentController.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ManageStudentConsole\\Controller\\StudentController.cs",
               "RelativeDocumentMoniker": "Controller\\StudentController.cs",
@@ -1024,7 +1028,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 63,
               "Title": "NHibernateHelper.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ManageStudentConsole\\DBHelper\\NHibernateHelper.cs",
               "RelativeDocumentMoniker": "DBHelper\\NHibernateHelper.cs",
@@ -1036,7 +1040,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 64,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ConsoleClient\\Program.cs",
               "RelativeDocumentMoniker": "..\\ConsoleClient\\Program.cs",
@@ -1048,7 +1052,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 65,
               "Title": "StudentMapper.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ConsoleClient\\Mapper\\StudentMapper.cs",
               "RelativeDocumentMoniker": "..\\ConsoleClient\\Mapper\\StudentMapper.cs",
@@ -1060,7 +1064,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 66,
               "Title": "StudentController.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\ConsoleClient\\Controller\\StudentController.cs",
               "RelativeDocumentMoniker": "..\\ConsoleClient\\Controller\\StudentController.cs",
@@ -1072,7 +1076,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 67,
               "Title": "NavMenu.razor.cs",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Layout\\NavMenu.razor.cs",
               "RelativeDocumentMoniker": "..\\BlazorClient\\Components\\Layout\\NavMenu.razor.cs",
@@ -1084,7 +1088,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 68,
               "Title": "Counter.razor",
               "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\Pages\\Counter.razor",
               "RelativeDocumentMoniker": "..\\BlazorClient\\Components\\Pages\\Counter.razor",
@@ -1093,18 +1097,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-07-26T02:07:36.189Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 68,
-              "Title": "App.razor",
-              "DocumentMoniker": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\App.razor",
-              "RelativeDocumentMoniker": "..\\BlazorClient\\Components\\App.razor",
-              "ToolTip": "C:\\Users\\THINKPAD P14S\\Downloads\\AppManageStudent\\BlazorClient\\Components\\App.razor",
-              "RelativeToolTip": "..\\BlazorClient\\Components\\App.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABRAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-27T16:18:08.037Z"
             },
             {
               "$type": "Document",

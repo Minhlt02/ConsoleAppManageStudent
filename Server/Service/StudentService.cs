@@ -65,6 +65,33 @@ namespace Server.Service
             return reply;
         }
 
+        public async Task<OperationReply> DeleteManyStudentAsync(RequestId ids, CallContext callContaxt = default)
+        {
+            OperationReply reply = new OperationReply();
+            try
+            {
+                List<Students>? students = await studentRepo.GetStudentsByIdAsync(ids.ids);
+                if (students != null)
+                {
+                    await studentRepo.DeleteManyStudentAsync(students);
+                    reply.Success = true;
+                    reply.Message = "Xóa sinh viên thành công!";
+                }
+                else
+                {
+                    reply.Success = false;
+                    reply.Message = "Không tìm thấy sinh viên với ID đã nhập.";
+                }
+            }
+            catch (Exception ex)
+            {
+                reply.Success = false;
+                reply.Message = $"Lỗi khi xóa sinh viên: {ex.Message}";
+
+            }
+            return reply;
+        }
+
         public async Task<MultipleStudentReply> GetAllStudentAsync(Empty request, CallContext callContaxt)
         {
             MultipleStudentReply listStudentReply = new MultipleStudentReply();

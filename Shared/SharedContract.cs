@@ -14,7 +14,9 @@ namespace Shared
     public class RequestId 
     {
         [DataMember(Order = 1)] public int id { get; set; }
+        [DataMember(Order = 2)] public List<int> ids { get; set; }
     }
+   
 
     [DataContract]
     public class MultipleRequest

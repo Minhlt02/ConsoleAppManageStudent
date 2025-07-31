@@ -15,9 +15,11 @@ namespace Server.Repository
         Task<List<Students>> GetAllStudentAsync();
         Task<List<Students>> GetSortStudentAsync();
         Task<Students> GetStudentByIdAsync(int id);
+        Task<List<Students>> GetStudentsByIdAsync(List<int> ids);
         Task AddStudentAsync(Students student);
         Task UpdateStudentAsync(Students student);
         Task DeleteStudentAsync(Students student);
+        Task DeleteManyStudentAsync(List<Students> students);
         Task<int> CountAsync();
         Task<PageViewDTO<Students>> GetPaginationAsync(SearchStudentDTO searchStudent);
         Task<List<StudentChartDTO>> GetStudentAgesChartAsync(int id);

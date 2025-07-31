@@ -169,6 +169,25 @@ namespace BlazorClient.Components.Pages
             }
         }
 
+        public async Task DeleteManyStudentAsync()
+        {
+            try
+            {
+                var ids = _selectedRows.Select(s => s.Id).ToList();
+
+
+                await studentContract.DeleteManyStudentAsync(new RequestId { ids = ids.ToList()});
+                await LoadStudentsAsync();
+                await NotificationMessage("Xóa thành công", NotificationType.Success);
+                _selectedRows = Enumerable.Empty<StudentDTO>();
+            }
+            catch (Exception ex)
+            {
+                await NotificationMessage("Xóa thất bại", NotificationType.Error);
+                Console.WriteLine(ex.Message);
+            }
+        }
+
 
         public async Task OnSortAsync(MenuItem menuItem)
         {

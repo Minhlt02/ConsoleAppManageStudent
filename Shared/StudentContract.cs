@@ -12,6 +12,8 @@ namespace Shared
         Task<OperationReply> AddStudentAsync(StudentProfile request, CallContext callContaxt = default);
         [OperationContract]
         Task<OperationReply> DeleteStudentAsync(RequestId request, CallContext callContaxt = default);
+        [OperationContract]
+        Task<OperationReply> DeleteManyStudentAsync(RequestId ids , CallContext callContaxt = default);
 
         [OperationContract]
         Task<StudentReply> GetStudentByIdAsync(RequestId request, CallContext callContaxt = default);

@@ -35,6 +35,19 @@ namespace Server.Repository
             }
         }
 
+        public async Task DeleteManyStudentAsync(List<Students> students)
+        {
+
+            using (ITransaction tx = session.BeginTransaction())
+            {
+                foreach (var student in students)
+                {
+                    await session.DeleteAsync(student);
+                }
+                await tx.CommitAsync();
+            }
+        }
+
         public async Task<Students> GetStudentByIdAsync(int id)
         {
            Students students = await session.Query<Students>()
@@ -43,6 +56,16 @@ namespace Server.Repository
                         .FirstOrDefaultAsync(s => s._id == id);
             return students;
         }
+
+        public async Task<List<Students>> GetStudentsByIdAsync(List<int> ids)
+        {
+            var students = await session.QueryOver<Students>()
+                        .WhereRestrictionOn(s => s._id).IsIn(ids.ToArray())
+                        .ListAsync();
+
+            return students.ToList();
+        }
+
 
         public async Task<List<Students>> GetAllStudentAsync()
         {

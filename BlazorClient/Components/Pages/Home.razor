@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div style="float:right">
-                <Button Style="margin-left: 100px; background-color: green" Type="ButtonType.Primary" OnClick="@(e => OpenPopup(isCreate: true))">Add new student</Button>
+                <Button Style="margin-left: 50px; background-color: green" Type="ButtonType.Primary" OnClick="@(e => OpenPopup(isCreate: true))">Add new student</Button>
                 <Dropdown Trigger="@(new Trigger[] { Trigger.Click })">
                     <Overlay>
                         <Menu OnMenuItemClicked="OnSortAsync">
@@ -74,6 +74,12 @@
                     </ChildContent>
                 </Dropdown>
                 <Button OnClick="ExportExcelAsync">Export Excel</Button>
+                <Popconfirm Title="Sure to delete?"
+                            OnConfirm="()=> DeleteManyStudentAsync()"
+                            OkText="Yes"
+                            CancelText="No">
+                    <Button Style="margin-left:10px" Disabled="@(_selectedRows.Count() < 2)" Danger>Delete All</Button>
+                </Popconfirm>
             </div>
         </div>
     </TitleTemplate>
@@ -86,10 +92,10 @@
             @index
         </ColumnDefinition>
 
+        <PropertyColumn Property="s => s.Id" Title="Class Id" />
         <PropertyColumn Property="s => s.studentName" Title="Full Name" />
         <PropertyColumn Property="s => s.studentBirthday" Title="Birthday" Format="dd/MM/yyyy" />
         <PropertyColumn Property="s => s.studentAddress" Title="Address" />
-        <PropertyColumn Property="s => s.classroomID" Title="Class Id" />
         <PropertyColumn Property="s => s.classroomName" Title="Class Name" />
         
         <ActionColumn Title="Action">
@@ -99,7 +105,7 @@
                         OnConfirm="()=> DeleteStudentAsync(row.Id)"
                         OkText="Yes"
                         CancelText="No">
-                <Button Style="margin-left:10px" Disabled="@(!_selectedRows.Any(s => s.Id == row.Id))" Danger>Delete</Button>
+                <Button Style="margin-left:10px" Danger>Delete</Button>
             </Popconfirm>
             
         </ActionColumn>
