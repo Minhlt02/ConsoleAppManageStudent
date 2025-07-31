@@ -10,45 +10,37 @@ namespace BlazorClient.Components.Pages
 {
     public partial class Home : ComponentBase
     {
-        [Inject]
-        public IStudentContract studentContract { get; set; } = null!;
+        [Inject] IStudentContract StudentContract { get; set; }
 
-        [Inject]
-        public INotificationService _notice { get; set; }
+        [Inject] INotificationService Notice { get; set; }
 
-        [Inject]
-        public IMapper Mapper { get; set; } = null!;
-        [Inject]
-        IClassroomContract ClassroomService { get; set; }
-        [Inject]
-        ITeacherContract TeacherService { get; set; }
+        [Inject] IMapper Mapper { get; set; }
+        [Inject] IClassroomContract ClassroomService { get; set; }
+        [Inject] ITeacherContract TeacherService { get; set; }
 
-        [Inject]
-        IJSRuntime JS { get; set; }
+        [Inject] IJSRuntime JS { get; set; }
 
-        [Parameter]
-        public StudentDTO Student { get; set; } = new();
+        [Parameter] public StudentDTO Student { get; set; } = new();
 
         // models
         SearchStudentDTO? searchStudent = new SearchStudentDTO();
-        List<StudentDTO> students = null!;
-        List<ClassroomDTO> classrooms = new List<ClassroomDTO>();
-        List<TeacherDTO> teachers = new List<TeacherDTO>();
 
-        IEnumerable<StudentDTO> _selectedRows = [];
+        List<StudentDTO> Students;
+        List<ClassroomDTO> Classrooms = new();
+        List<TeacherDTO> Teachers = new();
+
+        IEnumerable<StudentDTO> SelectedRows = [];
 
         int pageNumber = 1;
         int pageSize = 10;
         int total;
+        int? keywordId;
+        int? SelectedClassroomID;
+        int? SelectedTeacherID;
+
+        string? keyword;
         string? sortBy;
         
-
-        //search
-        private int? keywordId;
-        private string? keyword;
-        private int? SelectedClassroomID;
-        private int? SelectedTeacherID;
-
         bool isCreate = false;
         bool isDetails = false;
         bool visible = false;
@@ -103,7 +95,7 @@ namespace BlazorClient.Components.Pages
             }
             else
             {
-                classrooms = Mapper.Map<List<ClassroomDTO>>(reply.ClassroomList);
+                Classrooms = Mapper.Map<List<ClassroomDTO>>(reply.ClassroomList);
             }
         }
 
@@ -116,7 +108,7 @@ namespace BlazorClient.Components.Pages
             }
             else
             {
-                teachers = Mapper.Map<List<TeacherDTO>>(reply.TeacherList);
+                Teachers = Mapper.Map<List<TeacherDTO>>(reply.TeacherList);
             }
         }
         async Task LoadStudentsAsync()
@@ -126,11 +118,11 @@ namespace BlazorClient.Components.Pages
             request.PageNumber = pageNumber;
             request.SortBy = sortBy;
 
-            var reply = await studentContract.GetPaginationAsync(request);
+            var reply = await StudentContract.GetPaginationAsync(request);
 
             if (reply.listStudents?.Any() == true)
             {
-                students = Mapper.Map<List<StudentDTO>>(reply.listStudents);
+                Students = Mapper.Map<List<StudentDTO>>(reply.listStudents);
                 total = reply.Count;
                 isRetry = false; // reset
             }
@@ -144,7 +136,7 @@ namespace BlazorClient.Components.Pages
                 }
                 else
                 {
-                    students = new();
+                    Students = new();
                     total = 0;
                     isRetry = false;
                     await NotificationMessage("Không tìm thấy danh sách", NotificationType.Warning);
@@ -159,7 +151,7 @@ namespace BlazorClient.Components.Pages
         {
             try
             {
-                await studentContract.DeleteStudentAsync(new RequestId { id = id.Value});
+                await StudentContract.DeleteStudentAsync(new RequestId { id = id.Value});
                 await LoadStudentsAsync();
                 await NotificationMessage("Xóa thành công", NotificationType.Success);
             }
@@ -173,13 +165,13 @@ namespace BlazorClient.Components.Pages
         {
             try
             {
-                var ids = _selectedRows.Select(s => s.Id).ToList();
+                var ids = SelectedRows.Select(s => s.Id).ToList();
 
 
-                await studentContract.DeleteManyStudentAsync(new RequestId { ids = ids.ToList()});
+                await StudentContract.DeleteManyStudentAsync(new RequestId { ids = ids.ToList()});
                 await LoadStudentsAsync();
                 await NotificationMessage("Xóa thành công", NotificationType.Success);
-                _selectedRows = Enumerable.Empty<StudentDTO>();
+                SelectedRows = Enumerable.Empty<StudentDTO>();
             }
             catch (Exception ex)
             {
@@ -224,11 +216,11 @@ namespace BlazorClient.Components.Pages
             request.teacherId = SelectedTeacherID;
             isRetry = true;
 
-            var reply = await studentContract.GetPaginationAsync(request);
+            var reply = await StudentContract.GetPaginationAsync(request);
 
             if (reply.listStudents?.Any() == true)
             {
-                students = Mapper.Map<List<StudentDTO>>(reply.listStudents);
+                Students = Mapper.Map<List<StudentDTO>>(reply.listStudents);
                 total = reply.Count;
                 isRetry = false; // reset
             }
@@ -243,7 +235,7 @@ namespace BlazorClient.Components.Pages
                 }
                 else
                 {
-                    students = new();
+                    Students = new();
                     total = 0;
                     isRetry = false;
                     await NotificationMessage("Không tìm thấy danh sách", NotificationType.Warning);
@@ -261,7 +253,7 @@ namespace BlazorClient.Components.Pages
             request.classroomId = SelectedClassroomID;
             request.teacherId = SelectedTeacherID;
 
-            var reply = await studentContract.GetPaginationAsync(request);
+            var reply = await StudentContract.GetPaginationAsync(request);
             using var workbook = new XLWorkbook();
             var worksheet = workbook.Worksheets.Add("Students");
 
@@ -284,8 +276,8 @@ namespace BlazorClient.Components.Pages
                 worksheet.Column(col).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
             }
             int i = 0;
-            students = Mapper.Map<List<StudentDTO>>(reply.listStudents);
-            foreach (var student in students)
+            Students = Mapper.Map<List<StudentDTO>>(reply.listStudents);
+            foreach (var student in Students)
             {
                 if (student == null) continue;
 
@@ -303,18 +295,14 @@ namespace BlazorClient.Components.Pages
             stream.Position = 0;
             var fileBytes = stream.ToArray();
             var base64 = Convert.ToBase64String(fileBytes);
-            _ = _notice.Open(new NotificationConfig()
-            {
-                Message = "Tải thành công",
-                NotificationType = NotificationType.Success,
-            });
+            await NotificationMessage("Tải thành công", NotificationType.Success);
             // Gọi JS để tải file
             await JS.InvokeVoidAsync("downloadFileFromBytes", "DanhSachSinhVien.xlsx", base64);
         }
 
         public async Task NotificationMessage(String message, NotificationType type)
         {
-            _ = _notice.Open(new NotificationConfig()
+            _ = Notice.Open(new NotificationConfig()
             {
                 Message = message,
                 NotificationType = type,

@@ -9,33 +9,26 @@ namespace BlazorClient.Components.Pages
 {
     public partial class Chart : ComponentBase
     {
-        [Inject]
-        public IStudentContract StudentContract { get; set; }
+        [Inject] IStudentContract StudentContract { get; set; }
 
-        [Inject]
-        public IClassroomContract ClassroomService { get; set; }
+        [Inject] IClassroomContract ClassroomService { get; set; }
 
-        [Inject]
-        ITeacherContract TeacherService { get; set; }
+        [Inject] ITeacherContract TeacherService { get; set; }
 
-        [Inject]
-        public INotificationService _notice { get; set; }
+        [Inject] INotificationService Notice { get; set; }
 
-        [Inject]
-        public IMapper Mapper { get; set; }
+        [Inject] IMapper Mapper { get; set; }
+
         IChartComponent chartStudentAge;
-
-        List<StudentChartDTO> dataStudentAge;
-
         IChartComponent chartStudentCount;
-
-        List<StudentChartDTO> dataStudentCount;
         IChartComponent chartStudentCountOfTeacher;
 
-        List<StudentChartDTO> dataStudentCountOfTeacher;
+        List<StudentChartDTO> dataStudentAge = new();
+        List<StudentChartDTO> dataStudentCount = new();
+        List<StudentChartDTO> dataStudentCountOfTeacher = new();
+        List<TeacherDTO> teachers = new();
+        List<ClassroomDTO> classrooms = new();
 
-        List<TeacherDTO> teachers = new List<TeacherDTO>();
-        List<ClassroomDTO> classrooms = new List<ClassroomDTO>();
         private int SelectedClassroomID;
         private int SelectedTeacherID;
 
@@ -45,6 +38,7 @@ namespace BlazorClient.Components.Pages
         PieConfig configPie;
         ColumnConfig configCount;
         ColumnConfig configCountOfTeacher;
+
         private async Task OnClassroomChanged(int id)
         {
             SelectedClassroomID = id;
@@ -158,12 +152,7 @@ namespace BlazorClient.Components.Pages
             var reply = await ClassroomService.GetAllClassroomAsync(new Shared.Empty());
             if (reply.ClassroomList == null)
             {
-                _ = _notice.Open(new NotificationConfig()
-                {
-                    Message = "Lấy thông tin thất bại",
-                    Description = reply.Message,
-                    NotificationType = NotificationType.Error
-                });
+                await NotificationMessage("Lấy thông tin lớp học thất bại", NotificationType.Error);
             }
             else
             {
@@ -176,17 +165,21 @@ namespace BlazorClient.Components.Pages
             var reply = await TeacherService.GetAllTeacherAsync(new Shared.Empty());
             if (reply.TeacherList == null)
             {
-                _ = _notice.Open(new NotificationConfig()
-                {
-                    Message = "Lấy thông tin thất bại",
-                    Description = reply.Message,
-                    NotificationType = NotificationType.Error
-                });
+                await NotificationMessage("Lấy thông tin giáo viên thất bại", NotificationType.Error);
             }
             else
             {
                 teachers = Mapper.Map<List<TeacherDTO>>(reply.TeacherList);
             }
+        }
+
+        public async Task NotificationMessage(String message, NotificationType type)
+        {
+            _ = Notice.Open(new NotificationConfig()
+            {
+                Message = message,
+                NotificationType = type,
+            });
         }
 
         protected override async Task OnInitializedAsync()
